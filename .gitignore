@@ -34,7 +34,7 @@ out/
 .classpath
 .project
 .cproject
-.opensdf
+*.opensdf
 
 # backup files
 *.bak
