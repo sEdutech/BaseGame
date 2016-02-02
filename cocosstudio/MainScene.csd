@@ -1,5 +1,5 @@
 <GameFile>
-  <PropertyGroup Name="MainScene" Type="Scene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="2.3.3.0" />
+  <PropertyGroup Name="MainScene" Type="Scene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="3.10.0.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
@@ -39,13 +39,24 @@
             <FileData Type="Normal" Path="Sprites/topstage.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="house_5" ActionTag="1934073862" Tag="7" IconVisible="False" LeftMargin="-23.4085" RightMargin="-109.5916" TopMargin="-337.5249" BottomMargin="-9.4751" ctype="SpriteObjectData">
+          <AbstractNodeData Name="house_0" ActionTag="1934073862" Tag="7" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="129.8540" RightMargin="-262.8540" TopMargin="-470.9320" BottomMargin="123.9320" ctype="SpriteObjectData">
             <Size X="613.0000" Y="667.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="283.0915" Y="324.0249" />
+            <AnchorPoint />
+            <Position X="129.8540" Y="123.9320" />
             <Scale ScaleX="0.5000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5898" Y="1.0126" />
+            <PrePosition X="0.2705" Y="0.3873" />
+            <PreSize X="1.2771" Y="2.0844" />
+            <FileData Type="Normal" Path="Sprites/house.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="house_1" ActionTag="326652342" Tag="22" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="523.4540" RightMargin="-656.4540" TopMargin="-470.9320" BottomMargin="123.9320" ctype="SpriteObjectData">
+            <Size X="613.0000" Y="667.0000" />
+            <AnchorPoint />
+            <Position X="523.4540" Y="123.9320" />
+            <Scale ScaleX="0.5000" ScaleY="0.6000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="1.0905" Y="0.3873" />
             <PreSize X="1.2771" Y="2.0844" />
             <FileData Type="Normal" Path="Sprites/house.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
