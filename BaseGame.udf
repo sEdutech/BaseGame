@@ -2,7 +2,7 @@
   <Properties>
     <Item Key="CocosRecentOperation">
       <Value ctype="CocosRecentOperation">
-        <LastPublishType Value="Resource" />
+        <LastPublishType Value="VS" />
         <IsLastPublish Value="True" />
         <LastRunType Value="Windows" />
       </Value>
@@ -14,7 +14,7 @@
         <LuaEncryptSign Value="" />
         <Android_PackageName Value="org.cocos.BaseGame" />
         <AndroidkeyStore Value="" />
-        <AndroidVersion Value="" />
+        <AndroidVersion Value="android-20" />
         <iOS_Target Value="BaseGame-mobile" />
         <iOS_BundleID Value="" />
         <Platform Value="None" />

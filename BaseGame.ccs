@@ -4,7 +4,19 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Project Name="MainScene.csd" Type="Scene" />
-        <Image Name="HelloWorld.png" />
+        <Folder Name="Sprites">
+          <Image Name="backwall.png" />
+          <Image Name="curtainleft.png" />
+          <Image Name="topstage.png" />
+          <Image Name="HelloWorld.png" />
+          <Image Name="house.png" />
+        </Folder>
+        <Image Name="stagermid.png" />
+        <Image Name="belttop.png" />
+        <Image Name="belt top-mid.png" />
+        <Image Name="beltbottom.png" />
+        <Image Name="beltbackground.png" />
+        <Image Name="beltwheel.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>
