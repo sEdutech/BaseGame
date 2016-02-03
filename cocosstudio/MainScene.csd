@@ -6,17 +6,6 @@
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
         <Size X="480.0000" Y="320.0000" />
         <Children>
-          <AbstractNodeData Name="Default" ActionTag="953446860" Tag="5" IconVisible="False" RightMargin="-480.0000" TopMargin="-320.0000" ctype="SpriteObjectData">
-            <Size X="960.0000" Y="640.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="480.0000" Y="320.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="1.0000" Y="1.0000" />
-            <PreSize X="2.0000" Y="2.0000" />
-            <FileData Type="Normal" Path="Sprites/HelloWorld.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
-          </AbstractNodeData>
           <AbstractNodeData Name="backwall_1" ActionTag="-1305449727" Tag="3" IconVisible="False" LeftMargin="-479.4757" RightMargin="-960.5243" TopMargin="-436.6441" BottomMargin="177.6441" ctype="SpriteObjectData">
             <Size X="1920.0000" Y="579.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -39,27 +28,71 @@
             <FileData Type="Normal" Path="Sprites/topstage.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="house_0" ActionTag="1934073862" Tag="7" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="129.8540" RightMargin="-262.8540" TopMargin="-470.9320" BottomMargin="123.9320" ctype="SpriteObjectData">
+          <AbstractNodeData Name="house_0" ActionTag="1934073862" Tag="7" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-240.0000" RightMargin="107.0000" TopMargin="-475.0000" BottomMargin="128.0000" ctype="SpriteObjectData">
             <Size X="613.0000" Y="667.0000" />
             <AnchorPoint />
-            <Position X="129.8540" Y="123.9320" />
+            <Position X="-240.0000" Y="128.0000" />
             <Scale ScaleX="0.5000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2705" Y="0.3873" />
+            <PrePosition X="-0.5000" Y="0.4000" />
             <PreSize X="1.2771" Y="2.0844" />
-            <FileData Type="Normal" Path="Sprites/house.png" Plist="" />
-            <BlendFunc Src="770" Dst="771" />
+            <FileData Type="Normal" Path="Sprites/House/house.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="house_1" ActionTag="326652342" Tag="22" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="523.4540" RightMargin="-656.4540" TopMargin="-470.9320" BottomMargin="123.9320" ctype="SpriteObjectData">
-            <Size X="613.0000" Y="667.0000" />
-            <AnchorPoint />
-            <Position X="523.4540" Y="123.9320" />
+          <AbstractNodeData Name="house_0_door" ActionTag="-2019800278" Tag="28" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-90.6600" RightMargin="477.6600" TopMargin="-66.1680" BottomMargin="236.1680" ctype="SpriteObjectData">
+            <Size X="93.0000" Y="150.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="-44.1600" Y="311.1680" />
             <Scale ScaleX="0.5000" ScaleY="0.6000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="1.0905" Y="0.3873" />
+            <PrePosition X="-0.0920" Y="0.9724" />
+            <PreSize X="0.1937" Y="0.4688" />
+            <FileData Type="Normal" Path="Sprites/House/House_Door_BottomRight.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="house_1" ActionTag="968282207" Tag="24" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="336.0000" RightMargin="-469.0000" TopMargin="-475.0000" BottomMargin="128.0000" ctype="SpriteObjectData">
+            <Size X="613.0000" Y="667.0000" />
+            <AnchorPoint />
+            <Position X="336.0000" Y="128.0000" />
+            <Scale ScaleX="0.5000" ScaleY="0.6000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.7000" Y="0.4000" />
             <PreSize X="1.2771" Y="2.0844" />
-            <FileData Type="Normal" Path="Sprites/house.png" Plist="" />
-            <BlendFunc Src="770" Dst="771" />
+            <FileData Type="Normal" Path="Sprites/House/house.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="house_1_door" ActionTag="-115343161" Tag="29" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="485.5800" RightMargin="-98.5800" TopMargin="-66.1680" BottomMargin="236.1680" ctype="SpriteObjectData">
+            <Size X="93.0000" Y="150.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="532.0800" Y="311.1680" />
+            <Scale ScaleX="0.5000" ScaleY="0.6000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="1.1085" Y="0.9724" />
+            <PreSize X="0.1937" Y="0.4688" />
+            <FileData Type="Normal" Path="Sprites/House/House_Door_BottomRight.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="house_2" ActionTag="326652342" Tag="22" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="912.0000" RightMargin="-1045.0000" TopMargin="-475.0000" BottomMargin="128.0000" ctype="SpriteObjectData">
+            <Size X="613.0000" Y="667.0000" />
+            <AnchorPoint />
+            <Position X="912.0000" Y="128.0000" />
+            <Scale ScaleX="0.5000" ScaleY="0.6000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="1.9000" Y="0.4000" />
+            <PreSize X="1.2771" Y="2.0844" />
+            <FileData Type="Normal" Path="Sprites/House/house.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="house_2_door" ActionTag="2020603901" Tag="30" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="1061.8199" RightMargin="-674.8199" TopMargin="-66.1680" BottomMargin="236.1680" ctype="SpriteObjectData">
+            <Size X="93.0000" Y="150.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="1108.3199" Y="311.1680" />
+            <Scale ScaleX="0.5000" ScaleY="0.6000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="2.3090" Y="0.9724" />
+            <PreSize X="0.1937" Y="0.4688" />
+            <FileData Type="Normal" Path="Sprites/House/House_Door_BottomRight.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="stagermid_6" ActionTag="1648823371" Tag="8" IconVisible="False" LeftMargin="-479.3772" RightMargin="-960.6228" TopMargin="10.8513" BottomMargin="-88.8513" ctype="SpriteObjectData">
             <Size X="1920.0000" Y="398.0000" />

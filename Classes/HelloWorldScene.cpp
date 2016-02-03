@@ -37,7 +37,7 @@ bool HelloWorld::init()
 
 	addChild(rootNode);
 
-	winSize = Director::sharedDirector()->getWinSize();
+	winSize = Director::getInstance()->getWinSize();
 
 	initHouse();
 
@@ -50,11 +50,15 @@ void HelloWorld::initHouse()
 {
 	auto rootNode = this->getChildByName("Scene");
 
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < numHouses; i++)
 	{
 		houses[i] = new House();
 		//Will need to change when have different sprites
 		houses[i]->houseSprite = (Sprite*)rootNode->getChildByName("house_" + to_string(i));
+		//Doors
+		houses[i]->doorSprite = (Sprite*)rootNode->getChildByName("house_" + to_string(i) + "_door");
+		//houses[i]->houseSprite->addChild(houses[i]->doorSprite);
+		//houses[i]->doorSprite->setScale(1);
 		//Also need to add init for windows and doors when available - make them children of house
 		houses[i]->speed = 1;
 	}
@@ -62,23 +66,51 @@ void HelloWorld::initHouse()
 
 void HelloWorld::update(float t)
 {
-	updateHouse(t);
+	updateHouseMovement();
+	updateHouseCollision();
 }
 
-void HelloWorld::updateHouse(float t)
+void HelloWorld::updateHouseMovement()
 {
-	for (int i = 0; i < 2; i++)
+	//Movement
+	for (int i = 0; i < numHouses; i++)
 	{
 		//Move Left
 		houses[i]->houseSprite->setPositionX(houses[i]->houseSprite->getPositionX() + houses[i]->speed);
+		houses[i]->doorSprite->setPositionX(houses[i]->doorSprite->getPositionX() + houses[i]->speed);
+
+		//Bob up and down
+		houses[i]->houseSprite->setPositionY((sin(houses[i]->houseSprite->getPositionX() / 10) * 8 + 125)); //Divide by 10 slows it down, multiply by 8 to increase how much it bobs by and add 125 to increase overall height.
+		houses[i]->doorSprite->setPositionY((sin(houses[i]->houseSprite->getPositionX() / 10) * 8 + (2.464 * 125) /*Equals 308 - makes it relative*/));
+		//Doing all this manaually will take a while (have to do for windows), could try to get addChild working properly, but this method works for sure
 
 		//Wrap around
 		if (houses[i]->houseSprite->getPositionX() > winSize.width)
 		{
-			houses[i]->houseSprite->setPositionX(0 - houses[i]->houseSprite->getBoundingBox().size.width);
+			int distance = 550;
+			if (i == numHouses - 1)
+			{
+				houses[i]->houseSprite->setPositionX(houses[0]->houseSprite->getPositionX() - distance);
+				houses[i]->doorSprite->setPositionX(houses[0]->doorSprite->getPositionX() - distance);
+			}
+			else
+			{
+				houses[i]->houseSprite->setPositionX(houses[i + 1]->houseSprite->getPositionX() - distance);
+				houses[i]->doorSprite->setPositionX(houses[i + 1]->doorSprite->getPositionX() - distance);
+			}
 		}
-
-		//Bob up and down
-		houses[i]->houseSprite->setPositionY((sin(houses[i]->houseSprite->getPositionX() / 10) * 4 + 125)); //Divide by 10 slows it down, multiply by 4 to increase how much it bobs by and add 125 to increase overall height.
 	}
+}
+
+void HelloWorld::updateHouseCollision()
+{
+	//If newspaper collides with door...
+
+	//Else If newspaper collides with window 1...
+
+	//Else If newspaper collides with window 2...
+
+	//Else If newspaper collides with window 3...
+
+	//Else player missed
 }

@@ -20,8 +20,8 @@ struct House
 	//Sprite* window_3Sprite;
 	//bool window_3Hit;
 
-	//Sprite* doorSprite;
-	//bool doorHit;
+	Sprite* doorSprite;
+	bool doorHit;
 
 	int speed;
 };
@@ -44,11 +44,13 @@ public:
 	//Update Methods
 	void update(float t);
 
-	void updateHouse(float t);
+	void updateHouseMovement();
+
+	void updateHouseCollision();
 
 	//House
-	House* houses[2];
-
+	int numHouses = 3;
+	House* houses[3];
 	Size winSize;
 };
 

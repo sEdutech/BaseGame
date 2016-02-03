@@ -7,8 +7,14 @@
           <Image Name="backwall.png" />
           <Image Name="curtainleft.png" />
           <Image Name="HelloWorld.png" />
-          <Image Name="house.png" />
           <Image Name="topstage.png" />
+          <Folder Name="House">
+            <Image Name="house.png" />
+            <Image Name="House_Door_BottomRight.png" />
+            <Image Name="House_Window_BottomLeft.png" />
+            <Image Name="House_Window_TopLeft.png" />
+            <Image Name="House1-Window-TopRight.png" />
+          </Folder>
         </Folder>
         <Image Name="belt top-mid.png" />
         <Image Name="beltbackground.png" />
