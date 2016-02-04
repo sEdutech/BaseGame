@@ -37,5 +37,15 @@ bool HelloWorld::init()
 
     addChild(rootNode);
 
+	policeman = new Policeman();
+	policeman->init(rootNode);
+
+	scheduleUpdate();
+
     return true;
+}
+
+void HelloWorld::update(float delta)
+{
+	policeman->update(delta);
 }

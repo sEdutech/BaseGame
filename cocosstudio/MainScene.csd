@@ -39,7 +39,7 @@
             <FileData Type="Normal" Path="Sprites/topstage.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="house_5" ActionTag="1934073862" Tag="7" IconVisible="False" LeftMargin="-23.4085" RightMargin="-109.5916" TopMargin="-337.5249" BottomMargin="-9.4751" ctype="SpriteObjectData">
+          <AbstractNodeData Name="house_5" ActionTag="1934073862" Tag="7" IconVisible="False" LeftMargin="-23.4085" RightMargin="-109.5915" TopMargin="-337.5249" BottomMargin="-9.4751" ctype="SpriteObjectData">
             <Size X="613.0000" Y="667.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="283.0915" Y="324.0249" />
@@ -224,6 +224,17 @@
             <PrePosition X="1.8989" Y="1.0087" />
             <PreSize X="0.4021" Y="3.3750" />
             <FileData Type="Normal" Path="Sprites/curtainleft.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="policeman" ActionTag="1122684944" Tag="22" IconVisible="False" LeftMargin="-363.0186" RightMargin="283.0186" TopMargin="60.3388" BottomMargin="-6.3388" ctype="SpriteObjectData">
+            <Size X="560.0000" Y="266.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="-83.0186" Y="126.6612" />
+            <Scale ScaleX="0.2791" ScaleY="0.3244" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="-0.1730" Y="0.3958" />
+            <PreSize X="1.1667" Y="0.8313" />
+            <FileData Type="Normal" Path="box.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
         </Children>

@@ -17,6 +17,7 @@
         <Image Name="beltbottom.png" />
         <Image Name="beltbackground.png" />
         <Image Name="beltwheel.png" />
+        <Image Name="box.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>
