@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Build started 04/02/2016 22:27:17.
      1>Project "S:\BaseGame\proj.win32\BaseGame.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
@@ -6,10 +7,18 @@
        PreLinkEvent:
          if not exist "S:\BaseGame\proj.win32\Debug.win32\" mkdir "S:\BaseGame\proj.win32\Debug.win32\"
          xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.9\prebuilt\win32\*.*" "S:\BaseGame\proj.win32\Debug.win32\"
+=======
+﻿Build started 04/02/2016 11:53:28.
+     1>Project "C:\Student Temporary Folder\BaseGame\proj.win32\BaseGame.vcxproj" on node 2 (Build target(s)).
+     1>PreLinkEvent:
+         if not exist "C:\Student Temporary Folder\BaseGame\proj.win32\Debug.win32\" mkdir "C:\Student Temporary Folder\BaseGame\proj.win32\Debug.win32\"
+         xcopy /Y /Q "\cocos2d-x-3.9\prebuilt\win32\*.*" "C:\Student Temporary Folder\BaseGame\proj.win32\Debug.win32\"
+>>>>>>> origin/Akil
          
          :VCEnd
          60 File(s) copied
        Link:
+<<<<<<< HEAD
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"S:\BaseGame\proj.win32\Debug.win32\BaseGame.exe" /INCREMENTAL /NOLOGO /LIBPATH:S:\BaseGame\proj.win32\Debug.win32\ /LIBPATH:S:\BaseGame\proj.win32\Debug.win32\ opengl32.lib glew32.lib libzlib.lib libwebp.lib libiconv.lib freetype.lib winmm.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"S:\BaseGame\proj.win32\Debug.win32\BaseGame.pdb" /SUBSYSTEM:WINDOWS,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"S:\BaseGame\proj.win32\Debug.win32\BaseGame.lib" /MACHINE:X86 /SAFESEH Debug.win32\game.res
          Debug.win32\AppDelegate.obj
          Debug.win32\HelloWorldScene.obj
@@ -28,3 +37,17 @@
 Build succeeded.
 
 Time Elapsed 00:00:31.98
+=======
+         BaseGame.vcxproj -> C:\Student Temporary Folder\BaseGame\proj.win32\Debug.win32\BaseGame.exe
+       CustomBuildStep:
+         if not exist "C:\Student Temporary Folder\BaseGame\proj.win32\Debug.win32\" mkdir "C:\Student Temporary Folder\BaseGame\proj.win32\Debug.win32\"
+         xcopy "C:\Student Temporary Folder\BaseGame\proj.win32\..\Resources" "C:\Student Temporary Folder\BaseGame\proj.win32\Debug.win32\" /D /E /I /F /Y
+               
+         :VCEnd
+         0 File(s) copied
+     1>Done Building Project "C:\Student Temporary Folder\BaseGame\proj.win32\BaseGame.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.47
+>>>>>>> origin/Akil
