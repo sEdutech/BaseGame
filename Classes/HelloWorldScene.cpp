@@ -54,9 +54,15 @@ void HelloWorld::initHouse()
 	{
 		houses[i] = new House();
 		//Will need to change when have different sprites
-		houses[i]->houseSprite = (Sprite*)rootNode->getChildByName("house_" + to_string(i));
+		stringstream house; //Cant use to_string
+		house << "house_" << i;
+		houses[i]->houseSprite = (Sprite*)rootNode->getChildByName(house.str());
+
 		//Doors
-		houses[i]->doorSprite = (Sprite*)rootNode->getChildByName("house_" + to_string(i) + "_door");
+		stringstream door; 
+		door << "house_" << i << "_door";
+		houses[i]->doorSprite = (Sprite*)rootNode->getChildByName(door.str());
+
 		//houses[i]->houseSprite->addChild(houses[i]->doorSprite);
 		//houses[i]->doorSprite->setScale(1);
 		//Also need to add init for windows and doors when available - make them children of house
@@ -76,27 +82,26 @@ void HelloWorld::updateHouseMovement()
 	for (int i = 0; i < numHouses; i++)
 	{
 		//Move Left
-		houses[i]->houseSprite->setPositionX(houses[i]->houseSprite->getPositionX() + houses[i]->speed);
-		houses[i]->doorSprite->setPositionX(houses[i]->doorSprite->getPositionX() + houses[i]->speed);
+		houses[i]->houseSprite->setPositionX(houses[i]->houseSprite->getPositionX() - houses[i]->speed);
+		houses[i]->doorSprite->setPositionX(houses[i]->doorSprite->getPositionX() - houses[i]->speed);
 
 		//Bob up and down
 		houses[i]->houseSprite->setPositionY((sin(houses[i]->houseSprite->getPositionX() / 10) * 8 + 125)); //Divide by 10 slows it down, multiply by 8 to increase how much it bobs by and add 125 to increase overall height.
 		houses[i]->doorSprite->setPositionY((sin(houses[i]->houseSprite->getPositionX() / 10) * 8 + (2.464 * 125) /*Equals 308 - makes it relative*/));
-		//Doing all this manaually will take a while (have to do for windows), could try to get addChild working properly, but this method works for sure
 
 		//Wrap around
-		if (houses[i]->houseSprite->getPositionX() > winSize.width)
+		if (houses[i]->houseSprite->getPositionX() < (0 - houses[i]->houseSprite->getBoundingBox().size.width))
 		{
 			int distance = 550;
-			if (i == numHouses - 1)
+			if (i == 0)
 			{
-				houses[i]->houseSprite->setPositionX(houses[0]->houseSprite->getPositionX() - distance);
-				houses[i]->doorSprite->setPositionX(houses[0]->doorSprite->getPositionX() - distance);
+				houses[i]->houseSprite->setPositionX(houses[2]->houseSprite->getPositionX() + distance);
+				houses[i]->doorSprite->setPositionX(houses[2]->doorSprite->getPositionX() + distance);
 			}
 			else
 			{
-				houses[i]->houseSprite->setPositionX(houses[i + 1]->houseSprite->getPositionX() - distance);
-				houses[i]->doorSprite->setPositionX(houses[i + 1]->doorSprite->getPositionX() - distance);
+				houses[i]->houseSprite->setPositionX(houses[i - 1]->houseSprite->getPositionX() + distance);
+				houses[i]->doorSprite->setPositionX(houses[i - 1]->doorSprite->getPositionX() + distance);
 			}
 		}
 	}
