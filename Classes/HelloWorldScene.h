@@ -11,14 +11,14 @@ struct House
 {
 	Sprite* houseSprite;
 
-	//Sprite* window_1Sprite;
-	//bool window_1Hit;
+	Sprite* windowBLSprite;
+	bool windowBLHit;
 
-	//Sprite* window_2Sprite;
-	//bool window_2Hit;
+	Sprite* windowTLSprite;
+	bool windowTLHit;
 
-	//Sprite* window_3Sprite;
-	//bool window_3Hit;
+	Sprite* windowTRSprite;
+	bool windowTRHit;
 
 	Sprite* doorSprite;
 	bool doorHit;

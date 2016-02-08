@@ -63,9 +63,24 @@ void HelloWorld::initHouse()
 		door << "house_" << i << "_door";
 		houses[i]->doorSprite = (Sprite*)rootNode->getChildByName(door.str());
 
-		//houses[i]->houseSprite->addChild(houses[i]->doorSprite);
-		//houses[i]->doorSprite->setScale(1);
-		//Also need to add init for windows and doors when available - make them children of house
+		//BL windows
+		stringstream BLWindow;
+		BLWindow << "house_" << i << "_windowBL";
+		houses[i]->windowBLSprite = (Sprite*)rootNode->getChildByName(BLWindow.str());
+		houses[i]->windowBLHit = false;
+
+		//TL windows
+		stringstream TLWindow;
+		TLWindow << "house_" << i << "_windowTL";
+		houses[i]->windowTLSprite = (Sprite*)rootNode->getChildByName(TLWindow.str());
+		houses[i]->windowTLHit = false;
+
+		//TR windows
+		stringstream TRWindow;
+		TRWindow << "house_" << i << "_windowTR";
+		houses[i]->windowTRSprite = (Sprite*)rootNode->getChildByName(TRWindow.str());
+		houses[i]->windowTRHit = false;
+
 		houses[i]->speed = 1;
 	}
 }
@@ -83,11 +98,9 @@ void HelloWorld::updateHouseMovement()
 	{
 		//Move Left
 		houses[i]->houseSprite->setPositionX(houses[i]->houseSprite->getPositionX() - houses[i]->speed);
-		houses[i]->doorSprite->setPositionX(houses[i]->doorSprite->getPositionX() - houses[i]->speed);
 
 		//Bob up and down
 		houses[i]->houseSprite->setPositionY((sin(houses[i]->houseSprite->getPositionX() / 10) * 8 + 125)); //Divide by 10 slows it down, multiply by 8 to increase how much it bobs by and add 125 to increase overall height.
-		houses[i]->doorSprite->setPositionY((sin(houses[i]->houseSprite->getPositionX() / 10) * 8 + (2.464 * 125) /*Equals 308 - makes it relative*/));
 
 		//Wrap around
 		if (houses[i]->houseSprite->getPositionX() < (0 - houses[i]->houseSprite->getBoundingBox().size.width))
@@ -96,13 +109,37 @@ void HelloWorld::updateHouseMovement()
 			if (i == 0)
 			{
 				houses[i]->houseSprite->setPositionX(houses[2]->houseSprite->getPositionX() + distance);
-				houses[i]->doorSprite->setPositionX(houses[2]->doorSprite->getPositionX() + distance);
 			}
 			else
 			{
 				houses[i]->houseSprite->setPositionX(houses[i - 1]->houseSprite->getPositionX() + distance);
-				houses[i]->doorSprite->setPositionX(houses[i - 1]->doorSprite->getPositionX() + distance);
 			}
+		}
+
+		if (!houses[i]->doorHit)
+		{
+			//Move doors with house
+			houses[i]->doorSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 172.83);
+			houses[i]->doorSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 138.17);
+		}
+
+		if (!houses[i]->windowBLHit)
+		{
+			//Move BL window with house
+			houses[i]->windowBLSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 57.08);
+			houses[i]->windowBLSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 151.62);
+		}
+		if (!houses[i]->windowTLHit)
+		{
+			//Move TL window with house
+			houses[i]->windowTLSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 58);
+			houses[i]->windowTLSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 250);
+		}
+		if (!houses[i]->windowTRHit)
+		{
+			//Move TR window with house
+			houses[i]->windowTRSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 203.66);
+			houses[i]->windowTRSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 249.18);
 		}
 	}
 }
@@ -111,11 +148,11 @@ void HelloWorld::updateHouseCollision()
 {
 	//If newspaper collides with door...
 
-	//Else If newspaper collides with window 1...
+	//Else If newspaper collides with window BL...
 
-	//Else If newspaper collides with window 2...
+	//Else If newspaper collides with window TL...
 
-	//Else If newspaper collides with window 3...
+	//Else If newspaper collides with window TR...
 
 	//Else player missed
 }
