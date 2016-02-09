@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include <sstream>
-
+#include "Policeman.h"
 using namespace cocos2d;
 using namespace std;
 
@@ -52,6 +52,7 @@ public:
 	int numHouses = 3;
 	House* houses[3];
 	Size winSize;
+	Policeman* policeman;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

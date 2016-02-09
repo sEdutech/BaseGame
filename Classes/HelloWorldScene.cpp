@@ -40,6 +40,8 @@ bool HelloWorld::init()
 	winSize = Director::getInstance()->getWinSize();
 
 	initHouse();
+	policeman = new Policeman();
+	policeman->init(rootNode);
 
 	this->scheduleUpdate();
 
@@ -89,6 +91,7 @@ void HelloWorld::update(float t)
 {
 	updateHouseMovement();
 	updateHouseCollision();
+	policeman->update(t);
 }
 
 void HelloWorld::updateHouseMovement()
