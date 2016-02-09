@@ -25,7 +25,7 @@
         <Image Name="stagermid.png" />
         <Image Name="policeFinal.png" />
         <Image Name="curtainbackground-pd-darker.png" />
-        <Project Name="Menu.csd" Type="Scene" />
+        <Project Name="MainMenu.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>
