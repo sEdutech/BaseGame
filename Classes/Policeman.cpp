@@ -12,9 +12,9 @@ using namespace std;
 void Policeman::update(float delta)
 {
 	//cheap fix for now
-	if (offset >= 2.0f) {
+	if (offset >= 4.0f) {
 		down = true;
-	} else if (offset <= -2.0f) {
+	} else if (offset <= -4.0f) {
 		down = false;
 	}
 
@@ -25,13 +25,16 @@ void Policeman::update(float delta)
 		offset += 0.2f;
 	}
 
-	Vec2 position = Vec2(sprite->getPosition().x, sprite->getPosition().y + offset);
+	Vec2 position; //static y position (187.42 base y position of policeman)
 
 	if (floor(sprite->getPosition().x) != destinationX) {
 		stringstream ss;
 		ss << sprite->getPosition().x << endl;
 		OutputDebugStringA(ss.str().c_str());
-		position = Vec2(sprite->getPosition().x + 1, sprite->getPosition().y + offset);
+		position = Vec2(sprite->getPosition().x + 1, 187.42 + offset);
+	}
+	else {
+		position = Vec2(sprite->getPosition().x, 187.42 + offset);
 	}
 
 	sprite->setPosition(position);
