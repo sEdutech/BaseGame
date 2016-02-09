@@ -7,7 +7,7 @@ class Policeman {
 private:
 
 	cocos2d::Sprite * sprite;
-	int offset;
+	float offset;
 	bool down = false;
 
 	int destinationX = 100;

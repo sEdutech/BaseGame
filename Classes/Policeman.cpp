@@ -12,17 +12,17 @@ using namespace std;
 void Policeman::update(float delta)
 {
 	//cheap fix for now
-	if (offset >= 5) {
+	if (offset >= 2.0f) {
 		down = true;
-	} else if (offset <= -5) {
+	} else if (offset <= -2.0f) {
 		down = false;
 	}
 
 
 	if (down) {
-		offset--;
+		offset -= 0.2f;
 	} else {
-		offset++;
+		offset += 0.2f;
 	}
 
 	Vec2 position = Vec2(sprite->getPosition().x, sprite->getPosition().y + offset);
@@ -45,4 +45,8 @@ void Policeman::init(cocos2d::Node * root)
 
 	sprite = (cocos2d::Sprite *) root->getChildByName("policeman");
 
+}
+
+void Policeman::setDestination(int destinationX)
+{
 }
