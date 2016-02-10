@@ -4,6 +4,8 @@
 #include "cocos2d.h"
 #include <sstream>
 #include "Policeman.h"
+#include "PaperBoy.h"
+
 using namespace cocos2d;
 using namespace std;
 
@@ -48,11 +50,19 @@ public:
 
 	void updateHouseCollision();
 
+	bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
+	void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
+	void onTouchMoved(cocos2d::Touch*, cocos2d::Event*);
+	void onTouchCancelled(cocos2d::Touch*, cocos2d::Event*);
+
+private:
 	//House
 	int numHouses = 3;
 	House* houses[3];
 	Size winSize;
 	Policeman* policeman;
+	Vec2 touchStart;
+	Vec2 touchEnd;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

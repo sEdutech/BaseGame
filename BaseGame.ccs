@@ -26,6 +26,9 @@
         <Image Name="policeFinal.png" />
         <Image Name="curtainbackground-pd-darker.png" />
         <Project Name="MainMenu.csd" Type="Scene" />
+        <Image Name="NewsPaper.png" />
+        <Image Name="PaperBoy.png" />
+        <Project Name="PaperBoy.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

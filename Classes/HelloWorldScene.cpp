@@ -6,7 +6,7 @@ USING_NS_CC;
 
 using namespace cocostudio::timeline;
 
-//test commit
+PaperBoy* paperBoy;
 
 Scene* HelloWorld::createScene()
 {
@@ -43,7 +43,20 @@ bool HelloWorld::init()
 	policeman = new Policeman();
 	policeman->init(rootNode);
 
+
+	paperBoy = new PaperBoy();
+	paperBoy->init();
+	
+	addChild(paperBoy);
+
 	this->scheduleUpdate();
+
+	auto touchListener = EventListenerTouchOneByOne::create();	
+	touchListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);	
+	touchListener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);	
+	touchListener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);	
+	touchListener->onTouchCancelled = CC_CALLBACK_2(HelloWorld::onTouchCancelled, this);
+	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 
 	return true;
 }
@@ -92,6 +105,7 @@ void HelloWorld::update(float t)
 	updateHouseMovement();
 	updateHouseCollision();
 	policeman->update(t);
+	paperBoy->update(t);
 }
 
 void HelloWorld::updateHouseMovement()
@@ -158,4 +172,26 @@ void HelloWorld::updateHouseCollision()
 	//Else If newspaper collides with window TR...
 
 	//Else player missed
+}
+
+bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+	touchStart = touch->getLocation();
+	return true;
+}
+
+void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+	touchEnd = touch->getLocation();
+	paperBoy->throwPaper(touchStart, touchEnd);
+}
+
+void HelloWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+
+}
+
+void HelloWorld::onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+
 }

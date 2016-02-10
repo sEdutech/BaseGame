@@ -27,6 +27,9 @@
     <ClCompile Include="..\Classes\MainMenu.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\PaperBoy.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -42,6 +45,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MainMenu.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PaperBoy.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
