@@ -30,7 +30,7 @@ void Policeman::update(float delta)
 	if (floor(sprite->getPosition().x) != destinationX) {
 		stringstream ss;
 		ss << sprite->getPosition().x << endl;
-		OutputDebugStringA(ss.str().c_str());
+		//OutputDebugStringA(ss.str().c_str());
 		position = Vec2(sprite->getPosition().x + 1, 187.42 + offset);
 	}
 	else {
