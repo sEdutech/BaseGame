@@ -40,6 +40,7 @@ bool HelloWorld::init()
 	winSize = Director::getInstance()->getWinSize();
 
 	initHouse();
+	initForegroundObjects(rootNode);
 	policeman = new Policeman();
 	policeman->init(rootNode);
 
@@ -61,6 +62,60 @@ bool HelloWorld::init()
 	return true;
 }
 
+void HelloWorld::initForegroundObjects(Node* root)
+{
+	curtain1 = (Sprite*)root->getChildByName("curtainleft_3");
+	curtain2 = (Sprite*)root->getChildByName("curtainleft_2");
+	beltWheel1 = (Sprite*)root->getChildByName("beltwheel_11");
+	beltWheel2 = (Sprite*)root->getChildByName("beltwheel_11_0");
+	beltWheel3 = (Sprite*)root->getChildByName("beltwheel_11_1");
+	beltWheel4 = (Sprite*)root->getChildByName("beltwheel_11_2");
+	beltWheel5 = (Sprite*)root->getChildByName("beltwheel_11_3");
+	beltWheel6 = (Sprite*)root->getChildByName("beltwheel_11_4");
+	beltWheel7 = (Sprite*)root->getChildByName("beltwheel_11_5");
+	beltWheel8 = (Sprite*)root->getChildByName("beltwheel_11_6");
+	beltWheel9 = (Sprite*)root->getChildByName("beltwheel_11_7");
+	beltTopForeground = (Sprite*)root->getChildByName("Sprite_8");
+	beltbottom = (Sprite*)root->getChildByName("beltbottom_9");
+	beltBackground = (Sprite*)root->getChildByName("beltbackground_10");
+
+
+	root->addChild(curtain1);
+	root->addChild(curtain2);
+
+	root->addChild(beltWheel1);
+	root->addChild(beltWheel2);
+	root->addChild(beltWheel3);
+	root->addChild(beltWheel4);
+	root->addChild(beltWheel5);
+	root->addChild(beltWheel6);
+	root->addChild(beltWheel7);
+	root->addChild(beltWheel8);
+	root->addChild(beltWheel9);
+
+	root->addChild(beltTopForeground);
+	root->addChild(beltbottom);
+	root->addChild(beltBackground);
+
+	curtain1->setGlobalZOrder(4);
+	curtain2->setGlobalZOrder(4);
+	beltWheel1->setGlobalZOrder(3);
+	beltWheel2->setGlobalZOrder(3);
+	beltWheel3->setGlobalZOrder(3);
+	beltWheel4->setGlobalZOrder(3);
+	beltWheel5->setGlobalZOrder(3);
+	beltWheel6->setGlobalZOrder(3);
+	beltWheel7->setGlobalZOrder(3);
+	beltWheel8->setGlobalZOrder(3);
+	beltWheel9->setGlobalZOrder(3);
+
+	beltTopForeground->setGlobalZOrder(2);
+	beltbottom->setGlobalZOrder(2);
+	beltBackground->setGlobalZOrder(1);
+
+	
+}
+
 void HelloWorld::initHouse()
 {
 	auto rootNode = this->getChildByName("Scene");
@@ -74,7 +129,7 @@ void HelloWorld::initHouse()
 		houses[i]->houseSprite = (Sprite*)rootNode->getChildByName(house.str());
 
 		//Doors
-		stringstream door; 
+		stringstream door;
 		door << "house_" << i << "_door";
 		houses[i]->doorSprite = (Sprite*)rootNode->getChildByName(door.str());
 

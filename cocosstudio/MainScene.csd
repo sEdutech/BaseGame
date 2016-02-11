@@ -215,7 +215,7 @@
             <FileData Type="Normal" Path="belttop.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="policeman" ActionTag="1808968997" Tag="35" IconVisible="False" LeftMargin="-215.3245" RightMargin="88.3245" TopMargin="-788.2714" BottomMargin="-819.7286" ctype="SpriteObjectData">
+          <AbstractNodeData Name="policeman" ActionTag="1808968997" Tag="35" IconVisible="False" LeftMargin="-215.3245" RightMargin="88.3245" TopMargin="-788.2712" BottomMargin="-819.7287" ctype="SpriteObjectData">
             <Size X="607.0000" Y="1928.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="88.1755" Y="144.2713" />
@@ -237,17 +237,6 @@
             <FileData Type="Normal" Path="beltbackground.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Sprite_8" ActionTag="-645266751" Tag="10" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-480.0960" RightMargin="-959.9041" TopMargin="221.9400" BottomMargin="51.0600" ctype="SpriteObjectData">
-            <Size X="1920.0000" Y="47.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="479.9040" Y="74.5600" />
-            <Scale ScaleX="0.5000" ScaleY="0.6000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9998" Y="0.2330" />
-            <PreSize X="4.0000" Y="0.1469" />
-            <FileData Type="Normal" Path="belt top-mid.png" Plist="" />
-            <BlendFunc Src="770" Dst="771" />
-          </AbstractNodeData>
           <AbstractNodeData Name="beltbottom_9" ActionTag="-1812046901" Tag="11" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-478.8480" RightMargin="-961.1520" TopMargin="299.3720" BottomMargin="-4.3720" ctype="SpriteObjectData">
             <Size X="1920.0000" Y="25.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -257,6 +246,17 @@
             <PrePosition X="1.0024" Y="0.0254" />
             <PreSize X="4.0000" Y="0.0781" />
             <FileData Type="Normal" Path="beltbottom.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Sprite_8" ActionTag="-645266751" Tag="10" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-480.0960" RightMargin="-959.9041" TopMargin="221.9400" BottomMargin="51.0600" ctype="SpriteObjectData">
+            <Size X="1920.0000" Y="47.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="479.9040" Y="74.5600" />
+            <Scale ScaleX="0.5000" ScaleY="0.6000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.9998" Y="0.2330" />
+            <PreSize X="4.0000" Y="0.1469" />
+            <FileData Type="Normal" Path="belt top-mid.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="beltwheel_11" ActionTag="-2035181656" Tag="13" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="56.4840" RightMargin="336.5160" TopMargin="238.2600" BottomMargin="-5.2600" ctype="SpriteObjectData">
