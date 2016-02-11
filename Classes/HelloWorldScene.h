@@ -26,6 +26,8 @@ struct House
 	bool doorHit;
 
 	int speed;
+
+	bool onScreen;
 };
 
 class HelloWorld : public cocos2d::Layer

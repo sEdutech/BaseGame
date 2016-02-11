@@ -132,6 +132,7 @@ void HelloWorld::initHouse()
 		stringstream door;
 		door << "house_" << i << "_door";
 		houses[i]->doorSprite = (Sprite*)rootNode->getChildByName(door.str());
+		houses[i]->doorHit = false;
 
 		//BL windows
 		stringstream BLWindow;
@@ -168,65 +169,103 @@ void HelloWorld::updateHouseMovement()
 	//Movement
 	for (int i = 0; i < numHouses; i++)
 	{
+
 		//Move Left
 		houses[i]->houseSprite->setPositionX(houses[i]->houseSprite->getPositionX() - houses[i]->speed);
 
-		//Bob up and down
-		houses[i]->houseSprite->setPositionY((sin(houses[i]->houseSprite->getPositionX() / 10) * 8 + 125)); //Divide by 10 slows it down, multiply by 8 to increase how much it bobs by and add 125 to increase overall height.
-
-		//Wrap around
-		if (houses[i]->houseSprite->getPositionX() < (0 - houses[i]->houseSprite->getBoundingBox().size.width))
+		if (houses[i]->onScreen == false)
 		{
-			int distance = 550;
-			if (i == 0)
+			//Bob up and down
+			houses[i]->houseSprite->setPositionY((sin(houses[i]->houseSprite->getPositionX() / 10) * 8 + 125)); //Divide by 10 slows it down, multiply by 8 to increase how much it bobs by and add 125 to increase overall height.
+
+			//Wrap around
+			if (houses[i]->houseSprite->getPositionX() < (0 - houses[i]->houseSprite->getBoundingBox().size.width))
 			{
-				houses[i]->houseSprite->setPositionX(houses[2]->houseSprite->getPositionX() + distance);
+				houses[i]->onScreen = false;
+				int distance = 550;
+				if (i == 0)
+				{
+					houses[i]->houseSprite->setPositionX(houses[2]->houseSprite->getPositionX() + distance);
+				}
+				else
+				{
+					houses[i]->houseSprite->setPositionX(houses[i - 1]->houseSprite->getPositionX() + distance);
+				}
+				//reset
+				houses[i]->windowBLSprite->setVisible(true);
+				houses[i]->windowTLSprite->setVisible(true);
+				houses[i]->windowTRSprite->setVisible(true);
+			
+				houses[i]->windowBLHit = false;
+				houses[i]->windowTLHit = false;
+				houses[i]->windowTRHit = false;
+				houses[i]->doorHit = false;
 			}
-			else
-			{
-				houses[i]->houseSprite->setPositionX(houses[i - 1]->houseSprite->getPositionX() + distance);
-			}
+		}
+		else
+		{
+			houses[i]->onScreen = true;
 		}
 
-		if (!houses[i]->doorHit)
-		{
-			//Move doors with house
-			houses[i]->doorSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 172.83);
-			houses[i]->doorSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 138.17);
-		}
+		//Move doors with house
+		houses[i]->doorSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 172.83);
+		houses[i]->doorSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 138.17);
 
-		if (!houses[i]->windowBLHit)
-		{
-			//Move BL window with house
-			houses[i]->windowBLSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 57.08);
-			houses[i]->windowBLSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 151.62);
-		}
-		if (!houses[i]->windowTLHit)
-		{
-			//Move TL window with house
-			houses[i]->windowTLSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 58);
-			houses[i]->windowTLSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 250);
-		}
-		if (!houses[i]->windowTRHit)
-		{
-			//Move TR window with house
-			houses[i]->windowTRSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 203.66);
-			houses[i]->windowTRSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 249.18);
-		}
+		//Move BL window with house
+		houses[i]->windowBLSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 57.08);
+		houses[i]->windowBLSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 151.62);
+
+		//Move TL window with house
+		houses[i]->windowTLSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 58);
+		houses[i]->windowTLSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 250);
+
+		//Move TR window with house
+		houses[i]->windowTRSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 203.66);
+		houses[i]->windowTRSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 249.18);
 	}
 }
 
 void HelloWorld::updateHouseCollision()
 {
-	//If newspaper collides with door...
+	for (int i = 0; i < numHouses; i++)
+	{
+		if (!houses[i]->windowBLHit)
+		{
+			if (paperBoy->getNewspaper()->getBoundingBox().intersectsRect(houses[i]->windowBLSprite->getBoundingBox()))
+			{
+				houses[i]->windowBLSprite->setVisible(false);
+				paperBoy->resetNewspaper();
+				houses[i]->windowBLHit = true;
+			}
+		}
+		if (!houses[i]->windowTLHit)
+		{
+			if (paperBoy->getNewspaper()->getBoundingBox().intersectsRect(houses[i]->windowTLSprite->getBoundingBox()))
+			{
+				houses[i]->windowTLSprite->setVisible(false);
+				paperBoy->resetNewspaper();
+				houses[i]->windowTLHit = true;
+			}
+		}
+		if (!houses[i]->windowTRHit)
+		{
+			if (paperBoy->getNewspaper()->getBoundingBox().intersectsRect(houses[i]->windowTRSprite->getBoundingBox()))
+			{
+				houses[i]->windowTRSprite->setVisible(false);
+				paperBoy->resetNewspaper();
+				houses[i]->windowTRHit = true;
+			}
+		}
+		if (!houses[i]->doorHit)
+		{
+			if (paperBoy->getNewspaper()->getBoundingBox().intersectsRect(houses[i]->doorSprite->getBoundingBox()))
+			{
+				paperBoy->resetNewspaper();
+				houses[i]->doorHit = true;
+			}
+		}
 
-	//Else If newspaper collides with window BL...
-
-	//Else If newspaper collides with window TL...
-
-	//Else If newspaper collides with window TR...
-
-	//Else player missed
+	}
 }
 
 bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)

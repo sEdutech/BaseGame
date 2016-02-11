@@ -31,6 +31,7 @@
         <Project Name="PaperBoy.csd" Type="Node" />
         <Image Name="TitleCard.png" />
         <Image Name="StartSign.png" />
+        <Image Name="cloudwrope.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -13,7 +13,9 @@ public:
 
 	virtual bool init() override;
 	PaperBoy* create();
-	void throwPaper(cocos2d::Vec2 startPoint, cocos2d:: Vec2 endPoint);
+	Sprite* getNewspaper() { return mPaperMoving; };
+	void throwPaper(cocos2d::Vec2 startPoint, cocos2d::Vec2 endPoint);
+	void resetNewspaper();
 	void update(float delta);
 
 private:
@@ -21,6 +23,8 @@ private:
 	cocos2d::Sprite* mPaperMoving;
 
 	cocos2d::Size mWinSize;
+
+	Rect window;
 
 	float projectileSpeed;
 

@@ -11,7 +11,6 @@ PaperBoy::PaperBoy()
 	this->init();
 }
 
-
 PaperBoy::~PaperBoy()
 {
 }
@@ -36,6 +35,8 @@ bool PaperBoy::init()
 
 	mWinSize = winSize;
 
+	window.setRect(0, 0, winSize.width, winSize.height);
+
 	//Set references to the Sprite objects 
 	mPaperBoySprite = (Sprite*)rootNode->getChildByName("PaperBoy");
 	rootNode->addChild(mPaperBoySprite);
@@ -47,8 +48,8 @@ bool PaperBoy::init()
 	mPaperThrown = false;
 
 	mPaperBoySprite->setPosition(mWinSize.width / 2, mWinSize.height / 6);
-	mPaperMoving->setPosition(mWinSize.width / 2, mWinSize.height / 2);
-	projectileSpeed = 0.0f;
+	mPaperMoving->setPosition(mWinSize.width / 2, mWinSize.height / 4.5);
+	projectileSpeed = 5.0f;
 	return true;
 }
 
@@ -70,11 +71,29 @@ PaperBoy* PaperBoy::create()
 
 void PaperBoy::throwPaper(Vec2 startPoint, Vec2 endPoint)
 {
-	trajectory = (endPoint - startPoint);
-	//To be used
-	float speed = trajectory.length();
-	trajectory.normalize();
-	mPaperThrown = true;
+	if (mPaperThrown == false)
+	{
+		trajectory = (endPoint - startPoint);
+		//To be used
+		//projectileSpeed = trajectory.length() / 20;
+		trajectory.normalize();
+		mPaperThrown = true;
+		mPaperMoving->runAction(RepeatForever::create(RotateBy::create(1.0f, 360.0f)));
+	}
+
+	if (trajectory == Vec2(0, 0))
+	{
+		resetNewspaper();
+	}
+}
+
+void PaperBoy::resetNewspaper()
+{
+	mPaperThrown = false;
+	mPaperMoving->setVisible(false);
+	mPaperMoving->setPosition(mWinSize.width / 2, mWinSize.height / 4.5);
+	mPaperMoving->stopAllActions();
+	mPaperMoving->setRotation(0);
 }
 
 void PaperBoy::update(float delta)
@@ -82,6 +101,10 @@ void PaperBoy::update(float delta)
 	mPaperMoving->setVisible(true);
 	if (mPaperThrown == true)
 	{
-		mPaperMoving->setPosition(mPaperMoving->getPosition() + trajectory);
+		mPaperMoving->setPosition(mPaperMoving->getPosition() + trajectory * projectileSpeed);
+	}
+	if (!mPaperMoving->getBoundingBox().intersectsRect(window))
+	{
+		resetNewspaper();
 	}
 }

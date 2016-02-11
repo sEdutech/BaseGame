@@ -28,6 +28,28 @@
             <FileData Type="Normal" Path="Sprites/topstage.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="cloudwrope1" ActionTag="738977334" Tag="36" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-10.4593" RightMargin="-0.5407" TopMargin="-959.2800" BottomMargin="-20.7200" ctype="SpriteObjectData">
+            <Size X="491.0000" Y="1300.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="235.0407" Y="629.2800" />
+            <Scale ScaleX="0.3000" ScaleY="0.3000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.4897" Y="1.9665" />
+            <PreSize X="1.0229" Y="4.0625" />
+            <FileData Type="Normal" Path="cloudwrope.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="cloudwrope2" ActionTag="1426565191" Tag="38" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="489.4943" RightMargin="-500.4943" TopMargin="-959.2875" BottomMargin="-20.7125" ctype="SpriteObjectData">
+            <Size X="491.0000" Y="1300.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="734.9943" Y="629.2875" />
+            <Scale ScaleX="0.3000" ScaleY="0.3000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="1.5312" Y="1.9665" />
+            <PreSize X="1.0229" Y="4.0625" />
+            <FileData Type="Normal" Path="cloudwrope.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
           <AbstractNodeData Name="house_0" ActionTag="1934073862" Tag="7" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-240.0000" RightMargin="107.0000" TopMargin="-475.0000" BottomMargin="128.0000" ctype="SpriteObjectData">
             <Size X="613.0000" Y="667.0000" />
             <AnchorPoint />
@@ -193,6 +215,17 @@
             <FileData Type="Normal" Path="Sprites/House/House1-Window-TopRight.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="cloudwrope3" ActionTag="-1599724803" Tag="37" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="239.5399" RightMargin="-250.5399" TopMargin="-1005.8031" BottomMargin="25.8031" ctype="SpriteObjectData">
+            <Size X="491.0000" Y="1300.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="485.0399" Y="675.8031" />
+            <Scale ScaleX="0.3000" ScaleY="0.3000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="1.0105" Y="2.1119" />
+            <PreSize X="1.0229" Y="4.0625" />
+            <FileData Type="Normal" Path="cloudwrope.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
           <AbstractNodeData Name="stagermid_6" ActionTag="1648823371" Tag="8" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-479.3760" RightMargin="-960.6240" TopMargin="10.8560" BottomMargin="-88.8560" ctype="SpriteObjectData">
             <Size X="1920.0000" Y="398.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -215,7 +248,7 @@
             <FileData Type="Normal" Path="belttop.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="policeman" ActionTag="1808968997" Tag="35" IconVisible="False" LeftMargin="-215.3245" RightMargin="88.3245" TopMargin="-788.2712" BottomMargin="-819.7287" ctype="SpriteObjectData">
+          <AbstractNodeData Name="policeman" ActionTag="1808968997" Tag="35" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-215.3245" RightMargin="88.3245" TopMargin="-788.2712" BottomMargin="-819.7287" ctype="SpriteObjectData">
             <Size X="607.0000" Y="1928.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="88.1755" Y="144.2713" />
