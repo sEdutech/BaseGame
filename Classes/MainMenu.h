@@ -15,5 +15,10 @@ public:
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(MainMenu);
+
+	cocos2d::Sprite* curtain;
+
+	void raiseCurtain();
+	void update(float t);
 };
 

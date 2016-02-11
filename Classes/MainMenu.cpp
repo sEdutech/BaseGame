@@ -25,12 +25,17 @@ bool MainMenu::init()
 	auto rootNode = CSLoader::createNode("MainMenu.csb");
 	addChild(rootNode);
 
+	//curtain = (Sprite*)rootNode->getChildByName("curtain");
+	//addChild(curtain);
+
 	// Start Button
 
 	auto startButton = rootNode->getChildByName<cocos2d::ui::Button*>("startButton");
 	startButton->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type) {
 
 		auto mainScene = HelloWorld::createScene();
+
+		this->scheduleUpdate();
 
 		switch (type)
 		{
@@ -48,4 +53,9 @@ bool MainMenu::init()
 	});
 
 	return true;
+}
+
+void MainMenu::update(float t)
+{
+	//curtain->setPosition(curtain->getPosition().x, curtain->getPosition().y - 0.1 * t);
 }

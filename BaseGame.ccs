@@ -29,6 +29,8 @@
         <Image Name="NewsPaper.png" />
         <Image Name="PaperBoy.png" />
         <Project Name="PaperBoy.csd" Type="Node" />
+        <Image Name="TitleCard.png" />
+        <Image Name="StartSign.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>
