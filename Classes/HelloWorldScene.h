@@ -52,7 +52,7 @@ public:
 
 	void updateHouseMovement();
 
-	void updateHouseCollision();
+	void updateHouseCollision(float);
 
 	bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
 	void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);

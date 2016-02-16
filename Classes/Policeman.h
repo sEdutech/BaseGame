@@ -5,19 +5,31 @@
 
 class Policeman {
 private:
-
 	cocos2d::Sprite * sprite;
-	float offset;
-	bool down = false;
 
+	float velocityX = 0.0f;
 	int destinationX = 100;
 
+	int distance;
+
+
+	bool down = false;
+	float offsetY;
 public:
+
+	cocos2d::Sprite * getSprite() {
+		return sprite;
+	}
 
 	void update(float);
 	void init(cocos2d::Node * root);
 
-	void setDestination(int destinationX);
+	void moveCloser(float);
+	void fallBack(float);
+
+	void setDistance(int distance) {
+		this->distance = distance;
+	}
 };
 
 #endif

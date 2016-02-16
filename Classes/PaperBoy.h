@@ -18,6 +18,10 @@ public:
 	void resetNewspaper();
 	void update(float delta);
 
+	Sprite * getPaperBoySprite() {
+		return mPaperBoySprite;
+	}
+
 private:
 	cocos2d::Sprite* mPaperBoySprite;
 	cocos2d::Sprite* mPaperMoving;

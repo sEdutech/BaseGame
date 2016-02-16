@@ -12,29 +12,33 @@ using namespace std;
 void Policeman::update(float delta)
 {
 	//cheap fix for now
-	if (offset >= 4.0f) {
+	if (offsetY >= 4.0f) {
 		down = true;
-	} else if (offset <= -4.0f) {
+	} else if (offsetY <= -4.0f) {
 		down = false;
 	}
 
 
 	if (down) {
-		offset -= 0.2f;
+		offsetY -= 0.2f;
 	} else {
-		offset += 0.2f;
+		offsetY += 0.2f;
 	}
 
-	Vec2 position; //static y position (187.42 base y position of policeman)
+	Vec2 position;
 
 	if (floor(sprite->getPosition().x) != destinationX) {
-		stringstream ss;
-		ss << sprite->getPosition().x << endl;
-		//OutputDebugStringA(ss.str().c_str());
-		position = Vec2(sprite->getPosition().x + 1, 187.42 + offset);
+		
+		if (floor(sprite->getPosition().x) > destinationX) {
+			position = Vec2(sprite->getPosition().x + 1, 187.42 + offsetY);
+		}
+		else {
+			position = Vec2(sprite->getPosition().x - 1, 187.42 + offsetY);
+		}
+
 	}
 	else {
-		position = Vec2(sprite->getPosition().x, 187.42 + offset);
+		position = Vec2(sprite->getPosition().x, 187.42 + offsetY);
 	}
 
 	sprite->setPosition(position);
@@ -50,6 +54,16 @@ void Policeman::init(cocos2d::Node * root)
 
 }
 
-void Policeman::setDestination(int destinationX)
-{
+void Policeman::moveCloser(float deltaTime) {
+	destinationX = destinationX + distance;
+	stringstream ss;
+	ss << destinationX << " - " << distance << "distance to increase" << endl;
+	OutputDebugStringA(ss.str().c_str());
+}
+
+void Policeman::fallBack(float deltaTime) {
+	destinationX =  destinationX - distance;
+	stringstream ss;
+	ss << destinationX << " - " << distance << "distance to increase" << endl;
+	OutputDebugStringA(ss.str().c_str());
 }

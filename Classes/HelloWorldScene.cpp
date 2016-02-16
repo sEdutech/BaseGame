@@ -47,6 +47,8 @@ bool HelloWorld::init()
 
 	paperBoy = new PaperBoy();
 	paperBoy->init();
+
+	policeman->setDistance((paperBoy->getPaperBoySprite()->getPosition().x - policeman->getSprite()->getPosition().x) / 4);
 	
 	addChild(paperBoy);
 
@@ -159,7 +161,7 @@ void HelloWorld::initHouse()
 void HelloWorld::update(float t)
 {
 	updateHouseMovement();
-	updateHouseCollision();
+	updateHouseCollision(t);
 	policeman->update(t);
 	paperBoy->update(t);
 }
@@ -225,7 +227,7 @@ void HelloWorld::updateHouseMovement()
 	}
 }
 
-void HelloWorld::updateHouseCollision()
+void HelloWorld::updateHouseCollision(float deltaTime)
 {
 	for (int i = 0; i < numHouses; i++)
 	{
@@ -236,6 +238,7 @@ void HelloWorld::updateHouseCollision()
 				houses[i]->windowBLSprite->setVisible(false);
 				paperBoy->resetNewspaper();
 				houses[i]->windowBLHit = true;
+				policeman->moveCloser(deltaTime);
 			}
 		}
 		if (!houses[i]->windowTLHit)
@@ -245,6 +248,7 @@ void HelloWorld::updateHouseCollision()
 				houses[i]->windowTLSprite->setVisible(false);
 				paperBoy->resetNewspaper();
 				houses[i]->windowTLHit = true;
+				policeman->moveCloser(deltaTime);
 			}
 		}
 		if (!houses[i]->windowTRHit)
@@ -254,6 +258,7 @@ void HelloWorld::updateHouseCollision()
 				houses[i]->windowTRSprite->setVisible(false);
 				paperBoy->resetNewspaper();
 				houses[i]->windowTRHit = true;
+				policeman->moveCloser(deltaTime);
 			}
 		}
 		if (!houses[i]->doorHit)
@@ -262,6 +267,7 @@ void HelloWorld::updateHouseCollision()
 			{
 				paperBoy->resetNewspaper();
 				houses[i]->doorHit = true;
+				policeman->fallBack(deltaTime);
 			}
 		}
 
