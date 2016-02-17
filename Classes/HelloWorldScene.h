@@ -3,8 +3,8 @@
 
 #include "cocos2d.h"
 #include <sstream>
-#include "Policeman.h"
 #include "PaperBoy.h"
+#include "Policeman.h"
 
 using namespace cocos2d;
 using namespace std;

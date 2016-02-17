@@ -162,7 +162,7 @@ void HelloWorld::update(float t)
 {
 	updateHouseMovement();
 	updateHouseCollision(t);
-	policeman->update(t);
+	policeman->update(t, paperBoy->getPaperBoySprite());
 	paperBoy->update(t);
 }
 
