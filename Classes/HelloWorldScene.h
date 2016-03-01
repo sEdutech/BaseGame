@@ -68,6 +68,9 @@ private:
 	Vec2 touchStart;
 	Vec2 touchEnd;
 
+	//Score
+	Label* _scoreLabel;
+	int _scoreCounter;
 
 	//sprites that need to be infront of characters
 	cocos2d::Sprite* curtain1;

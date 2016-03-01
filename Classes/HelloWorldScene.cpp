@@ -44,6 +44,12 @@ bool HelloWorld::init()
 	policeman = new Policeman();
 	policeman->init(rootNode);
 
+	//Score
+	_scoreLabel = Label::createWithTTF("THE SCORE", "res/burnstown_dam.ttf", 20);
+	_scoreLabel->setPosition(winSize.width / 2, winSize.height - 100);
+	_scoreLabel->setColor(Color3B::BLACK);
+	this->addChild(_scoreLabel);
+	_scoreCounter = 0;
 
 	paperBoy = new PaperBoy();
 	paperBoy->init();
