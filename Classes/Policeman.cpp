@@ -78,10 +78,12 @@ void Policeman::init(cocos2d::Node * root)
 }
 
 void Policeman::moveCloser(float deltaTime) {
+	if (velocityX > 0.0f) return;
 	destinationX += distance;
 }
 
 void Policeman::fallBack(float deltaTime) {
+	if (velocityX > 0.0f) return;
 	destinationX -= distance;
 }
 

@@ -43,10 +43,11 @@ bool HelloWorld::init()
 	initForegroundObjects(rootNode);
 	policeman = new Policeman();
 	policeman->init(rootNode);
-
+	policeman->getSprite()->setGlobalZOrder(2);
 
 	paperBoy = new PaperBoy();
 	paperBoy->init();
+	
 
 	policeman->setDistance((paperBoy->getPaperBoySprite()->getPosition().x - policeman->getSprite()->getPosition().x) / 4);
 	
@@ -78,6 +79,7 @@ void HelloWorld::initForegroundObjects(Node* root)
 	beltWheel8 = (Sprite*)root->getChildByName("beltwheel_11_6");
 	beltWheel9 = (Sprite*)root->getChildByName("beltwheel_11_7");
 	beltTopForeground = (Sprite*)root->getChildByName("Sprite_8");
+	beltTopBackground = (Sprite*)root->getChildByName("belttop_7");
 	beltbottom = (Sprite*)root->getChildByName("beltbottom_9");
 	beltBackground = (Sprite*)root->getChildByName("beltbackground_10");
 
@@ -96,6 +98,7 @@ void HelloWorld::initForegroundObjects(Node* root)
 	root->addChild(beltWheel9);
 
 	root->addChild(beltTopForeground);
+	root->addChild(beltTopBackground);
 	root->addChild(beltbottom);
 	root->addChild(beltBackground);
 
@@ -114,8 +117,46 @@ void HelloWorld::initForegroundObjects(Node* root)
 	beltTopForeground->setGlobalZOrder(2);
 	beltbottom->setGlobalZOrder(2);
 	beltBackground->setGlobalZOrder(1);
+	
+
+	//wheel rotations
+	beltWheel1->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel2->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel3->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel4->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel5->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel6->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel7->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel8->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel9->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
 
 	
+}
+
+void HelloWorld::updateStage(float)
+{
+	winSize = Director::getInstance()->getWinSize();
+	Vec2 beltTopForegroundPosition = beltTopForeground->getPosition();
+	beltTopForeground->setPosition(beltTopForegroundPosition.x - 1, beltTopForegroundPosition.y);
+
+	Vec2 beltTopBackgroundPosition = beltTopBackground->getPosition();
+	beltTopBackground->setPosition(beltTopBackgroundPosition.x - 1, beltTopBackgroundPosition.y);
+
+	Vec2 beltBottomPosition = beltbottom->getPosition();
+	beltbottom->setPosition(beltBottomPosition.x + 1, beltBottomPosition.y);
+
+	if (beltTopForegroundPosition.x <= winSize.width / 2 - 25) {
+		beltTopForeground->setPosition(winSize.width / 2, beltTopForegroundPosition.y);
+	}
+
+	if (beltTopBackgroundPosition.x <= winSize.width / 2 - 25) { 
+		beltTopBackground->setPosition(winSize.width / 2, beltTopBackgroundPosition.y);
+	}
+
+	if (beltBottomPosition.x >= winSize.width / 2 + 25) {
+		beltbottom->setPosition(winSize.width / 2, beltBottomPosition.y);
+	}
+
 }
 
 void HelloWorld::initHouse()
@@ -164,6 +205,7 @@ void HelloWorld::update(float t)
 	updateHouseCollision(t);
 	policeman->update(t, paperBoy->getPaperBoySprite());
 	paperBoy->update(t);
+	updateStage(t);
 }
 
 void HelloWorld::updateHouseMovement()

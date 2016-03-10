@@ -1,15 +1,4 @@
-﻿  AppDelegate.cpp
-  HelloWorldScene.cpp
-  MainMenu.cpp
-  PaperBoy.cpp
-  Policeman.cpp
-  main.cpp
-c:\users\kieran\desktop\tgp\basegame\classes\appdelegate.cpp(41): warning C4305: 'argument': truncation from 'double' to 'float'
+﻿  HelloWorldScene.cpp
   60 File(s) copied
-AppDelegate.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-     Creating library C:\Users\Kieran\Desktop\TGP\BaseGame\proj.win32\Debug.win32\BaseGame.lib and object C:\Users\Kieran\Desktop\TGP\BaseGame\proj.win32\Debug.win32\BaseGame.exp
-  BaseGame.vcxproj -> C:\Users\Kieran\Desktop\TGP\BaseGame\proj.win32\Debug.win32\BaseGame.exe
-  C:\Users\Kieran\Desktop\TGP\BaseGame\Resources\res\MainMenu.csb -> C:\Users\Kieran\Desktop\TGP\BaseGame\proj.win32\Debug.win32\res\MainMenu.csb
-  C:\Users\Kieran\Desktop\TGP\BaseGame\Resources\res\MainScene.csb -> C:\Users\Kieran\Desktop\TGP\BaseGame\proj.win32\Debug.win32\res\MainScene.csb
-  C:\Users\Kieran\Desktop\TGP\BaseGame\Resources\res\PaperBoy.csb -> C:\Users\Kieran\Desktop\TGP\BaseGame\proj.win32\Debug.win32\res\PaperBoy.csb
-  3 File(s) copied
+  BaseGame.vcxproj -> C:\Users\Kieran\Desktop\TGP\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exe
+  0 File(s) copied

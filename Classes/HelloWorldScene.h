@@ -44,6 +44,8 @@ public:
 
 	void initForegroundObjects(Node* root);
 
+	void updateStage(float);
+
 	// implement the "static create()" method manually
 	CREATE_FUNC(HelloWorld);
 
@@ -82,6 +84,7 @@ private:
 	cocos2d::Sprite* beltWheel8;
 	cocos2d::Sprite* beltWheel9;
 	cocos2d::Sprite* beltTopForeground;
+	cocos2d::Sprite* beltTopBackground;
 	cocos2d::Sprite* beltbottom;
 	cocos2d::Sprite* beltBackground;
 
