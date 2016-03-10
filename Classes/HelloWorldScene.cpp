@@ -53,6 +53,10 @@ bool HelloWorld::init()
 	
 	addChild(paperBoy);
 
+
+	collectables.push_back(new SuperPaperCollectable((Sprite*)rootNode->getChildByName("super_paper_collectable")));
+
+
 	this->scheduleUpdate();
 
 	auto touchListener = EventListenerTouchOneByOne::create();	
@@ -206,6 +210,15 @@ void HelloWorld::update(float t)
 	policeman->update(t, paperBoy->getPaperBoySprite());
 	paperBoy->update(t);
 	updateStage(t);
+	handleCollectableCollisions();
+}
+
+void HelloWorld::handleCollectableCollisions() {
+	for (Collectable * c : collectables) {
+		if (c->collided(paperBoy->getNewspaper())) {
+			OutputDebugStringA("COLLIDED WITH PAPER!!!");
+		}
+	}
 }
 
 void HelloWorld::updateHouseMovement()

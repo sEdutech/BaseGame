@@ -32,6 +32,9 @@
         <Image Name="TitleCard.png" />
         <Image Name="StartSign.png" />
         <Image Name="cloudwrope.png" />
+        <Folder Name="Collectables">
+          <Image Name="superpaper.png" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>

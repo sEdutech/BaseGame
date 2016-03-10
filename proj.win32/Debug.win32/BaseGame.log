@@ -1,4 +1,8 @@
-﻿  HelloWorldScene.cpp
+﻿  AppDelegate.cpp
+  HelloWorldScene.cpp
+  MainMenu.cpp
+  PaperBoy.cpp
+c:\users\kieran\desktop\tgp\paperboytheatre\classes\appdelegate.cpp(41): warning C4305: 'argument': truncation from 'double' to 'float'
   60 File(s) copied
   BaseGame.vcxproj -> C:\Users\Kieran\Desktop\TGP\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exe
   0 File(s) copied

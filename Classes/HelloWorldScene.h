@@ -5,6 +5,8 @@
 #include <sstream>
 #include "PaperBoy.h"
 #include "Policeman.h"
+#include "Collectable.h"
+#include "SuperPaperCollectable.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -45,6 +47,8 @@ public:
 	void initForegroundObjects(Node* root);
 
 	void updateStage(float);
+
+	void handleCollectableCollisions();
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(HelloWorld);
@@ -87,6 +91,8 @@ private:
 	cocos2d::Sprite* beltTopBackground;
 	cocos2d::Sprite* beltbottom;
 	cocos2d::Sprite* beltBackground;
+
+	vector<Collectable *> collectables;
 
 };
 

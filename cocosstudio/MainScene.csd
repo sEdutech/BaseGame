@@ -446,6 +446,17 @@
             <FileData Type="Normal" Path="Sprites/curtainleft.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="super_paper_collectable" ActionTag="2003158532" Tag="42" IconVisible="False" LeftMargin="644.5042" RightMargin="-451.5042" TopMargin="40.4989" BottomMargin="84.5011" ctype="SpriteObjectData">
+            <Size X="287.0000" Y="195.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="788.0042" Y="182.0011" />
+            <Scale ScaleX="0.2683" ScaleY="0.2683" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="1.6417" Y="0.5688" />
+            <PreSize X="0.5979" Y="0.6094" />
+            <FileData Type="Normal" Path="Collectables/superpaper.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>
