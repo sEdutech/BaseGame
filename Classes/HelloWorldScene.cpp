@@ -44,6 +44,18 @@ bool HelloWorld::init()
 	policeman = new Policeman();
 	policeman->init(rootNode);
 
+	worldSpeed = 2.0f;
+
+	//init clouds
+	for (int i = 0; i < numClouds; i++)
+	{
+		stringstream ss;
+		ss << "cloudwrope" << i;
+		clouds[i] = (Sprite*)rootNode->getChildByName(ss.str());
+	}
+
+	cloudSpeed = 0.5f;
+
 	//Score
 	_scoreLabel = Label::createWithTTF("THE SCORE", "res/burnstown_dam.ttf", 20);
 	_scoreLabel->setPosition(winSize.width / 2, winSize.height - 100);
@@ -165,6 +177,7 @@ void HelloWorld::initHouse()
 void HelloWorld::update(float t)
 {
 	updateHouseMovement();
+	updateCloudMovement(); 
 	updateHouseCollision();
 	policeman->update(t);
 	paperBoy->update(t);
@@ -177,7 +190,7 @@ void HelloWorld::updateHouseMovement()
 	{
 
 		//Move Left
-		houses[i]->houseSprite->setPositionX(houses[i]->houseSprite->getPositionX() - houses[i]->speed);
+		houses[i]->houseSprite->setPositionX(houses[i]->houseSprite->getPositionX() - houses[i]->speed * worldSpeed);
 
 		if (houses[i]->onScreen == false)
 		{
@@ -191,7 +204,7 @@ void HelloWorld::updateHouseMovement()
 				int distance = 550;
 				if (i == 0)
 				{
-					houses[i]->houseSprite->setPositionX(houses[2]->houseSprite->getPositionX() + distance);
+					houses[i]->houseSprite->setPositionX(houses[numHouses-1]->houseSprite->getPositionX() + distance);
 				}
 				else
 				{
@@ -231,45 +244,81 @@ void HelloWorld::updateHouseMovement()
 	}
 }
 
+void HelloWorld::updateCloudMovement()
+{
+	//Movement
+	for (int i = 0; i < numClouds; i++)
+	{
+		//Move Left
+		clouds[i]->setPositionX(clouds[i]->getPositionX() - cloudSpeed * worldSpeed);
+
+		clouds[i]->setPositionY((sin(clouds[i]->getPositionX() / 15) * 20 + 675));  //Divide by 10 slows it down, multiply by 8 to increase how much it bobs by and add 125 to increase overall height.
+
+		//Wrap around
+		if (clouds[i]->getPositionX() < (0 - clouds[i]->getBoundingBox().size.width))
+		{
+			float distance = 312;
+			if (i == 0)
+			{
+				clouds[i]->setPositionX(clouds[numClouds - 1]->getPositionX() + distance);
+			}
+			else
+			{
+				clouds[i]->setPositionX(clouds[i - 1]->getPositionX() + distance);
+			}
+		}
+	}
+}
+
 void HelloWorld::updateHouseCollision()
 {
+	int numOfNewspapers = paperBoy->getNumOfNewspapers();
 	for (int i = 0; i < numHouses; i++)
 	{
-		if (!houses[i]->windowBLHit)
+		for (int j = 0; j < numOfNewspapers; j++)
 		{
-			if (paperBoy->getNewspaper()->getBoundingBox().intersectsRect(houses[i]->windowBLSprite->getBoundingBox()))
+			Newspaper* newspaper = paperBoy->getNewspaper(j);
+			if (newspaper->thrown)
 			{
-				houses[i]->windowBLSprite->setVisible(false);
-				paperBoy->resetNewspaper();
-				houses[i]->windowBLHit = true;
+				if (!houses[i]->windowBLHit)
+				{
+					if (newspaper->sprite->getBoundingBox().intersectsRect(houses[i]->windowBLSprite->getBoundingBox()))
+					{
+						houses[i]->windowBLSprite->setVisible(false);
+						paperBoy->moveOffscreen(j);
+						houses[i]->windowBLHit = true;
+					}
+				}
+				if (!houses[i]->windowTLHit)
+				{
+					if (newspaper->sprite->getBoundingBox().intersectsRect(houses[i]->windowTLSprite->getBoundingBox()))
+					{
+						houses[i]->windowTLSprite->setVisible(false);
+						paperBoy->moveOffscreen(j);
+						houses[i]->windowTLHit = true;
+					}
+				}
+				if (!houses[i]->windowTRHit)
+				{
+					if (newspaper->sprite->getBoundingBox().intersectsRect(houses[i]->windowTRSprite->getBoundingBox()))
+					{
+						houses[i]->windowTRSprite->setVisible(false);
+						paperBoy->moveOffscreen(j);
+						houses[i]->windowTRHit = true;
+					}
+				}
+				if (!houses[i]->doorHit)
+				{
+					if (newspaper->sprite->getBoundingBox().intersectsRect(houses[i]->doorSprite->getBoundingBox()))
+					{
+						paperBoy->moveOffscreen(j);
+						houses[i]->doorHit = true;
+					}
+				}	
 			}
+
 		}
-		if (!houses[i]->windowTLHit)
-		{
-			if (paperBoy->getNewspaper()->getBoundingBox().intersectsRect(houses[i]->windowTLSprite->getBoundingBox()))
-			{
-				houses[i]->windowTLSprite->setVisible(false);
-				paperBoy->resetNewspaper();
-				houses[i]->windowTLHit = true;
-			}
-		}
-		if (!houses[i]->windowTRHit)
-		{
-			if (paperBoy->getNewspaper()->getBoundingBox().intersectsRect(houses[i]->windowTRSprite->getBoundingBox()))
-			{
-				houses[i]->windowTRSprite->setVisible(false);
-				paperBoy->resetNewspaper();
-				houses[i]->windowTRHit = true;
-			}
-		}
-		if (!houses[i]->doorHit)
-		{
-			if (paperBoy->getNewspaper()->getBoundingBox().intersectsRect(houses[i]->doorSprite->getBoundingBox()))
-			{
-				paperBoy->resetNewspaper();
-				houses[i]->doorHit = true;
-			}
-		}
+
 
 	}
 }
@@ -277,13 +326,24 @@ void HelloWorld::updateHouseCollision()
 bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 {
 	touchStart = touch->getLocation();
+
 	return true;
 }
 
 void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
-	touchEnd = touch->getLocation();
-	paperBoy->throwPaper(touchStart, touchEnd);
+	touchEnd = touch->getLocation();	
+	if (paperBoy->getReloadActive())
+	{
+		if (paperBoy->getReloadButton()->getBoundingBox().containsPoint(touch->getLocation()))
+		{
+			paperBoy->reloadNewspapers();
+		}
+	}
+	else
+	{
+		paperBoy->throwPaper(touchStart, touchEnd);
+	}
 }
 
 void HelloWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)

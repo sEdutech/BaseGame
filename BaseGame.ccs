@@ -32,6 +32,7 @@
         <Image Name="TitleCard.png" />
         <Image Name="StartSign.png" />
         <Image Name="cloudwrope.png" />
+        <Image Name="Reload.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>
