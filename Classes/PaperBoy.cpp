@@ -8,7 +8,7 @@ using namespace cocos2d;
 
 PaperBoy::PaperBoy()
 {
-	this->init();
+	init();
 }
 
 PaperBoy::~PaperBoy()
@@ -38,7 +38,6 @@ bool PaperBoy::init()
 
 	//Set references to the Sprite objects 
 	mPaperBoySprite = (Sprite*)rootNode->getChildByName("PaperBoy");
-	rootNode->addChild(mPaperBoySprite);
 
 	reloadSprite = (Sprite*)rootNode->getChildByName("Reload");
 	reloadSprite->setPosition(-100,-100);
@@ -51,7 +50,6 @@ bool PaperBoy::init()
 		ss << "NewsPaper" << i;
 		newspapers[i] = new Newspaper();
 		newspapers[i]->sprite = (Sprite*)rootNode->getChildByName(ss.str());
-		//rootNode->addChild(newspapers[i]->sprite);
 		newspapers[i]->thrown = false;
 		newspapers[i]->active = false;
 		newspapers[i]->trajectory = Vec2(0,0);

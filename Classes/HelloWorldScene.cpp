@@ -64,7 +64,6 @@ bool HelloWorld::init()
 	_scoreCounter = 0;
 
 	paperBoy = new PaperBoy();
-	paperBoy->init();
 	
 	addChild(paperBoy);
 
