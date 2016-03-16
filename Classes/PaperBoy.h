@@ -1,35 +1,51 @@
 #pragma once
 #include "cocos2d.h"
 #include <stdio.h>
-#include "HelloWorldScene.h"
+#include <sstream>
 
 using namespace cocos2d;
+using namespace std;
 
+struct Newspaper
+{
+	Sprite* sprite;
+	bool thrown;
+	bool active;
+	Vec2 trajectory;
+};
 class PaperBoy : public cocos2d::Node
 {
 public:
 	PaperBoy();
 	~PaperBoy();
-
 	virtual bool init() override;
+
 	PaperBoy* create();
-	Sprite* getNewspaper() { return mPaperMoving; };
+	Newspaper* getNewspaper(int i) { return newspapers[i]; };
+	int getNumOfNewspapers() { return totalNumNewspapers; };
 	void throwPaper(cocos2d::Vec2 startPoint, cocos2d::Vec2 endPoint);
-	void resetNewspaper();
+	bool getReloadActive() { return reloadActive; };
+	Sprite* getReloadButton() { return reloadSprite; };
+	int getActiveNewspaper();
+	void reloadNewspapers();
+	void moveOffscreen(int i);
 	void update(float delta);
 
 private:
-	cocos2d::Sprite* mPaperBoySprite;
-	cocos2d::Sprite* mPaperMoving;
+	Sprite* mPaperBoySprite;
+	
+	Sprite* reloadSprite;
+	bool reloadActive;
 
-	cocos2d::Size mWinSize;
+	static const int totalNumNewspapers = 3;
+	int currentNumNewspapers = totalNumNewspapers;
+	
+	Newspaper* newspapers[totalNumNewspapers];
+
+	Size mWinSize;
 
 	Rect window;
 
 	float projectileSpeed;
-
-	Vec2 trajectory;
-
-	bool mPaperThrown;
 };
 

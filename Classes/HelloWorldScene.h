@@ -52,6 +52,8 @@ public:
 
 	void updateHouseMovement();
 
+	void updateCloudMovement();
+
 	void updateHouseCollision();
 
 	bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
@@ -62,12 +64,21 @@ public:
 private:
 	//House
 	int numHouses = 3;
+	int numClouds = 5;
 	House* houses[3];
+	//cloudwrope1, 2, 3
+	Sprite* clouds[5];
+	float cloudSpeed;
 	Size winSize;
 	Policeman* policeman;
 	Vec2 touchStart;
 	Vec2 touchEnd;
 
+	float worldSpeed;
+
+	//Score
+	Label* _scoreLabel;
+	int _scoreCounter;
 
 	//sprites that need to be infront of characters
 	cocos2d::Sprite* curtain1;
