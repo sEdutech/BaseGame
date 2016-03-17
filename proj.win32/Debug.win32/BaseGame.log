@@ -1,21 +1,33 @@
-﻿Build started 17/03/2016 16:55:29.
-     1>Project "N:\PaperboyTheatre\proj.win32\BaseGame.vcxproj" on node 2 (Build target(s)).
+﻿Build started 17/03/2016 18:55:37.
+     1>Project "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\BaseGame.vcxproj" on node 2 (Build target(s)).
      1>PreLinkEvent:
-         if not exist "N:\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "N:\PaperboyTheatre\proj.win32\Debug.win32\"
-         xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.9\prebuilt\win32\*.*" "N:\PaperboyTheatre\proj.win32\Debug.win32\"
+         if not exist "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\"
+         xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.9\prebuilt\win32\*.*" "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\"
          
          :VCEnd
          60 File(s) copied
        Link:
-         BaseGame.vcxproj -> N:\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exe
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\ /LIBPATH:C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\ opengl32.lib glew32.lib libzlib.lib libwebp.lib libiconv.lib freetype.lib winmm.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.pdb" /SUBSYSTEM:WINDOWS,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.lib" /MACHINE:X86 /SAFESEH Debug.win32\game.res
+         Debug.win32\AppDelegate.obj
+         Debug.win32\FlyingEnemy.obj
+         Debug.win32\HelloWorldScene.obj
+         Debug.win32\MainMenu.obj
+         Debug.win32\Obstacles.obj
+         Debug.win32\PaperBoy.obj
+         Debug.win32\Policeman.obj
+         Debug.win32\SuperPaperCollectable.obj
+         Debug.win32\main.obj
+     1>AppDelegate.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+            Creating library C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.lib and object C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exp
+         BaseGame.vcxproj -> C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exe
        CustomBuildStep:
-         if not exist "N:\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "N:\PaperboyTheatre\proj.win32\Debug.win32\"
-         xcopy "N:\PaperboyTheatre\proj.win32\..\Resources" "N:\PaperboyTheatre\proj.win32\Debug.win32\" /D /E /I /F /Y
+         if not exist "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\"
+         xcopy "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\..\Resources" "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\" /D /E /I /F /Y
                
          :VCEnd
          0 File(s) copied
-     1>Done Building Project "N:\PaperboyTheatre\proj.win32\BaseGame.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\BaseGame.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.68
+Time Elapsed 00:00:06.06
