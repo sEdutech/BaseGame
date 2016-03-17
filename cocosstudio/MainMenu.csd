@@ -28,7 +28,7 @@
             <FileData Type="Normal" Path="Sprites/backwall.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="startButton" ActionTag="989164868" Tag="37" IconVisible="False" LeftMargin="374.8032" RightMargin="-147.8032" TopMargin="-118.6323" BottomMargin="53.6323" TouchEnable="True" FontSize="14" ButtonText="Temp" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="223" Scale9Height="363" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="startButton" ActionTag="989164868" Tag="37" IconVisible="False" LeftMargin="374.8032" RightMargin="-147.8032" TopMargin="-118.6323" BottomMargin="53.6323" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="223" Scale9Height="363" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="253.0000" Y="385.0000" />
             <AnchorPoint ScaleX="0.4754" ScaleY="0.4529" />
             <Position X="495.0794" Y="227.9988" />
@@ -219,10 +219,10 @@
             <FileData Type="Normal" Path="Sprites/curtainleft.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="TitleCard_105" ActionTag="-1734761495" Tag="144" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="192.1439" RightMargin="-323.1439" TopMargin="-429.1652" BottomMargin="395.1652" ctype="SpriteObjectData">
+          <AbstractNodeData Name="TitleCard_105" ActionTag="-1734761495" Tag="144" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="192.1640" RightMargin="-323.1640" TopMargin="-429.1652" BottomMargin="395.1652" ctype="SpriteObjectData">
             <Size X="611.0000" Y="354.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="497.6439" Y="572.1652" />
+            <Position X="497.6640" Y="572.1652" />
             <Scale ScaleX="0.5000" ScaleY="0.5000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="1.0368" Y="1.7880" />

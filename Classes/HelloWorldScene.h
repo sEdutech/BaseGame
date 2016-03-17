@@ -5,6 +5,8 @@
 #include <sstream>
 #include "Policeman.h"
 #include "PaperBoy.h"
+#include "FlyingEnemy.h"
+#include "SuperPaperCollectable.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -56,6 +58,10 @@ public:
 
 	void updateHouseCollision();
 
+	void updateStage(float);
+
+	void handleCollectableCollisions();
+
 	bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
 	void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
 	void onTouchMoved(cocos2d::Touch*, cocos2d::Event*);
@@ -64,15 +70,20 @@ public:
 private:
 	//House
 	int numHouses = 3;
-	int numClouds = 5;
 	House* houses[3];
-	//cloudwrope1, 2, 3
+
 	Sprite* clouds[5];
 	float cloudSpeed;
+	int numClouds = 5;
+
 	Size winSize;
+	
 	Policeman* policeman;
+	
 	Vec2 touchStart;
 	Vec2 touchEnd;
+
+	FlyingEnemy* birdEnemy;
 
 	float worldSpeed;
 
@@ -92,10 +103,14 @@ private:
 	cocos2d::Sprite* beltWheel7;
 	cocos2d::Sprite* beltWheel8;
 	cocos2d::Sprite* beltWheel9;
+
 	cocos2d::Sprite* beltTopForeground;
+	cocos2d::Sprite* beltTopBackground;
 	cocos2d::Sprite* beltbottom;
 	cocos2d::Sprite* beltBackground;
 
+	//Collectible
+	vector<Collectable *> collectables;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

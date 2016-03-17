@@ -33,6 +33,8 @@
         <Image Name="StartSign.png" />
         <Image Name="cloudwrope.png" />
         <Image Name="Reload.png" />
+        <Image Name="BirdSprite.png" />
+        <Image Name="superpaper.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

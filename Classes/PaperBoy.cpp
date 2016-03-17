@@ -8,7 +8,7 @@ using namespace cocos2d;
 
 PaperBoy::PaperBoy()
 {
-	init();
+
 }
 
 PaperBoy::~PaperBoy()

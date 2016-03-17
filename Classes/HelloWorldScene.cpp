@@ -56,6 +56,9 @@ bool HelloWorld::init()
 
 	cloudSpeed = 0.5f;
 
+	//Bird
+	birdEnemy = new FlyingEnemy(rootNode);
+
 	//Score
 	_scoreLabel = Label::createWithTTF("THE SCORE", "res/burnstown_dam.ttf", 20);
 	_scoreLabel->setPosition(winSize.width / 2, winSize.height - 100);
@@ -64,8 +67,12 @@ bool HelloWorld::init()
 	_scoreCounter = 0;
 
 	paperBoy = new PaperBoy();
+	paperBoy->init();
 	
 	addChild(paperBoy);
+
+	//Collectables
+	collectables.push_back(new SuperPaperCollectable((Sprite*)rootNode->getChildByName("superpaper")));
 
 	this->scheduleUpdate();
 
@@ -81,6 +88,8 @@ bool HelloWorld::init()
 
 void HelloWorld::initForegroundObjects(Node* root)
 {
+
+
 	curtain1 = (Sprite*)root->getChildByName("curtainleft_3");
 	curtain2 = (Sprite*)root->getChildByName("curtainleft_2");
 	beltWheel1 = (Sprite*)root->getChildByName("beltwheel_11");
@@ -92,7 +101,9 @@ void HelloWorld::initForegroundObjects(Node* root)
 	beltWheel7 = (Sprite*)root->getChildByName("beltwheel_11_5");
 	beltWheel8 = (Sprite*)root->getChildByName("beltwheel_11_6");
 	beltWheel9 = (Sprite*)root->getChildByName("beltwheel_11_7");
+
 	beltTopForeground = (Sprite*)root->getChildByName("Sprite_8");
+	beltTopBackground = (Sprite*)root->getChildByName("belttop_7");
 	beltbottom = (Sprite*)root->getChildByName("beltbottom_9");
 	beltBackground = (Sprite*)root->getChildByName("beltbackground_10");
 
@@ -130,7 +141,15 @@ void HelloWorld::initForegroundObjects(Node* root)
 	beltbottom->setGlobalZOrder(2);
 	beltBackground->setGlobalZOrder(1);
 
-	
+	beltWheel1->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel2->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel3->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel4->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel5->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel6->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel7->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel8->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
+	beltWheel9->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
 }
 
 void HelloWorld::initHouse()
@@ -180,6 +199,9 @@ void HelloWorld::update(float t)
 	updateHouseCollision();
 	policeman->update(t);
 	paperBoy->update(t);
+	birdEnemy->Update();
+	updateStage(t);
+	handleCollectableCollisions();
 }
 
 void HelloWorld::updateHouseMovement()
@@ -213,6 +235,7 @@ void HelloWorld::updateHouseMovement()
 				houses[i]->windowBLSprite->setVisible(true);
 				houses[i]->windowTLSprite->setVisible(true);
 				houses[i]->windowTRSprite->setVisible(true);
+				houses[i]->doorSprite->setVisible(true);
 			
 				houses[i]->windowBLHit = false;
 				houses[i]->windowTLHit = false;
@@ -310,6 +333,7 @@ void HelloWorld::updateHouseCollision()
 				{
 					if (newspaper->sprite->getBoundingBox().intersectsRect(houses[i]->doorSprite->getBoundingBox()))
 					{
+						houses[i]->doorSprite->setVisible(false);
 						paperBoy->moveOffscreen(j);
 						houses[i]->doorHit = true;
 					}
@@ -319,6 +343,45 @@ void HelloWorld::updateHouseCollision()
 		}
 
 
+	}
+}
+
+void HelloWorld::updateStage(float)
+{
+	winSize = Director::getInstance()->getWinSize();
+	Vec2 beltTopForegroundPosition = beltTopForeground->getPosition();
+	beltTopForeground->setPosition(beltTopForegroundPosition.x - 1, beltTopForegroundPosition.y);
+	Vec2 beltTopBackgroundPosition = beltTopBackground->getPosition();
+	beltTopBackground->setPosition(beltTopBackgroundPosition.x - 1, beltTopBackgroundPosition.y);
+	Vec2 beltBottomPosition = beltbottom->getPosition();
+	beltbottom->setPosition(beltBottomPosition.x + 1, beltBottomPosition.y);
+	if (beltTopForegroundPosition.x <= winSize.width / 2 - 25) {
+		beltTopForeground->setPosition(winSize.width / 2, beltTopForegroundPosition.y);
+	}
+	if (beltTopBackgroundPosition.x <= winSize.width / 2 - 25) {
+		beltTopBackground->setPosition(winSize.width / 2, beltTopBackgroundPosition.y);
+	}
+	if (beltBottomPosition.x >= winSize.width / 2 + 25) {
+		beltbottom->setPosition(winSize.width / 2, beltBottomPosition.y);
+	}
+}
+
+void HelloWorld::handleCollectableCollisions() 
+{	
+	int numOfNewspapers = paperBoy->getNumOfNewspapers();
+	for (Collectable * c : collectables) 
+	{	
+		for (int j = 0; j < numOfNewspapers; j++)
+		{
+			Newspaper* newspaper = paperBoy->getNewspaper(j);
+			if (newspaper->thrown)
+			{
+				if (c->collided(newspaper->sprite)) 
+				{
+					OutputDebugStringA("COLLIDED WITH PAPER!!!");
+				}
+			}
+		}
 	}
 }
 
