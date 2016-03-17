@@ -413,6 +413,28 @@
             <FileData Type="Normal" Path="beltwheel.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="BirdSprite" ActionTag="-560485724" Tag="89" IconVisible="False" LeftMargin="859.3174" RightMargin="-1181.3174" TopMargin="-881.8483" BottomMargin="-706.1517" ctype="SpriteObjectData">
+            <Size X="802.0000" Y="1908.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="1260.3174" Y="247.8483" />
+            <Scale ScaleX="0.1200" ScaleY="0.1200" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="2.6257" Y="0.7745" />
+            <PreSize X="1.6708" Y="5.9625" />
+            <FileData Type="Normal" Path="BirdSprite.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="superpaper" ActionTag="729850048" Tag="42" IconVisible="False" LeftMargin="614.9495" RightMargin="-421.9495" TopMargin="15.3706" BottomMargin="109.6294" ctype="SpriteObjectData">
+            <Size X="287.0000" Y="195.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="758.4495" Y="207.1294" />
+            <Scale ScaleX="0.2000" ScaleY="0.2000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="1.5801" Y="0.6473" />
+            <PreSize X="0.5979" Y="0.6094" />
+            <FileData Type="Normal" Path="superpaper.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
           <AbstractNodeData Name="curtainleft_2" ActionTag="747719704" Tag="4" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-48.7400" RightMargin="335.7400" TopMargin="-542.7520" BottomMargin="-217.2480" ctype="SpriteObjectData">
             <Size X="193.0000" Y="1080.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />

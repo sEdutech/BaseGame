@@ -1,21 +1,21 @@
-﻿Build started 15/03/2016 13:28:56.
-     1>Project "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\BaseGame.vcxproj" on node 2 (Build target(s)).
+﻿Build started 17/03/2016 16:55:29.
+     1>Project "N:\PaperboyTheatre\proj.win32\BaseGame.vcxproj" on node 2 (Build target(s)).
      1>PreLinkEvent:
-         if not exist "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\"
-         xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.9\prebuilt\win32\*.*" "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\"
+         if not exist "N:\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "N:\PaperboyTheatre\proj.win32\Debug.win32\"
+         xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.9\prebuilt\win32\*.*" "N:\PaperboyTheatre\proj.win32\Debug.win32\"
          
          :VCEnd
          60 File(s) copied
        Link:
-         BaseGame.vcxproj -> C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exe
+         BaseGame.vcxproj -> N:\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exe
        CustomBuildStep:
-         if not exist "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\"
-         xcopy "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\..\Resources" "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\" /D /E /I /F /Y
+         if not exist "N:\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "N:\PaperboyTheatre\proj.win32\Debug.win32\"
+         xcopy "N:\PaperboyTheatre\proj.win32\..\Resources" "N:\PaperboyTheatre\proj.win32\Debug.win32\" /D /E /I /F /Y
                
          :VCEnd
          0 File(s) copied
-     1>Done Building Project "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\BaseGame.vcxproj" (Build target(s)).
+     1>Done Building Project "N:\PaperboyTheatre\proj.win32\BaseGame.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.64
+Time Elapsed 00:00:00.68
