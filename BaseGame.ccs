@@ -35,6 +35,8 @@
         <Image Name="Reload.png" />
         <Image Name="BirdSprite.png" />
         <Image Name="superpaper.png" />
+        <Image Name="FireHydrant.png" />
+        <Image Name="TrashCan.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

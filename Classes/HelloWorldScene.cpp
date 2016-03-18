@@ -41,8 +41,15 @@ bool HelloWorld::init()
 
 	initHouse();
 	initForegroundObjects(rootNode);
-	policeman = new Policeman();
+	
+	//PaperBoy
+	paperBoy = new PaperBoy();
+	paperBoy->init();
+	
+	//Policeman
+	policeman = new Policeman;
 	policeman->init(rootNode);
+	policeman->setDistance((paperBoy->getPaperboySprite()->getPosition().x - policeman->getSprite()->getPosition().x) / 4);
 
 	worldSpeed = 2.0f;
 
@@ -59,6 +66,10 @@ bool HelloWorld::init()
 	//Bird
 	birdEnemy = new FlyingEnemy(rootNode);
 
+	//Obstacles
+	obstacles = new Obstacles();
+	obstacles->init(rootNode);
+
 	//Score
 	_scoreLabel = Label::createWithTTF("THE SCORE", "res/burnstown_dam.ttf", 20);
 	_scoreLabel->setPosition(winSize.width / 2, winSize.height - 100);
@@ -66,8 +77,7 @@ bool HelloWorld::init()
 	this->addChild(_scoreLabel);
 	_scoreCounter = 0;
 
-	paperBoy = new PaperBoy();
-	paperBoy->init();
+
 	
 	addChild(paperBoy);
 
@@ -197,11 +207,12 @@ void HelloWorld::update(float t)
 	updateHouseMovement();
 	updateCloudMovement(); 
 	updateHouseCollision();
-	policeman->update(t);
+	policeman->update(t, paperBoy->getPaperboySprite());
 	paperBoy->update(t);
 	birdEnemy->Update();
 	updateStage(t);
 	handleCollectableCollisions();
+	obstacles->update(t);
 }
 
 void HelloWorld::updateHouseMovement()
@@ -309,6 +320,7 @@ void HelloWorld::updateHouseCollision()
 						houses[i]->windowBLSprite->setVisible(false);
 						paperBoy->moveOffscreen(j);
 						houses[i]->windowBLHit = true;
+						policeman->moveCloser();
 					}
 				}
 				if (!houses[i]->windowTLHit)
@@ -318,6 +330,7 @@ void HelloWorld::updateHouseCollision()
 						houses[i]->windowTLSprite->setVisible(false);
 						paperBoy->moveOffscreen(j);
 						houses[i]->windowTLHit = true;
+						policeman->moveCloser();
 					}
 				}
 				if (!houses[i]->windowTRHit)
@@ -327,6 +340,7 @@ void HelloWorld::updateHouseCollision()
 						houses[i]->windowTRSprite->setVisible(false);
 						paperBoy->moveOffscreen(j);
 						houses[i]->windowTRHit = true;
+						policeman->moveCloser();
 					}
 				}
 				if (!houses[i]->doorHit)
@@ -336,6 +350,7 @@ void HelloWorld::updateHouseCollision()
 						houses[i]->doorSprite->setVisible(false);
 						paperBoy->moveOffscreen(j);
 						houses[i]->doorHit = true;
+						policeman->fallBack();
 					}
 				}	
 			}

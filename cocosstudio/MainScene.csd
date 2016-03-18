@@ -281,6 +281,28 @@
             <FileData Type="Normal" Path="policeFinal.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="TrashCan" ActionTag="-947009458" Tag="44" IconVisible="False" LeftMargin="1029.2826" RightMargin="-955.2826" TopMargin="-480.4747" BottomMargin="-637.5253" ctype="SpriteObjectData">
+            <Size X="406.0000" Y="1438.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="1232.2826" Y="81.4747" />
+            <Scale ScaleX="0.1500" ScaleY="0.1500" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="2.5673" Y="0.2546" />
+            <PreSize X="0.8458" Y="4.4938" />
+            <FileData Type="Normal" Path="TrashCan.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="FireHydrant" ActionTag="-2084190797" Tag="43" IconVisible="False" LeftMargin="1146.1895" RightMargin="-1005.1895" TopMargin="-625.0519" BottomMargin="-830.9481" ctype="SpriteObjectData">
+            <Size X="339.0000" Y="1776.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="1315.6895" Y="57.0520" />
+            <Scale ScaleX="0.1500" ScaleY="0.1500" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="2.7410" Y="0.1783" />
+            <PreSize X="0.7063" Y="5.5500" />
+            <FileData Type="Normal" Path="FireHydrant.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
           <AbstractNodeData Name="beltbackground_10" ActionTag="611922291" Tag="12" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-445.2320" RightMargin="-926.7681" TopMargin="228.7000" BottomMargin="-17.7000" ctype="SpriteObjectData">
             <Size X="1852.0000" Y="109.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -413,13 +435,13 @@
             <FileData Type="Normal" Path="beltwheel.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="BirdSprite" ActionTag="-560485724" Tag="89" IconVisible="False" LeftMargin="859.3174" RightMargin="-1181.3174" TopMargin="-881.8483" BottomMargin="-706.1517" ctype="SpriteObjectData">
+          <AbstractNodeData Name="BirdSprite" ActionTag="-560485724" Tag="89" IconVisible="False" LeftMargin="936.2983" RightMargin="-1258.2983" TopMargin="-1105.9150" BottomMargin="-482.0849" ctype="SpriteObjectData">
             <Size X="802.0000" Y="1908.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="1260.3174" Y="247.8483" />
+            <Position X="1337.2983" Y="471.9151" />
             <Scale ScaleX="0.1200" ScaleY="0.1200" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="2.6257" Y="0.7745" />
+            <PrePosition X="2.7860" Y="1.4747" />
             <PreSize X="1.6708" Y="5.9625" />
             <FileData Type="Normal" Path="BirdSprite.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />

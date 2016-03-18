@@ -7,6 +7,7 @@
 #include "PaperBoy.h"
 #include "FlyingEnemy.h"
 #include "SuperPaperCollectable.h"
+#include "Obstacles.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -79,6 +80,8 @@ private:
 	Size winSize;
 	
 	Policeman* policeman;
+
+	Obstacles* obstacles;
 	
 	Vec2 touchStart;
 	Vec2 touchEnd;

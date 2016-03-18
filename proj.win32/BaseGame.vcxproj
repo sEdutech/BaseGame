@@ -150,6 +150,7 @@ xcopy /Y /Q "$(COCOS_FRAMEWORKS)\cocos2d-x-3.9\prebuilt\win32\*.*" "$(OutDir)"
     <ClCompile Include="..\Classes\FlyingEnemy.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\MainMenu.cpp" />
+    <ClCompile Include="..\Classes\Obstacles.cpp" />
     <ClCompile Include="..\Classes\PaperBoy.cpp" />
     <ClCompile Include="..\Classes\Policeman.cpp" />
     <ClCompile Include="..\Classes\SuperPaperCollectable.cpp" />
@@ -161,6 +162,7 @@ xcopy /Y /Q "$(COCOS_FRAMEWORKS)\cocos2d-x-3.9\prebuilt\win32\*.*" "$(OutDir)"
     <ClInclude Include="..\Classes\FlyingEnemy.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\MainMenu.h" />
+    <ClInclude Include="..\Classes\Obstacles.h" />
     <ClInclude Include="..\Classes\PaperBoy.h" />
     <ClInclude Include="..\Classes\Policeman.h" />
     <ClInclude Include="..\Classes\SuperPaperCollectable.h" />
