@@ -65,7 +65,7 @@ bool HelloWorld::init()
 	cloudSpeed = 0.5f;
 
 	//Bird
-	birdEnemy = new FlyingEnemy(rootNode);
+	birdEnemy = new FlyingEnemy(rootNode, paperBoy->getPaperboySprite());
 
 	//Obstacles
 	obstacles = new Obstacles();
@@ -77,8 +77,6 @@ bool HelloWorld::init()
 	_scoreLabel->setColor(Color3B::BLACK);
 	this->addChild(_scoreLabel);
 	_scoreCounter = 0;
-
-
 	
 	addChild(paperBoy);
 
@@ -191,6 +189,7 @@ void HelloWorld::update(float t)
 	updateStage(t);
 	handleCollectableCollisions();
 	obstacles->update(t);
+	updateBirdCollision();
 }
 
 void HelloWorld::updateHouseMovement()
@@ -383,6 +382,28 @@ void HelloWorld::handleCollectableCollisions()
 	}
 }
 
+void HelloWorld::updateBirdCollision()
+{
+	int numOfNewspapers = paperBoy->getNumOfNewspapers();
+	for (int i = 0; i < numOfNewspapers; i++)
+	{
+		Newspaper* newspaper = paperBoy->getNewspaper(i);
+		if (newspaper->thrown)
+		{
+			if (newspaper->sprite->getBoundingBox().intersectsRect(birdEnemy->getRect()))
+			{
+				birdEnemy->Run();
+				paperBoy->moveOffscreen(i);
+			}
+		}
+	}
+
+	if (paperBoy->getPaperboySprite()->getBoundingBox().intersectsRect(birdEnemy->getRect()))
+	{
+		policeman->moveCloser();
+	}
+}
+
 bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 {
 	touchStart = touch->getLocation();
@@ -396,7 +417,7 @@ void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 
 	if (touchStart == touchEnd)
 	{
-		if (paperBoy->getReloadButton()->getBoundingBox().containsPoint(touch->getLocation()))
+		if (paperBoy->getReloadActive() && paperBoy->getReloadButton()->getBoundingBox().containsPoint(touch->getLocation()))
 		{
 			paperBoy->reloadNewspapers();
 		}

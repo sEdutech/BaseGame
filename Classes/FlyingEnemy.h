@@ -5,6 +5,7 @@
 //#include "HelloWorldScene.h"
 
 using namespace cocos2d;
+using namespace std;
 
 enum type
 {
@@ -18,7 +19,7 @@ enum type
 class FlyingEnemy
 {
 public:
-	FlyingEnemy(cocos2d::Node * root);
+	FlyingEnemy(cocos2d::Node * root, Sprite* _paperBoy);
 	~FlyingEnemy();
 
 	void SpawnEnemy();
@@ -26,12 +27,15 @@ public:
 	void AttackPlayer();
 	void Reset();
 	void Update();
+	void Run();
 
 	cocos2d::Rect getRect();
 
 private:
 	cocos2d::Sprite* birdSprite;
 	cocos2d::Sprite* UFOSprite;
+
+	Sprite* paperBoy;
 
 	cocos2d::Node* mRoot;
 
@@ -41,6 +45,10 @@ private:
 	float randTime;
 	float timeCount;
 
+	Size winSize;
+
 	float scaleX;
+
+	float birdMoveSpeed = 2.0f;
 };
 

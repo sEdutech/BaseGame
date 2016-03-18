@@ -62,16 +62,15 @@ bool PaperBoy::init()
 	}
 
 	//Set newspaper positions
-	newspapers[0]->sprite->setPosition(mWinSize.width / 2, mWinSize.height / 4.5);
 	newspapers[0]->active = true;
-	newspapers[1]->sprite->setPosition(50 + newspapers[1]->sprite->getBoundingBox().size.width * totalNumNewspapers, mWinSize.height - newspapers[1]->sprite->getBoundingBox().size.height);
+	newspapers[0]->sprite->setPosition(100 + newspapers[0]->sprite->getBoundingBox().size.width * totalNumNewspapers, mWinSize.height - newspapers[0]->sprite->getBoundingBox().size.height);
 
-	for (int i = 2; i < totalNumNewspapers; i++)
+	for (int i = 1; i < totalNumNewspapers; i++)
 	{
 		newspapers[i]->sprite->setPosition(newspapers[i - 1]->sprite->getPositionX() - (newspapers[i]->sprite->getBoundingBox().size.width + 5), newspapers[i - 1]->sprite->getPositionY());
 	}
 
-	mPaperBoySprite->setPosition(mWinSize.width / 2, mWinSize.height / 4);
+	mPaperBoySprite->setPosition(mWinSize.width / 2, mWinSize.height / 3.75);
 	frontWheel->setPosition(mPaperBoySprite->getPositionX() + 30, mPaperBoySprite->getPositionY() - 35);
 	backWheel->setPosition(mPaperBoySprite->getPositionX() - 30, mPaperBoySprite->getPositionY() - 35);
 	stick->setPosition(mPaperBoySprite->getPositionX(), mPaperBoySprite->getPositionY() - 90);
@@ -98,12 +97,13 @@ PaperBoy* PaperBoy::create()
 
 void PaperBoy::throwPaper(Vec2 startPoint, Vec2 endPoint)
 {
-	if (currentNumNewspapers != 0) //if 0 need to reload
+	if (currentNumNewspapers != 0 && jumping == false) //if 0 need to reload
 	{			
 		int activeNewspaper = getActiveNewspaper(); 
 		newspapers[activeNewspaper]->trajectory = (endPoint - startPoint);
 		if (newspapers[activeNewspaper]->trajectory.length() > 0)
 		{
+			newspapers[activeNewspaper]->sprite->setPosition(mWinSize.width / 2, mWinSize.height / 4.5);
 			currentNumNewspapers -= 1;
 			//To be used
 			//projectileSpeed = trajectory.length() / 20;
@@ -116,7 +116,6 @@ void PaperBoy::throwPaper(Vec2 startPoint, Vec2 endPoint)
 			if (currentNumNewspapers != 0)
 			{
 				newspapers[activeNewspaper + 1]->active = true;
-				newspapers[activeNewspaper + 1]->sprite->setPosition(mWinSize.width / 2, mWinSize.height / 4.5);
 			}
 		}
 	}
@@ -126,11 +125,10 @@ void PaperBoy::reloadNewspapers()
 {
 	reloadSprite->setPosition(-100, -100);
 
-	newspapers[0]->sprite->setPosition(mWinSize.width / 2, mWinSize.height / 4.5);
 	newspapers[0]->active = true;
-	newspapers[1]->sprite->setPosition(50 + newspapers[1]->sprite->getBoundingBox().size.width * totalNumNewspapers, mWinSize.height - newspapers[1]->sprite->getBoundingBox().size.height);
+	newspapers[0]->sprite->setPosition(100 + newspapers[0]->sprite->getBoundingBox().size.width * totalNumNewspapers, mWinSize.height - newspapers[0]->sprite->getBoundingBox().size.height);
 
-	for (int i = 2; i < totalNumNewspapers; i++)
+	for (int i = 1; i < totalNumNewspapers; i++)
 	{
 		newspapers[i]->sprite->setPosition(newspapers[i - 1]->sprite->getPositionX() - (newspapers[i]->sprite->getBoundingBox().size.width + 5), newspapers[i - 1]->sprite->getPositionY());
 	}
@@ -165,9 +163,9 @@ void PaperBoy::update(float delta)
 		{
 			mPaperBoySprite->setPosition(mPaperBoySprite->getPosition().x, mPaperBoySprite->getPosition().y - 1.5f);
 		}
-		if (mPaperBoySprite->getPosition().y < mWinSize.height / 4)
+		if (mPaperBoySprite->getPosition().y < mWinSize.height / 3.75)
 		{
-			mPaperBoySprite->setPosition(mWinSize.width / 2, mWinSize.height / 4);
+			mPaperBoySprite->setPosition(mWinSize.width / 2, mWinSize.height / 3.75);
 
 			jumping = false;
 		}

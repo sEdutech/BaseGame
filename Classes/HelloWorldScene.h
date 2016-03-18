@@ -59,6 +59,8 @@ public:
 
 	void updateHouseCollision();
 
+	void updateBirdCollision();
+
 	void updateStage(float);
 
 	void handleCollectableCollisions();
