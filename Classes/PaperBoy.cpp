@@ -39,6 +39,7 @@ bool PaperBoy::init()
 	mPaperBoySprite = (Sprite*)rootNode->getChildByName("PaperBoy");
 	frontWheel = (Sprite*)rootNode->getChildByName("FrontWheel");
 	backWheel = (Sprite*)rootNode->getChildByName("BackWheel");
+	stick = (Sprite*)rootNode->getChildByName("Stick");
 
 	reloadSprite = (Sprite*)rootNode->getChildByName("Reload");
 	reloadSprite->setPosition(-100,-100);
@@ -70,9 +71,10 @@ bool PaperBoy::init()
 		newspapers[i]->sprite->setPosition(newspapers[i - 1]->sprite->getPositionX() - (newspapers[i]->sprite->getBoundingBox().size.width + 5), newspapers[i - 1]->sprite->getPositionY());
 	}
 
-	mPaperBoySprite->setPosition(mWinSize.width / 2, mWinSize.height / 6);
-	frontWheel->setPosition(mPaperBoySprite->getPositionX() + 30, mPaperBoySprite->getPositionY() + 20);
-	backWheel->setPosition(mPaperBoySprite->getPositionX() - 30, mPaperBoySprite->getPositionY() + 20);
+	mPaperBoySprite->setPosition(mWinSize.width / 2, mWinSize.height / 4);
+	frontWheel->setPosition(mPaperBoySprite->getPositionX() + 30, mPaperBoySprite->getPositionY() - 35);
+	backWheel->setPosition(mPaperBoySprite->getPositionX() - 30, mPaperBoySprite->getPositionY() - 35);
+	stick->setPosition(mPaperBoySprite->getPositionX(), mPaperBoySprite->getPositionY() - 90);
 
 	projectileSpeed = 5.0f;
 	return true;
@@ -150,8 +152,9 @@ void PaperBoy::update(float delta)
 {
 	if (jumping == true)
 	{
-		frontWheel->setPosition(mPaperBoySprite->getPositionX() + 30, mPaperBoySprite->getPositionY() + 20);
-		backWheel->setPosition(mPaperBoySprite->getPositionX() - 30, mPaperBoySprite->getPositionY() + 20);
+		frontWheel->setPosition(mPaperBoySprite->getPositionX() + 30, mPaperBoySprite->getPositionY() - 35);
+		backWheel->setPosition(mPaperBoySprite->getPositionX() - 30, mPaperBoySprite->getPositionY() - 35);
+		stick->setPosition(mPaperBoySprite->getPositionX(), mPaperBoySprite->getPositionY() - 90);
 
 		jumpCount = jumpCount + 1;
 		if (jumpCount < 75)
@@ -162,9 +165,9 @@ void PaperBoy::update(float delta)
 		{
 			mPaperBoySprite->setPosition(mPaperBoySprite->getPosition().x, mPaperBoySprite->getPosition().y - 1.5f);
 		}
-		if (mPaperBoySprite->getPosition().y < mWinSize.height / 6)
+		if (mPaperBoySprite->getPosition().y < mWinSize.height / 4)
 		{
-			mPaperBoySprite->setPosition(mWinSize.width / 2, mWinSize.height / 6);
+			mPaperBoySprite->setPosition(mWinSize.width / 2, mWinSize.height / 4);
 
 			jumping = false;
 		}

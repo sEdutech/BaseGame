@@ -43,6 +43,7 @@ private:
 	Sprite* mPaperBoySprite;
 	Sprite* frontWheel;
 	Sprite* backWheel;
+	Sprite* stick;
 	
 	Sprite* reloadSprite;
 	bool reloadActive;
