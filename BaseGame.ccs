@@ -1,5 +1,5 @@
 <Solution>
-  <PropertyGroup Name="BaseGame" Version="3.10.0.0" Type="CocosStudio" />
+  <PropertyGroup Name="BaseGame" Version="2.3.3.0" Type="CocosStudio" />
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
@@ -23,6 +23,29 @@
         <Image Name="beltwheel.png" />
         <Project Name="MainScene.csd" Type="Scene" />
         <Image Name="stagermid.png" />
+        <Image Name="policeFinal.png" />
+        <Image Name="curtainbackground-pd-darker.png" />
+        <Project Name="MainMenu.csd" Type="Scene" />
+        <Image Name="NewsPaper.png" />
+        <Image Name="PaperBoy.png" />
+        <Project Name="PaperBoy.csd" Type="Node" />
+        <Image Name="TitleCard.png" />
+        <Image Name="StartSign.png" />
+        <Image Name="cloudwrope.png" />
+        <Image Name="Reload.png" />
+        <Image Name="BirdSprite.png" />
+        <Image Name="superpaper.png" />
+        <Image Name="FireHydrant.png" />
+        <Image Name="TrashCan.png" />
+        <Folder Name="PaperBoy">
+          <Image Name="player-backwheel-rounded.png" />
+          <Image Name="player-frontwheel-rounded.png" />
+          <Image Name="player-nowheels-stick.png" />
+        </Folder>
+        <Image Name="policaman-before-backarm_0000_Layer-2.png" />
+        <Image Name="policaman-before-backarm_0001_Layer-1.png" />
+        <Image Name="policaman-before-backarm_0002_Layer-0.png" />
+        <Image Name="policaman-before-backarm_0003_Layer-3_(1).png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -6,7 +6,7 @@ USING_NS_CC;
 
 using namespace cocostudio::timeline;
 
-//test commit
+PaperBoy* paperBoy;
 
 Scene* HelloWorld::createScene()
 {
@@ -40,10 +40,104 @@ bool HelloWorld::init()
 	winSize = Director::getInstance()->getWinSize();
 
 	initHouse();
+	initForegroundObjects(rootNode);
+
+	worldSpeed = 2.0f;
+
+	//PaperBoy
+	paperBoy = new PaperBoy();
+	paperBoy->init();
+	paperBoy->setWorldSpeed(worldSpeed);
+	
+	//Policeman
+	policeman = new Policeman;
+	policeman->init(rootNode);
+	policeman->setDistance((paperBoy->getPaperboySprite()->getPosition().x - policeman->getSprite()->getPosition().x) / 4);
+
+	//init clouds
+	for (int i = 0; i < numClouds; i++)
+	{
+		stringstream ss;
+		ss << "cloudwrope" << i;
+		clouds[i] = (Sprite*)rootNode->getChildByName(ss.str());
+	}
+
+	cloudSpeed = 0.5f;
+
+	//Bird
+	birdEnemy = new FlyingEnemy(rootNode);
+
+	//Obstacles
+	obstacles = new Obstacles();
+	obstacles->init(rootNode);
+
+	//Score
+	_scoreLabel = Label::createWithTTF("THE SCORE", "res/burnstown_dam.ttf", 20);
+	_scoreLabel->setPosition(winSize.width / 2, winSize.height - 100);
+	_scoreLabel->setColor(Color3B::BLACK);
+	this->addChild(_scoreLabel);
+	_scoreCounter = 0;
+
+
+	
+	addChild(paperBoy);
+
+	//Collectables
+	collectables.push_back(new SuperPaperCollectable((Sprite*)rootNode->getChildByName("superpaper")));
 
 	this->scheduleUpdate();
 
+	auto touchListener = EventListenerTouchOneByOne::create();	
+	touchListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);	
+	touchListener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);	
+	touchListener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);	
+	touchListener->onTouchCancelled = CC_CALLBACK_2(HelloWorld::onTouchCancelled, this);
+	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
+
 	return true;
+}
+
+void HelloWorld::initForegroundObjects(Node* root)
+{
+	curtain1 = (Sprite*)root->getChildByName("curtainleft_3");
+	curtain2 = (Sprite*)root->getChildByName("curtainleft_2");
+
+	for (int i = 0; i < numOfBeltWheels; i++)
+	{
+		stringstream beltwheel; //Cant use to_string
+		beltwheel << "beltwheel_" << i;
+		beltWheels[i] = (Sprite*)root->getChildByName(beltwheel.str());
+	}
+
+	beltTopForeground = (Sprite*)root->getChildByName("Sprite_8");
+	beltTopBackground = (Sprite*)root->getChildByName("belttop_7");
+	beltbottom = (Sprite*)root->getChildByName("beltbottom_9");
+	beltBackground = (Sprite*)root->getChildByName("beltbackground_10");
+
+
+	root->addChild(curtain1);
+	root->addChild(curtain2);
+
+	for (int i = 0; i < numOfBeltWheels; i++)
+	{
+		root->addChild(beltWheels[i]);
+	}
+
+	root->addChild(beltTopForeground);
+	root->addChild(beltbottom);
+	root->addChild(beltBackground);
+
+	curtain1->setGlobalZOrder(4);
+	curtain2->setGlobalZOrder(4);
+
+	for (int i = 0; i < numOfBeltWheels; i++)
+	{
+		beltWheels[i]->setGlobalZOrder(3);
+	}
+
+	beltTopForeground->setGlobalZOrder(2);
+	beltbottom->setGlobalZOrder(2);
+	beltBackground->setGlobalZOrder(1);
 }
 
 void HelloWorld::initHouse()
@@ -54,12 +148,34 @@ void HelloWorld::initHouse()
 	{
 		houses[i] = new House();
 		//Will need to change when have different sprites
-		houses[i]->houseSprite = (Sprite*)rootNode->getChildByName("house_" + to_string(i));
+		stringstream house; //Cant use to_string
+		house << "house_" << i;
+		houses[i]->houseSprite = (Sprite*)rootNode->getChildByName(house.str());
+
 		//Doors
-		houses[i]->doorSprite = (Sprite*)rootNode->getChildByName("house_" + to_string(i) + "_door");
-		//houses[i]->houseSprite->addChild(houses[i]->doorSprite);
-		//houses[i]->doorSprite->setScale(1);
-		//Also need to add init for windows and doors when available - make them children of house
+		stringstream door;
+		door << "house_" << i << "_door";
+		houses[i]->doorSprite = (Sprite*)rootNode->getChildByName(door.str());
+		houses[i]->doorHit = false;
+
+		//BL windows
+		stringstream BLWindow;
+		BLWindow << "house_" << i << "_windowBL";
+		houses[i]->windowBLSprite = (Sprite*)rootNode->getChildByName(BLWindow.str());
+		houses[i]->windowBLHit = false;
+
+		//TL windows
+		stringstream TLWindow;
+		TLWindow << "house_" << i << "_windowTL";
+		houses[i]->windowTLSprite = (Sprite*)rootNode->getChildByName(TLWindow.str());
+		houses[i]->windowTLHit = false;
+
+		//TR windows
+		stringstream TRWindow;
+		TRWindow << "house_" << i << "_windowTR";
+		houses[i]->windowTRSprite = (Sprite*)rootNode->getChildByName(TRWindow.str());
+		houses[i]->windowTRHit = false;
+
 		houses[i]->speed = 1;
 	}
 }
@@ -67,7 +183,14 @@ void HelloWorld::initHouse()
 void HelloWorld::update(float t)
 {
 	updateHouseMovement();
+	updateCloudMovement(); 
 	updateHouseCollision();
+	policeman->update(t, paperBoy->getPaperboySprite());
+	paperBoy->update(t);
+	birdEnemy->Update();
+	updateStage(t);
+	handleCollectableCollisions();
+	obstacles->update(t);
 }
 
 void HelloWorld::updateHouseMovement()
@@ -75,28 +198,84 @@ void HelloWorld::updateHouseMovement()
 	//Movement
 	for (int i = 0; i < numHouses; i++)
 	{
-		//Move Left
-		houses[i]->houseSprite->setPositionX(houses[i]->houseSprite->getPositionX() + houses[i]->speed);
-		houses[i]->doorSprite->setPositionX(houses[i]->doorSprite->getPositionX() + houses[i]->speed);
 
-		//Bob up and down
-		houses[i]->houseSprite->setPositionY((sin(houses[i]->houseSprite->getPositionX() / 10) * 8 + 125)); //Divide by 10 slows it down, multiply by 8 to increase how much it bobs by and add 125 to increase overall height.
-		houses[i]->doorSprite->setPositionY((sin(houses[i]->houseSprite->getPositionX() / 10) * 8 + (2.464 * 125) /*Equals 308 - makes it relative*/));
-		//Doing all this manaually will take a while (have to do for windows), could try to get addChild working properly, but this method works for sure
+		//Move Left
+		houses[i]->houseSprite->setPositionX(houses[i]->houseSprite->getPositionX() - houses[i]->speed * worldSpeed);
+
+		if (houses[i]->onScreen == false)
+		{
+			//Bob up and down
+			houses[i]->houseSprite->setPositionY((sin(houses[i]->houseSprite->getPositionX() / 10) * 8 + 125)); //Divide by 10 slows it down, multiply by 8 to increase how much it bobs by and add 125 to increase overall height.
+
+			//Wrap around
+			if (houses[i]->houseSprite->getPositionX() < (0 - houses[i]->houseSprite->getBoundingBox().size.width))
+			{
+				houses[i]->onScreen = false;
+				int distance = 550;
+				if (i == 0)
+				{
+					houses[i]->houseSprite->setPositionX(houses[numHouses-1]->houseSprite->getPositionX() + distance);
+				}
+				else
+				{
+					houses[i]->houseSprite->setPositionX(houses[i - 1]->houseSprite->getPositionX() + distance);
+				}
+				//reset
+				houses[i]->windowBLSprite->setVisible(true);
+				houses[i]->windowTLSprite->setVisible(true);
+				houses[i]->windowTRSprite->setVisible(true);
+				houses[i]->doorSprite->setVisible(true);
+			
+				houses[i]->windowBLHit = false;
+				houses[i]->windowTLHit = false;
+				houses[i]->windowTRHit = false;
+				houses[i]->doorHit = false;
+			}
+		}
+		else
+		{
+			houses[i]->onScreen = true;
+		}
+
+		//Move doors with house
+		houses[i]->doorSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 172.83);
+		houses[i]->doorSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 138.17);
+
+		//Move BL window with house
+		houses[i]->windowBLSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 57.08);
+		houses[i]->windowBLSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 151.62);
+
+		//Move TL window with house
+		houses[i]->windowTLSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 58);
+		houses[i]->windowTLSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 250);
+
+		//Move TR window with house
+		houses[i]->windowTRSprite->setPositionX(houses[i]->houseSprite->getPositionX() + 203.66);
+		houses[i]->windowTRSprite->setPositionY(houses[i]->houseSprite->getPositionY() + 249.18);
+	}
+}
+
+void HelloWorld::updateCloudMovement()
+{
+	//Movement
+	for (int i = 0; i < numClouds; i++)
+	{
+		//Move Left
+		clouds[i]->setPositionX(clouds[i]->getPositionX() - cloudSpeed * worldSpeed);
+
+		clouds[i]->setPositionY((sin(clouds[i]->getPositionX() / 15) * 20 + 675));  //Divide by 10 slows it down, multiply by 8 to increase how much it bobs by and add 125 to increase overall height.
 
 		//Wrap around
-		if (houses[i]->houseSprite->getPositionX() > winSize.width)
+		if (clouds[i]->getPositionX() < (0 - clouds[i]->getBoundingBox().size.width))
 		{
-			int distance = 550;
-			if (i == numHouses - 1)
+			float distance = 312;
+			if (i == 0)
 			{
-				houses[i]->houseSprite->setPositionX(houses[0]->houseSprite->getPositionX() - distance);
-				houses[i]->doorSprite->setPositionX(houses[0]->doorSprite->getPositionX() - distance);
+				clouds[i]->setPositionX(clouds[numClouds - 1]->getPositionX() + distance);
 			}
 			else
 			{
-				houses[i]->houseSprite->setPositionX(houses[i + 1]->houseSprite->getPositionX() - distance);
-				houses[i]->doorSprite->setPositionX(houses[i + 1]->doorSprite->getPositionX() - distance);
+				clouds[i]->setPositionX(clouds[i - 1]->getPositionX() + distance);
 			}
 		}
 	}
@@ -104,13 +283,141 @@ void HelloWorld::updateHouseMovement()
 
 void HelloWorld::updateHouseCollision()
 {
-	//If newspaper collides with door...
+	int numOfNewspapers = paperBoy->getNumOfNewspapers();
+	for (int i = 0; i < numHouses; i++)
+	{
+		for (int j = 0; j < numOfNewspapers; j++)
+		{
+			Newspaper* newspaper = paperBoy->getNewspaper(j);
+			if (newspaper->thrown)
+			{
+				if (!houses[i]->windowBLHit)
+				{
+					if (newspaper->sprite->getBoundingBox().intersectsRect(houses[i]->windowBLSprite->getBoundingBox()))
+					{
+						houses[i]->windowBLSprite->setVisible(false);
+						paperBoy->moveOffscreen(j);
+						houses[i]->windowBLHit = true;
+						policeman->moveCloser();
+					}
+				}
+				if (!houses[i]->windowTLHit)
+				{
+					if (newspaper->sprite->getBoundingBox().intersectsRect(houses[i]->windowTLSprite->getBoundingBox()))
+					{
+						houses[i]->windowTLSprite->setVisible(false);
+						paperBoy->moveOffscreen(j);
+						houses[i]->windowTLHit = true;
+						policeman->moveCloser();
+					}
+				}
+				if (!houses[i]->windowTRHit)
+				{
+					if (newspaper->sprite->getBoundingBox().intersectsRect(houses[i]->windowTRSprite->getBoundingBox()))
+					{
+						houses[i]->windowTRSprite->setVisible(false);
+						paperBoy->moveOffscreen(j);
+						houses[i]->windowTRHit = true;
+						policeman->moveCloser();
+					}
+				}
+				if (!houses[i]->doorHit)
+				{
+					if (newspaper->sprite->getBoundingBox().intersectsRect(houses[i]->doorSprite->getBoundingBox()))
+					{
+						houses[i]->doorSprite->setVisible(false);
+						paperBoy->moveOffscreen(j);
+						houses[i]->doorHit = true;
+						policeman->fallBack();
+					}
+				}	
+			}
 
-	//Else If newspaper collides with window 1...
+		}
 
-	//Else If newspaper collides with window 2...
 
-	//Else If newspaper collides with window 3...
+	}
+}
 
-	//Else player missed
+void HelloWorld::updateStage(float)
+{
+	for (int i = 0; i < numOfBeltWheels; i++)
+	{
+		beltWheels[i]->setRotation(beltWheels[i]->getRotation() + worldSpeed);
+	}
+
+	winSize = Director::getInstance()->getWinSize();
+	Vec2 beltTopForegroundPosition = beltTopForeground->getPosition();
+	beltTopForeground->setPosition(beltTopForegroundPosition.x - 1, beltTopForegroundPosition.y);
+	Vec2 beltTopBackgroundPosition = beltTopBackground->getPosition();
+	beltTopBackground->setPosition(beltTopBackgroundPosition.x - 1, beltTopBackgroundPosition.y);
+	Vec2 beltBottomPosition = beltbottom->getPosition();
+	beltbottom->setPosition(beltBottomPosition.x + 1, beltBottomPosition.y);
+	if (beltTopForegroundPosition.x <= winSize.width / 2 - 25) {
+		beltTopForeground->setPosition(winSize.width / 2, beltTopForegroundPosition.y);
+	}
+	if (beltTopBackgroundPosition.x <= winSize.width / 2 - 25) {
+		beltTopBackground->setPosition(winSize.width / 2, beltTopBackgroundPosition.y);
+	}
+	if (beltBottomPosition.x >= winSize.width / 2 + 25) {
+		beltbottom->setPosition(winSize.width / 2, beltBottomPosition.y);
+	}
+}
+
+void HelloWorld::handleCollectableCollisions() 
+{	
+	int numOfNewspapers = paperBoy->getNumOfNewspapers();
+	for (Collectable * c : collectables) 
+	{	
+		for (int j = 0; j < numOfNewspapers; j++)
+		{
+			Newspaper* newspaper = paperBoy->getNewspaper(j);
+			if (newspaper->thrown)
+			{
+				if (c->collided(newspaper->sprite)) 
+				{
+					OutputDebugStringA("COLLIDED WITH PAPER!!!");
+				}
+			}
+		}
+	}
+}
+
+bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+	touchStart = touch->getLocation();
+
+	return true;
+}
+
+void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+	touchEnd = touch->getLocation();	
+
+	if (touchStart == touchEnd)
+	{
+		if (paperBoy->getReloadButton()->getBoundingBox().containsPoint(touch->getLocation()))
+		{
+			paperBoy->reloadNewspapers();
+		}
+		else
+		{
+			paperBoy->jump();
+		}
+	}
+
+	else
+	{
+		paperBoy->throwPaper(touchStart, touchEnd);
+	}
+}
+
+void HelloWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+
+}
+
+void HelloWorld::onTouchCancelled(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+
 }

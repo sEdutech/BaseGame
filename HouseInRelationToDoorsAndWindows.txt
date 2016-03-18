@@ -1,0 +1,23 @@
+Door position in relation to house: 
+
+door.pos.x = house.pos.x + 172.83 
+
+door.pos.y = house.pos.y + 138.17
+
+WindowBL (bottom left) position in relation to house:
+
+windowBL.pos.x = house.pos.x + 57.08
+
+windowBL.pos.y = house.pos.y + 151.62
+
+WindowTL (top left) position in relation to house:
+
+windowTL.pos.x = house.pos.x + 58	
+
+windowTL.pos.y = house.pos.y + 250
+
+WindowTR (top right) position in relation to house:
+
+windowTR.pos.x = house.pos.x + 203.66
+
+windowTR.pos.y = house.pos.y + 249.18
