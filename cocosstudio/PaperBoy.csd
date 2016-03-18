@@ -6,15 +6,37 @@
       <ObjectData Name="Node" Tag="39" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="PaperBoy" ActionTag="1355138995" Tag="40" IconVisible="False" LeftMargin="-342.3854" RightMargin="-341.6146" TopMargin="-640.0526" BottomMargin="-665.9474" ctype="SpriteObjectData">
-            <Size X="684.0000" Y="1306.0000" />
+          <AbstractNodeData Name="FrontWheel" ActionTag="356866678" Tag="52" IconVisible="False" LeftMargin="-112.2313" RightMargin="-173.7687" TopMargin="-160.1471" BottomMargin="-125.8529" ctype="SpriteObjectData">
+            <Size X="286.0000" Y="286.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.3854" Y="-12.9474" />
+            <Position X="30.7687" Y="17.1471" />
             <Scale ScaleX="0.1500" ScaleY="0.1500" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="PaperBoy.png" Plist="" />
+            <FileData Type="Normal" Path="PaperBoy/player-frontwheel-rounded.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="BackWheel" ActionTag="-739907846" Tag="51" IconVisible="False" LeftMargin="-173.1968" RightMargin="-112.8032" TopMargin="-159.9800" BottomMargin="-126.0200" ctype="SpriteObjectData">
+            <Size X="286.0000" Y="286.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="-30.1968" Y="16.9800" />
+            <Scale ScaleX="0.1500" ScaleY="0.1500" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="PaperBoy/player-backwheel-rounded.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="PaperBoy" ActionTag="-1030868705" Tag="53" IconVisible="False" LeftMargin="-218.7059" RightMargin="-219.2941" TopMargin="-636.5341" BottomMargin="-637.4659" ctype="SpriteObjectData">
+            <Size X="438.0000" Y="1274.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="0.2941" Y="-0.4659" />
+            <Scale ScaleX="0.1500" ScaleY="0.1500" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="PaperBoy/player-nowheels-stick.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="NewsPaper0" ActionTag="-26739159" Tag="41" IconVisible="False" LeftMargin="-144.4240" RightMargin="-142.5760" TopMargin="-131.5500" BottomMargin="-63.4500" ctype="SpriteObjectData">

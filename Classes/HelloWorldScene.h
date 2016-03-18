@@ -97,15 +97,9 @@ private:
 	//sprites that need to be infront of characters
 	cocos2d::Sprite* curtain1;
 	cocos2d::Sprite* curtain2;
-	cocos2d::Sprite* beltWheel1;
-	cocos2d::Sprite* beltWheel2;
-	cocos2d::Sprite* beltWheel3;
-	cocos2d::Sprite* beltWheel4;
-	cocos2d::Sprite* beltWheel5;
-	cocos2d::Sprite* beltWheel6;
-	cocos2d::Sprite* beltWheel7;
-	cocos2d::Sprite* beltWheel8;
-	cocos2d::Sprite* beltWheel9;
+
+	int numOfBeltWheels = 9;
+	Sprite* beltWheels[9];
 
 	cocos2d::Sprite* beltTopForeground;
 	cocos2d::Sprite* beltTopBackground;

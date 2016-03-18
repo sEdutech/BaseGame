@@ -40,5 +40,7 @@ private:
 	float rand;
 	float randTime;
 	float timeCount;
+
+	float scaleX;
 };
 
