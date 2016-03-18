@@ -33,10 +33,16 @@ public:
 	Sprite* getReloadButton() { return reloadSprite; };
 	void reloadNewspapers();
 
+	void setWorldSpeed(int _worldSpeed) { worldSpeed = _worldSpeed; };
+
+	void PaperBoy::jump();
+
 	void update(float delta);
 
 private:
 	Sprite* mPaperBoySprite;
+	Sprite* frontWheel;
+	Sprite* backWheel;
 	
 	Sprite* reloadSprite;
 	bool reloadActive;
@@ -49,6 +55,11 @@ private:
 	Size mWinSize;
 
 	Rect window;
+
+	bool jumping;
+	float jumpCount;
+	
+	float worldSpeed;
 
 	float projectileSpeed;
 };

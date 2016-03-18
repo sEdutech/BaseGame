@@ -41,17 +41,18 @@ bool HelloWorld::init()
 
 	initHouse();
 	initForegroundObjects(rootNode);
-	
+
+	worldSpeed = 2.0f;
+
 	//PaperBoy
 	paperBoy = new PaperBoy();
 	paperBoy->init();
+	paperBoy->setWorldSpeed(worldSpeed);
 	
 	//Policeman
 	policeman = new Policeman;
 	policeman->init(rootNode);
 	policeman->setDistance((paperBoy->getPaperboySprite()->getPosition().x - policeman->getSprite()->getPosition().x) / 4);
-
-	worldSpeed = 2.0f;
 
 	//init clouds
 	for (int i = 0; i < numClouds; i++)
@@ -98,19 +99,15 @@ bool HelloWorld::init()
 
 void HelloWorld::initForegroundObjects(Node* root)
 {
-
-
 	curtain1 = (Sprite*)root->getChildByName("curtainleft_3");
 	curtain2 = (Sprite*)root->getChildByName("curtainleft_2");
-	beltWheel1 = (Sprite*)root->getChildByName("beltwheel_11");
-	beltWheel2 = (Sprite*)root->getChildByName("beltwheel_11_0");
-	beltWheel3 = (Sprite*)root->getChildByName("beltwheel_11_1");
-	beltWheel4 = (Sprite*)root->getChildByName("beltwheel_11_2");
-	beltWheel5 = (Sprite*)root->getChildByName("beltwheel_11_3");
-	beltWheel6 = (Sprite*)root->getChildByName("beltwheel_11_4");
-	beltWheel7 = (Sprite*)root->getChildByName("beltwheel_11_5");
-	beltWheel8 = (Sprite*)root->getChildByName("beltwheel_11_6");
-	beltWheel9 = (Sprite*)root->getChildByName("beltwheel_11_7");
+
+	for (int i = 0; i < numOfBeltWheels; i++)
+	{
+		stringstream beltwheel; //Cant use to_string
+		beltwheel << "beltwheel_" << i;
+		beltWheels[i] = (Sprite*)root->getChildByName(beltwheel.str());
+	}
 
 	beltTopForeground = (Sprite*)root->getChildByName("Sprite_8");
 	beltTopBackground = (Sprite*)root->getChildByName("belttop_7");
@@ -121,15 +118,10 @@ void HelloWorld::initForegroundObjects(Node* root)
 	root->addChild(curtain1);
 	root->addChild(curtain2);
 
-	root->addChild(beltWheel1);
-	root->addChild(beltWheel2);
-	root->addChild(beltWheel3);
-	root->addChild(beltWheel4);
-	root->addChild(beltWheel5);
-	root->addChild(beltWheel6);
-	root->addChild(beltWheel7);
-	root->addChild(beltWheel8);
-	root->addChild(beltWheel9);
+	for (int i = 0; i < numOfBeltWheels; i++)
+	{
+		root->addChild(beltWheels[i]);
+	}
 
 	root->addChild(beltTopForeground);
 	root->addChild(beltbottom);
@@ -137,29 +129,15 @@ void HelloWorld::initForegroundObjects(Node* root)
 
 	curtain1->setGlobalZOrder(4);
 	curtain2->setGlobalZOrder(4);
-	beltWheel1->setGlobalZOrder(3);
-	beltWheel2->setGlobalZOrder(3);
-	beltWheel3->setGlobalZOrder(3);
-	beltWheel4->setGlobalZOrder(3);
-	beltWheel5->setGlobalZOrder(3);
-	beltWheel6->setGlobalZOrder(3);
-	beltWheel7->setGlobalZOrder(3);
-	beltWheel8->setGlobalZOrder(3);
-	beltWheel9->setGlobalZOrder(3);
+
+	for (int i = 0; i < numOfBeltWheels; i++)
+	{
+		beltWheels[i]->setGlobalZOrder(3);
+	}
 
 	beltTopForeground->setGlobalZOrder(2);
 	beltbottom->setGlobalZOrder(2);
 	beltBackground->setGlobalZOrder(1);
-
-	beltWheel1->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
-	beltWheel2->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
-	beltWheel3->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
-	beltWheel4->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
-	beltWheel5->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
-	beltWheel6->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
-	beltWheel7->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
-	beltWheel8->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
-	beltWheel9->runAction(RepeatForever::create(RotateBy::create(1.0f, -360.0f)));
 }
 
 void HelloWorld::initHouse()
@@ -363,6 +341,11 @@ void HelloWorld::updateHouseCollision()
 
 void HelloWorld::updateStage(float)
 {
+	for (int i = 0; i < numOfBeltWheels; i++)
+	{
+		beltWheels[i]->setRotation(beltWheels[i]->getRotation() + worldSpeed);
+	}
+
 	winSize = Director::getInstance()->getWinSize();
 	Vec2 beltTopForegroundPosition = beltTopForeground->getPosition();
 	beltTopForeground->setPosition(beltTopForegroundPosition.x - 1, beltTopForegroundPosition.y);
@@ -410,13 +393,19 @@ bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
 	touchEnd = touch->getLocation();	
-	if (paperBoy->getReloadActive())
+
+	if (touchStart == touchEnd)
 	{
 		if (paperBoy->getReloadButton()->getBoundingBox().containsPoint(touch->getLocation()))
 		{
 			paperBoy->reloadNewspapers();
 		}
+		else
+		{
+			paperBoy->jump();
+		}
 	}
+
 	else
 	{
 		paperBoy->throwPaper(touchStart, touchEnd);

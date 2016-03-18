@@ -6,6 +6,7 @@ FlyingEnemy::FlyingEnemy(cocos2d::Node * root)
 	birdSprite = (Sprite*)root->getChildByName("BirdSprite");
 	UFOSprite = (Sprite*)root->getChildByName("BirdSprite");
 
+	scaleX = birdSprite->getScaleX();
 	Reset();
 
 	mRoot = root;
@@ -14,6 +15,7 @@ FlyingEnemy::FlyingEnemy(cocos2d::Node * root)
 
 FlyingEnemy::~FlyingEnemy()
 {
+
 }
 
 void FlyingEnemy::SpawnEnemy()
@@ -23,25 +25,26 @@ void FlyingEnemy::SpawnEnemy()
 	if (rand == 13)
 	{
 		enemyType = UFOLeft;
-		UFOSprite->setPosition(-30, Director::getInstance()->getVisibleSize().height / 2);
+		UFOSprite->setPosition(-30, (Director::getInstance()->getVisibleSize().height / 4) * 3);
 		UFOSprite->setVisible(true);
 	}
 	else if (rand == 38)
 	{
 		enemyType = UFORight;
-		UFOSprite->setPosition(Director::getInstance()->getVisibleSize().width + 30, Director::getInstance()->getVisibleSize().height / 2);
+		UFOSprite->setPosition(Director::getInstance()->getVisibleSize().width + 30, (Director::getInstance()->getVisibleSize().height / 4) * 3);
 		UFOSprite->setVisible(true);
 	}
 	else if (rand >= 25)
 	{
 		enemyType = BirdLeft;
-		birdSprite->setPosition(-30, Director::getInstance()->getVisibleSize().height / 2);
+		birdSprite->setScaleX(birdSprite->getScaleX() * -1);
+		birdSprite->setPosition(-30, (Director::getInstance()->getVisibleSize().height / 4) * 3);
 		birdSprite->setVisible(true);
 	}
 	else if (rand < 25)
 	{
 		enemyType = BirdRight;
-		birdSprite->setPosition(Director::getInstance()->getVisibleSize().width + 30, Director::getInstance()->getVisibleSize().height / 2);
+		birdSprite->setPosition(Director::getInstance()->getVisibleSize().width + 30, (Director::getInstance()->getVisibleSize().height / 4) * 3);
 		birdSprite->setVisible(true);
 	}
 }
@@ -74,7 +77,19 @@ void FlyingEnemy::Update()
 		break;
 
 	case BirdLeft:
-		birdSprite->setPosition(birdSprite->getPosition().x + 1, birdSprite->getPosition().y);
+
+		if (birdSprite->getPosition().x >= Director::getInstance()->getVisibleSize().width / 4 && birdSprite->getPosition().x < Director::getInstance()->getVisibleSize().width / 2)
+		{
+			birdSprite->setPosition(birdSprite->getPosition().x + 0.75, birdSprite->getPosition().y - 0.75);
+		}
+		else if (birdSprite->getPosition().x > Director::getInstance()->getVisibleSize().width / 2 && birdSprite->getPosition().x < Director::getInstance()->getVisibleSize().width / 4 * 3)
+		{
+			birdSprite->setPosition(birdSprite->getPosition().x + 0.75, birdSprite->getPosition().y + 0.75);
+		}
+		else
+		{
+			birdSprite->setPosition(birdSprite->getPosition().x + 1, birdSprite->getPosition().y);
+		}
 		if (birdSprite->getPosition().x >= Director::getInstance()->getVisibleSize().width + 30)
 		{
 			Reset();
@@ -82,8 +97,20 @@ void FlyingEnemy::Update()
 		break;
 
 	case BirdRight:
-		birdSprite->setPosition(birdSprite->getPosition().x - 1, birdSprite->getPosition().y);
-		if (UFOSprite->getPosition().x <= -30)
+		if (birdSprite->getPosition().x > Director::getInstance()->getVisibleSize().width / 2 && birdSprite->getPosition().x < Director::getInstance()->getVisibleSize().width / 4 * 3)
+		{
+			birdSprite->setPosition(birdSprite->getPosition().x - 0.75, birdSprite->getPosition().y - 0.75);
+		}
+		else if (birdSprite->getPosition().x >= Director::getInstance()->getVisibleSize().width / 4 && birdSprite->getPosition().x < Director::getInstance()->getVisibleSize().width / 2)
+		{
+			birdSprite->setPosition(birdSprite->getPosition().x - 0.75, birdSprite->getPosition().y + 0.75);
+		}
+		else
+		{
+			birdSprite->setPosition(birdSprite->getPosition().x - 1, birdSprite->getPosition().y);
+
+		}
+		if (birdSprite->getPosition().x <= -30)
 		{
 			Reset();
 		}
@@ -95,8 +122,9 @@ void FlyingEnemy::Reset()
 {
 	UFOSprite->setVisible(false);
 	birdSprite->setVisible(false);
-	birdSprite->setPosition(-30, Director::getInstance()->getVisibleSize().height/2);
-	UFOSprite->setPosition(-30, Director::getInstance()->getVisibleSize().height / 2);
+	birdSprite->setScaleX(scaleX);
+	birdSprite->setPosition(-30, (Director::getInstance()->getVisibleSize().height / 4) * 3);
+	UFOSprite->setPosition(-30, (Director::getInstance()->getVisibleSize().height / 4) * 3);
 	timeCount = 0;
 	randTime = cocos2d::RandomHelper::random_int(180, 200);
 	enemyType = Start;

@@ -8,7 +8,7 @@ using namespace cocos2d;
 
 PaperBoy::PaperBoy()
 {
-
+	
 }
 
 PaperBoy::~PaperBoy()
@@ -17,7 +17,6 @@ PaperBoy::~PaperBoy()
 
 bool PaperBoy::init()
 {
-
 	if (!Node::init())
 	{
 		return false;
@@ -38,10 +37,16 @@ bool PaperBoy::init()
 
 	//Set references to the Sprite objects 
 	mPaperBoySprite = (Sprite*)rootNode->getChildByName("PaperBoy");
+	frontWheel = (Sprite*)rootNode->getChildByName("FrontWheel");
+	backWheel = (Sprite*)rootNode->getChildByName("BackWheel");
 
 	reloadSprite = (Sprite*)rootNode->getChildByName("Reload");
 	reloadSprite->setPosition(-100,-100);
 	reloadActive = false;
+
+	//Jump
+	jumping = false;
+	jumpCount = 0;
 
 	//init newspapers
 	for (int i = 0; i < totalNumNewspapers; i++)
@@ -66,6 +71,9 @@ bool PaperBoy::init()
 	}
 
 	mPaperBoySprite->setPosition(mWinSize.width / 2, mWinSize.height / 6);
+	frontWheel->setPosition(mPaperBoySprite->getPositionX() + 30, mPaperBoySprite->getPositionY() + 20);
+	backWheel->setPosition(mPaperBoySprite->getPositionX() - 30, mPaperBoySprite->getPositionY() + 20);
+
 	projectileSpeed = 5.0f;
 	return true;
 }
@@ -140,6 +148,28 @@ void PaperBoy::moveOffscreen(int i)
 
 void PaperBoy::update(float delta)
 {
+	if (jumping == true)
+	{
+		frontWheel->setPosition(mPaperBoySprite->getPositionX() + 30, mPaperBoySprite->getPositionY() + 20);
+		backWheel->setPosition(mPaperBoySprite->getPositionX() - 30, mPaperBoySprite->getPositionY() + 20);
+
+		jumpCount = jumpCount + 1;
+		if (jumpCount < 75)
+		{
+			mPaperBoySprite->setPosition(mPaperBoySprite->getPosition().x, mPaperBoySprite->getPosition().y + 1.5f);
+		}
+		else if (jumpCount > 75)
+		{
+			mPaperBoySprite->setPosition(mPaperBoySprite->getPosition().x, mPaperBoySprite->getPosition().y - 1.5f);
+		}
+		if (mPaperBoySprite->getPosition().y < mWinSize.height / 6)
+		{
+			mPaperBoySprite->setPosition(mWinSize.width / 2, mWinSize.height / 6);
+
+			jumping = false;
+		}
+	}
+
 	bool thrown = false;
 	for (int i = 0; i < totalNumNewspapers; i++)
 	{
@@ -159,6 +189,9 @@ void PaperBoy::update(float delta)
 		reloadActive = true;
 		reloadSprite->setPosition(50 + reloadSprite->getBoundingBox().size.width, mWinSize.height - reloadSprite->getBoundingBox().size.height);
 	}
+
+	frontWheel->setRotation(frontWheel->getRotation() +  worldSpeed);
+	backWheel->setRotation(backWheel->getRotation() + worldSpeed);
 }
 
 int PaperBoy::getActiveNewspaper()
@@ -169,5 +202,14 @@ int PaperBoy::getActiveNewspaper()
 		{
 			return i;
 		}
+	}
+}
+
+void PaperBoy::jump()
+{
+	if (jumping == false)
+	{
+		jumping = true;
+		jumpCount = 0;
 	}
 }
