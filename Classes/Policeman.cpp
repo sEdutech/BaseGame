@@ -51,16 +51,16 @@ void Policeman::update(float delta, cocos2d::Sprite * paperBoySprite)
 	//if we have a destination to go to and not arrived
 	if (floor(sprites[0]->getPosition().x) != destinationX) {
 		if (floor(sprites[0]->getPosition().x) <= destinationX) { //if our destination is ahead of us
-			position = Vec2(sprites[0]->getPosition().x + velocityX, 157.42 + offsetY);
+			position = Vec2(sprites[0]->getPosition().x + velocityX, 137.42 + offsetY);
 		}
 		else { //if our destination is behind us
-			position = Vec2(sprites[0]->getPosition().x + velocityX, 157.42 + offsetY);
+			position = Vec2(sprites[0]->getPosition().x + velocityX, 137.42 + offsetY);
 		}
 
 	}
 	else {//if we dont have a destination, reset our velocity for next destination and draw current pos
 		if (velocityX != 0.0) velocityX = 0.0f;
-		position = Vec2(destinationX, 157.42 + offsetY);
+		position = Vec2(destinationX, 137.42 + offsetY);
 	}
 
 	sprites[0]->setPosition(position);
@@ -78,6 +78,8 @@ void Policeman::update(float delta, cocos2d::Sprite * paperBoySprite)
 		CCDirector::getInstance()->replaceScene(mainScene);
 	}
 
+	sprites[1]->setRotation(sprites[1]->getRotation() + 2.0f); //in sync with world speed
+
 
 }
 
@@ -93,11 +95,15 @@ void Policeman::init(cocos2d::Node * root)
 	armRelative = getRelativePosition(sprites[0], sprites[2]);
 	legRelative = getRelativePosition(sprites[0], sprites[3]);
 
-	Sequence* moveArm = Sequence::create(Repeat::create(RotateBy::create(1.0f, -20.0f), 1),
-		Repeat::create(RotateBy::create(1.0f, +20.0f), 1),
-		Repeat::create(RotateBy::create(1.0f, -20.0f), 1),
-		Repeat::create(RotateBy::create(1.0f, +20.0f), 1), nullptr);
+	Sequence* moveArm = Sequence::create(Repeat::create(RotateBy::create(1.0f, +40.0f), 1),
+		Repeat::create(RotateBy::create(1.0f, -40.0f), 1),
+		Repeat::create(RotateBy::create(1.0f, +40.0f), 1),
+		Repeat::create(RotateBy::create(1.0f, -40.0f), 1), nullptr);
 	sprites[2]->runAction(moveArm);
+
+
+	//sprites[1]->runAction(RepeatForever::create(RotateBy::create(1.0f, 360.0f))); //not in sync with world speed
+
 
 	destinationX = sprites[0]->getPosition().x;
 }

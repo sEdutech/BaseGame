@@ -59,7 +59,11 @@ public:
 
 	void updateHouseCollision();
 
+	Collectable * getRandomCollectable();
+
 	void updateStage(float);
+
+	void updateCollectables();
 
 	void handleCollectableCollisions();
 
@@ -108,6 +112,7 @@ private:
 
 	//Collectible
 	vector<Collectable *> collectables;
+	Collectable * collectableOnScreen;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

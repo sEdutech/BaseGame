@@ -2,6 +2,8 @@
 #define  _COLLECTABLE_H_
 
 #include "cocos2d.h"
+#include "PaperBoy.h"
+
 class Collectable {
 private:
 	cocos2d::Sprite * sprite;
@@ -9,6 +11,7 @@ private:
 public:
 
 	virtual bool collided(cocos2d::Sprite * object) = 0;
+	virtual void handleEffect(PaperBoy * paperBoy) = 0;
 
 	cocos2d::Sprite * getSprite() {
 		return sprite;

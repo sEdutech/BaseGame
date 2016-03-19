@@ -1,24 +1,4 @@
-﻿Build started 18/03/2016 15:15:53.
-     1>Project "S:\PaperboyTheatre\proj.win32\BaseGame.vcxproj" on node 2 (Build target(s)).
-     1>PreLinkEvent:
-         if not exist "S:\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "S:\PaperboyTheatre\proj.win32\Debug.win32\"
-         xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.9\prebuilt\win32\*.*" "S:\PaperboyTheatre\proj.win32\Debug.win32\"
-         
-         :VCEnd
-         60 File(s) copied
-       Link:
-         BaseGame.vcxproj -> S:\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exe
-       CustomBuildStep:
-         if not exist "S:\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "S:\PaperboyTheatre\proj.win32\Debug.win32\"
-         xcopy "S:\PaperboyTheatre\proj.win32\..\Resources" "S:\PaperboyTheatre\proj.win32\Debug.win32\" /D /E /I /F /Y
-               
-         :VCEnd
-         S:\PaperboyTheatre\Resources\res\MainMenu.csb -> S:\PaperboyTheatre\proj.win32\Debug.win32\res\MainMenu.csb
-         S:\PaperboyTheatre\Resources\res\MainScene.csb -> S:\PaperboyTheatre\proj.win32\Debug.win32\res\MainScene.csb
-         S:\PaperboyTheatre\Resources\res\PaperBoy.csb -> S:\PaperboyTheatre\proj.win32\Debug.win32\res\PaperBoy.csb
-         3 File(s) copied
-     1>Done Building Project "S:\PaperboyTheatre\proj.win32\BaseGame.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:17.58
+﻿  Policeman.cpp
+  60 File(s) copied
+  BaseGame.vcxproj -> C:\Users\Kieran\Desktop\TGP\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exe
+  0 File(s) copied

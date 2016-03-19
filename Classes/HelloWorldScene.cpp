@@ -84,6 +84,8 @@ bool HelloWorld::init()
 
 	//Collectables
 	collectables.push_back(new SuperPaperCollectable((Sprite*)rootNode->getChildByName("superpaper")));
+	collectableOnScreen = collectables[0];
+	collectableOnScreen->getSprite()->runAction(RepeatForever::create(RotateBy::create(1.0f, 360.0f)));
 
 	this->scheduleUpdate();
 
@@ -190,6 +192,7 @@ void HelloWorld::update(float t)
 	birdEnemy->Update();
 	updateStage(t);
 	handleCollectableCollisions();
+	updateCollectables();
 	obstacles->update(t);
 }
 
@@ -339,6 +342,13 @@ void HelloWorld::updateHouseCollision()
 	}
 }
 
+Collectable * HelloWorld::getRandomCollectable()
+{
+	int num = cocos2d::RandomHelper::random_int(0, (int)collectables.size() - 1);
+
+	return collectables[num];
+}
+
 void HelloWorld::updateStage(float)
 {
 	for (int i = 0; i < numOfBeltWheels; i++)
@@ -364,19 +374,41 @@ void HelloWorld::updateStage(float)
 	}
 }
 
+void HelloWorld::updateCollectables()
+{
+	Vec2 position = collectableOnScreen->getSprite()->getPosition();
+
+	collectableOnScreen->getSprite()->setPosition(position.x - 1, position.y);
+
+	if (position.x < 0) {
+		collectableOnScreen = getRandomCollectable();
+		Vec2 newPosition = Vec2(winSize.width + cocos2d::RandomHelper::random_int(20, 70), collectableOnScreen->getSprite()->getPosition().y);
+		collectableOnScreen->getSprite()->setPosition(newPosition);
+		collectableOnScreen->getSprite()->setVisible(true);
+	}
+
+}
+
 void HelloWorld::handleCollectableCollisions() 
 {	
 	int numOfNewspapers = paperBoy->getNumOfNewspapers();
 	for (Collectable * c : collectables) 
-	{	
+	{
+		if (!c->getSprite()->isVisible()) continue;
+
+		if (c->collided(paperBoy->getPaperboySprite())) {
+			c->handleEffect(paperBoy);
+			continue;
+		}
+
 		for (int j = 0; j < numOfNewspapers; j++)
 		{
 			Newspaper* newspaper = paperBoy->getNewspaper(j);
 			if (newspaper->thrown)
 			{
-				if (c->collided(newspaper->sprite)) 
+				if (c->collided(newspaper->sprite))
 				{
-					OutputDebugStringA("COLLIDED WITH PAPER!!!");
+					c->handleEffect(paperBoy);
 				}
 			}
 		}
