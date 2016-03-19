@@ -94,6 +94,7 @@ void FlyingEnemy::Update()
 			Reset();
 		}
 		break;
+		
 	}
 }
 

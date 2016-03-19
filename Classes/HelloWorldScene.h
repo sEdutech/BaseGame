@@ -59,11 +59,17 @@ public:
 
 	void updateHouseCollision();
 
+	Collectable * getRandomCollectable();
+
 	void updateBirdCollision();
 
 	void updateStage(float);
 
+	void updateCollectables();
+
 	void handleCollectableCollisions();
+
+	void updateObstacleCollision();
 
 	bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
 	void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
@@ -109,7 +115,8 @@ private:
 	cocos2d::Sprite* beltBackground;
 
 	//Collectible
-	vector<Collectable *> collectables;
+	vector<Collectable *> collectables; 
+	Collectable * collectableOnScreen;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

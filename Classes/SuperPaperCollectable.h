@@ -13,6 +13,7 @@ public:
 	}
 
 	bool collided(cocos2d::Sprite * object);
+	void handleEffect(PaperBoy * paperBoy);
 
 };
 

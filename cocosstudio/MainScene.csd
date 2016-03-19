@@ -303,7 +303,7 @@
             <FileData Type="Normal" Path="policaman-before-backarm_0001_Layer-1.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="policeman_front_leg" ActionTag="-1733399916" Tag="45" IconVisible="False" LeftMargin="-216.0072" RightMargin="89.0072" TopMargin="-787.9188" BottomMargin="-820.0812" ctype="SpriteObjectData">
+          <AbstractNodeData Name="policeman_front_leg" ActionTag="-1733399916" Tag="45" IconVisible="False" LeftMargin="-216.0072" RightMargin="89.0072" TopMargin="-787.9189" BottomMargin="-820.0811" ctype="SpriteObjectData">
             <Size X="607.0000" Y="1928.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="87.4928" Y="143.9189" />
@@ -479,13 +479,13 @@
             <FileData Type="Normal" Path="BirdSprite.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="superpaper" ActionTag="729850048" Tag="42" IconVisible="False" LeftMargin="614.9495" RightMargin="-421.9495" TopMargin="15.3706" BottomMargin="109.6294" ctype="SpriteObjectData">
+          <AbstractNodeData Name="superpaper" ActionTag="729850048" Tag="42" IconVisible="False" LeftMargin="654.9493" RightMargin="-461.9493" TopMargin="-39.6284" BottomMargin="164.6284" ctype="SpriteObjectData">
             <Size X="287.0000" Y="195.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="758.4495" Y="207.1294" />
+            <Position X="798.4493" Y="262.1284" />
             <Scale ScaleX="0.2000" ScaleY="0.2000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="1.5801" Y="0.6473" />
+            <PrePosition X="1.6634" Y="0.8192" />
             <PreSize X="0.5979" Y="0.6094" />
             <FileData Type="Normal" Path="superpaper.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
