@@ -15,9 +15,26 @@ public:
 
 	void update(float delta);
 
+	Sprite* getFireHydrantSprite() { return fireHydrant; };
+
+	Sprite* getTrashCanSprite() { return trashCan; };
+
+	void fireHydrantDrop() { fireHydrantDropping = true; };
+
+	void trashCanDrop() { trashCanDropping = true; };
+
 private:
-	cocos2d::Sprite * obSpriteBox;
-	cocos2d::Sprite * obRedSpriteBox;
+	Sprite * fireHydrant;
+	Sprite * trashCan;
+
+	bool fireHydrantOnScreen;
+	bool trashCanOnScreen;
+
+	bool fireHydrantDropping;
+	bool trashCanDropping;
+
 	float timer;
+
+	Size winSize;
 };
 

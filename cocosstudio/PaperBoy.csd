@@ -28,10 +28,43 @@
             <FileData Type="Normal" Path="PaperBoy/player-backwheel-rounded.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="NewsPaper0" ActionTag="-26739159" Tag="41" IconVisible="False" LeftMargin="-144.4240" RightMargin="-142.5760" TopMargin="-131.5500" BottomMargin="-63.4500" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Reload" ActionTag="-851167988" Tag="48" IconVisible="False" LeftMargin="-143.5528" RightMargin="-129.4472" TopMargin="-191.9049" BottomMargin="135.9049" ctype="SpriteObjectData">
+            <Size X="273.0000" Y="56.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="-7.0528" Y="163.9049" />
+            <Scale ScaleX="0.7000" ScaleY="0.7000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="Reload.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Stick" ActionTag="886405593" Tag="59" IconVisible="False" LeftMargin="-33.5000" RightMargin="-33.5000" TopMargin="-305.3724" BottomMargin="-390.6276" ctype="SpriteObjectData">
+            <Size X="67.0000" Y="696.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position Y="-42.6276" />
+            <Scale ScaleX="0.1500" ScaleY="0.1500" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="PaperBoy/stick.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="PaperBoy" ActionTag="1286514546" Tag="56" IconVisible="False" LeftMargin="-219.0111" RightMargin="-218.9889" TopMargin="-341.1561" BottomMargin="-236.8439" ctype="SpriteObjectData">
+            <Size X="438.0000" Y="578.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="-0.0111" Y="52.1561" />
+            <Scale ScaleX="0.1500" ScaleY="0.1500" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="PaperBoy/body.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="NewsPaper2" ActionTag="-67335977" Tag="46" IconVisible="False" LeftMargin="-21.8560" RightMargin="-265.1440" TopMargin="-98.4858" BottomMargin="-96.5142" ctype="SpriteObjectData">
             <Size X="287.0000" Y="195.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.9240" Y="34.0500" />
+            <Position X="121.6440" Y="0.9858" />
             <Scale ScaleX="0.1500" ScaleY="0.1500" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -50,48 +83,15 @@
             <FileData Type="Normal" Path="NewsPaper.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="NewsPaper2" ActionTag="-67335977" Tag="46" IconVisible="False" LeftMargin="-21.8560" RightMargin="-265.1440" TopMargin="-98.4858" BottomMargin="-96.5142" ctype="SpriteObjectData">
+          <AbstractNodeData Name="NewsPaper0" ActionTag="-26739159" Tag="41" IconVisible="False" LeftMargin="-144.4240" RightMargin="-142.5760" TopMargin="-131.5500" BottomMargin="-63.4500" ctype="SpriteObjectData">
             <Size X="287.0000" Y="195.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="121.6440" Y="0.9858" />
+            <Position X="-0.9240" Y="34.0500" />
             <Scale ScaleX="0.1500" ScaleY="0.1500" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="NewsPaper.png" Plist="" />
-            <BlendFunc Src="770" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="Reload" ActionTag="-851167988" Tag="48" IconVisible="False" LeftMargin="-143.5528" RightMargin="-129.4472" TopMargin="-191.9049" BottomMargin="135.9049" ctype="SpriteObjectData">
-            <Size X="273.0000" Y="56.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-7.0528" Y="163.9049" />
-            <Scale ScaleX="0.7000" ScaleY="0.7000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="Reload.png" Plist="" />
-            <BlendFunc Src="770" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="Stick" ActionTag="886405593" Tag="59" IconVisible="False" LeftMargin="-33.5000" RightMargin="-33.5000" TopMargin="-305.3724" BottomMargin="-390.6276" ctype="SpriteObjectData">
-            <Size X="67.0000" Y="696.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="0.0000" Y="-42.6276" />
-            <Scale ScaleX="0.1500" ScaleY="0.1500" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="PaperBoy/stick.png" Plist="" />
-            <BlendFunc Src="770" Dst="771" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="PaperBoy" ActionTag="1286514546" Tag="56" IconVisible="False" LeftMargin="-219.0111" RightMargin="-218.9889" TopMargin="-341.1561" BottomMargin="-236.8439" ctype="SpriteObjectData">
-            <Size X="438.0000" Y="578.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.0111" Y="52.1561" />
-            <Scale ScaleX="0.1500" ScaleY="0.1500" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="PaperBoy/body.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
         </Children>

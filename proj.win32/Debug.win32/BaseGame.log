@@ -1,9 +1,10 @@
-﻿Build started 18/03/2016 20:01:01.
+﻿Build started 19/03/2016 15:15:44.
      1>Project "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\BaseGame.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\audio\include" /I"C:\Cocos\frameworks\cocos2d-x-3.9\external" /I"C:\Cocos\frameworks\cocos2d-x-3.9\external\chipmunk\include\chipmunk" /I"C:\Cocos\frameworks\cocos2d-x-3.9\extensions" /I..\Classes /I.. /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\cocos\editor-support" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\cocos" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\cocos\platform" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\cocos\platform\desktop" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\external\glfw3\include\win32" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\external\freetype2\include\win32\freetype2" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\external\freetype2\include\win32\\" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\external" /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\PaperBoy.cpp
-         PaperBoy.cpp
-     1>c:\users\deadman\documents\github\paperboytheatre\classes\paperboy.cpp(209): warning C4715: 'PaperBoy::getActiveNewspaper' : not all control paths return a value
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\audio\include" /I"C:\Cocos\frameworks\cocos2d-x-3.9\external" /I"C:\Cocos\frameworks\cocos2d-x-3.9\external\chipmunk\include\chipmunk" /I"C:\Cocos\frameworks\cocos2d-x-3.9\extensions" /I..\Classes /I.. /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\cocos\editor-support" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\cocos" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\cocos\platform" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\cocos\platform\desktop" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\external\glfw3\include\win32" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\external\freetype2\include\win32\freetype2" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\external\freetype2\include\win32\\" /I"C:\Cocos\frameworks\cocos2d-x-3.9\cocos\2d\..\..\external" /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\FlyingEnemy.cpp ..\Classes\Policeman.cpp
+         FlyingEnemy.cpp
+         Policeman.cpp
+     1>c:\users\deadman\documents\github\paperboytheatre\classes\flyingenemy.cpp(132): warning C4715: 'FlyingEnemy::getRect' : not all control paths return a value
        PreLinkEvent:
          if not exist "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\"
          xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.9\prebuilt\win32\*.*" "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\"
@@ -21,15 +22,20 @@
          Debug.win32\Policeman.obj
          Debug.win32\SuperPaperCollectable.obj
          Debug.win32\main.obj
+     1>AppDelegate.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+            Creating library C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.lib and object C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exp
          BaseGame.vcxproj -> C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exe
        CustomBuildStep:
          if not exist "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\"
          xcopy "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\..\Resources" "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\" /D /E /I /F /Y
                
          :VCEnd
-         0 File(s) copied
+         C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\Resources\res\MainMenu.csb -> C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\res\MainMenu.csb
+         C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\Resources\res\MainScene.csb -> C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\res\MainScene.csb
+         C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\Resources\res\PaperBoy.csb -> C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\Debug.win32\res\PaperBoy.csb
+         3 File(s) copied
      1>Done Building Project "C:\Users\DeadMan\Documents\GitHub\PaperboyTheatre\proj.win32\BaseGame.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:08.86
+Time Elapsed 00:00:13.83

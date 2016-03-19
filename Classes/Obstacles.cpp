@@ -19,42 +19,105 @@ Obstacles::~Obstacles()
 }
 
 void Obstacles::init(cocos2d::Node * root)
-{
-	auto moveTo = MoveTo::create(0, Vec2(1000, 150));
-	auto moveTo2 = MoveTo::create(0, Vec2(1000, 150));
-	
-	obSpriteBox = (cocos2d::Sprite *) root->getChildByName("FireHydrant");
-	root->addChild(obSpriteBox);
-	obSpriteBox->runAction(moveTo);
+{	
+	winSize = Director::getInstance()->getWinSize();
 
-	obRedSpriteBox = (cocos2d::Sprite *) root->getChildByName("TrashCan");
-	root->addChild(obRedSpriteBox);
-	obRedSpriteBox->runAction(moveTo2);
+	fireHydrant = (Sprite *) root->getChildByName("FireHydrant");
+	root->addChild(fireHydrant);
+
+	fireHydrant->setPosition(winSize.width + 20, winSize.height / 4);
+
+	trashCan = (Sprite *) root->getChildByName("TrashCan");
+	root->addChild(trashCan);
+
+	trashCan->setPosition(fireHydrant->getPositionX() + winSize.width, winSize.height / 4);
 
 	float timer = 0.0f;
+
+	fireHydrantDropping = false;
+
+	trashCanDropping = false;
+
+	fireHydrantOnScreen = false;
+
+	trashCanOnScreen = false;
 }
 
 void Obstacles::update(float delta)
 {
-	timer += delta;
+	//timer += delta
 
-	auto moveBy = MoveBy::create(0, Vec2(-2, 0));
-	auto moveBy2 = MoveBy::create(0, Vec2(-2, 0));
-	
-	obSpriteBox->runAction(moveBy);
-
-	if (timer > 14.0f)
+	if (trashCanDropping)
 	{
-		obRedSpriteBox->runAction(moveBy2);
+		auto moveByTC = MoveBy::create(0, Vec2(0, -2));
+		trashCan->runAction(moveByTC);
+	}
+	else
+	{	
+		auto moveByTC = MoveBy::create(0, Vec2(-3, 0));
+		trashCan->runAction(moveByTC);	
 	}
 
-	if (timer > 28.0f)
+	if (fireHydrantDropping)
 	{
-		timer = 0.0f;
-		auto moveTo = MoveTo::create(0, Vec2(1000, 150));
-		auto moveTo2 = MoveTo::create(0, Vec2(1000, 150));
-		obSpriteBox->runAction(moveTo);
-		obRedSpriteBox->runAction(moveTo2);
+		auto moveByFH = MoveBy::create(0, Vec2(0, -2));
+		fireHydrant->runAction(moveByFH);
+	}
+	else
+	{	
+		auto moveByFH = MoveBy::create(0, Vec2(-3, 0));
+		fireHydrant->runAction(moveByFH);
+	}
+	
+
+	//if (timer > 13.0f)
+	//{
+
+	//}
+
+	//if (timer > 24.0f)
+	//{
+	//	timer = 0.0f;
+	//	fireHydrant->setPosition(winSize.width + 20, winSize.height / 4);
+	//	trashCan->setPosition(winSize.width + 20, winSize.height / 4);
+	//}
+
+	//The obstacles need to be into an array, it would make everything much easier
+
+	if (fireHydrant->getPositionX() < 0 || fireHydrant->getPositionY() + fireHydrant->getBoundingBox().size.height < 0)
+	{
+		fireHydrantOnScreen = false;
+		fireHydrantDropping = false;
+		if (trashCanOnScreen)
+		{
+			fireHydrant->setPosition(trashCan->getPositionX() + winSize.width , winSize.height / 4);
+		}
+		else
+		{
+			fireHydrant->setPosition(winSize.width + 20, winSize.height / 4);
+		}
+	}
+	else
+	{
+		fireHydrantOnScreen = true;
+	}
+
+	if (trashCan->getPositionX() < 0 || trashCan->getPositionY() + trashCan->getBoundingBox().size.height < 0)
+	{
+		trashCanOnScreen = false;
+		trashCanDropping = false;
+		if (fireHydrantOnScreen)
+		{
+			trashCan->setPosition(fireHydrant->getPositionX() + winSize.width, winSize.height / 4);
+		}
+		else
+		{
+			trashCan->setPosition(winSize.width + 20, winSize.height / 4);
+		}
+	}
+	else
+	{
+		trashCanOnScreen = true;
 	}
 }
 

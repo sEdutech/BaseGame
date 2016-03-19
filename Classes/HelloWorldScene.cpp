@@ -65,7 +65,7 @@ bool HelloWorld::init()
 	cloudSpeed = 0.5f;
 
 	//Bird
-	birdEnemy = new FlyingEnemy(rootNode);
+	birdEnemy = new FlyingEnemy(rootNode, paperBoy->getPaperboySprite());
 
 	//Obstacles
 	obstacles = new Obstacles();
@@ -77,13 +77,13 @@ bool HelloWorld::init()
 	_scoreLabel->setColor(Color3B::BLACK);
 	this->addChild(_scoreLabel);
 	_scoreCounter = 0;
-
-
 	
 	addChild(paperBoy);
 
 	//Collectables
 	collectables.push_back(new SuperPaperCollectable((Sprite*)rootNode->getChildByName("superpaper")));
+	collectableOnScreen = collectables[0];
+	+collectableOnScreen->getSprite()->runAction(RepeatForever::create(RotateBy::create(1.0f, 360.0f)));
 
 	this->scheduleUpdate();
 
@@ -191,6 +191,9 @@ void HelloWorld::update(float t)
 	updateStage(t);
 	handleCollectableCollisions();
 	obstacles->update(t);
+	updateBirdCollision();
+	updateObstacleCollision();
+	updateCollectables();
 }
 
 void HelloWorld::updateHouseMovement()
@@ -339,6 +342,28 @@ void HelloWorld::updateHouseCollision()
 	}
 }
 
+Collectable * HelloWorld::getRandomCollectable()
+{
+	int num = cocos2d::RandomHelper::random_int(0, (int)collectables.size() - 1);
+	return collectables[num];
+}
+
+void HelloWorld::updateCollectables()
+{
+	Vec2 position = collectableOnScreen->getSprite()->getPosition();
+	
+	collectableOnScreen->getSprite()->setPosition(position.x - 6, position.y);
+	
+	if (position.x < 0) 
+	{
+		collectableOnScreen = getRandomCollectable();
+		Vec2 newPosition = Vec2(winSize.width * cocos2d::RandomHelper::random_int(3, 5), collectableOnScreen->getSprite()->getPosition().y);
+		collectableOnScreen->getSprite()->setPosition(newPosition);
+		collectableOnScreen->getSprite()->setVisible(true);	
+	}
+	
+}
+
 void HelloWorld::updateStage(float)
 {
 	for (int i = 0; i < numOfBeltWheels; i++)
@@ -369,6 +394,14 @@ void HelloWorld::handleCollectableCollisions()
 	int numOfNewspapers = paperBoy->getNumOfNewspapers();
 	for (Collectable * c : collectables) 
 	{	
+		if (!c->getSprite()->isVisible()) continue;
+			
+		if (c->collided(paperBoy->getPaperboySprite())) 
+		{
+			c->handleEffect(paperBoy);
+			continue;
+				
+		}
 		for (int j = 0; j < numOfNewspapers; j++)
 		{
 			Newspaper* newspaper = paperBoy->getNewspaper(j);
@@ -377,9 +410,47 @@ void HelloWorld::handleCollectableCollisions()
 				if (c->collided(newspaper->sprite)) 
 				{
 					OutputDebugStringA("COLLIDED WITH PAPER!!!");
+					c->handleEffect(paperBoy);
 				}
 			}
 		}
+	}
+}
+
+void HelloWorld::updateObstacleCollision()
+{
+	if (paperBoy->getPaperboySprite()->getBoundingBox().intersectsRect(obstacles->getFireHydrantSprite()->getBoundingBox()))
+	{
+		policeman->moveCloser();
+		obstacles->fireHydrantDrop();
+	}
+
+	if (paperBoy->getPaperboySprite()->getBoundingBox().intersectsRect(obstacles->getTrashCanSprite()->getBoundingBox()))
+	{
+		policeman->moveCloser();
+		obstacles->trashCanDrop();
+	}
+}
+
+void HelloWorld::updateBirdCollision()
+{
+	int numOfNewspapers = paperBoy->getNumOfNewspapers();
+	for (int i = 0; i < numOfNewspapers; i++)
+	{
+		Newspaper* newspaper = paperBoy->getNewspaper(i);
+		if (newspaper->thrown)
+		{
+			if (newspaper->sprite->getBoundingBox().intersectsRect(birdEnemy->getRect()))
+			{
+				birdEnemy->Run();
+				paperBoy->moveOffscreen(i);
+			}
+		}
+	}
+
+	if (paperBoy->getPaperboySprite()->getBoundingBox().intersectsRect(birdEnemy->getRect()))
+	{
+		policeman->moveCloser();
 	}
 }
 
@@ -393,10 +464,10 @@ bool HelloWorld::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
 	touchEnd = touch->getLocation();	
-
-	if (touchStart == touchEnd)
+	Vec2 trajectory = touchStart - touchEnd;
+	if (trajectory.length() < 5)
 	{
-		if (paperBoy->getReloadButton()->getBoundingBox().containsPoint(touch->getLocation()))
+		if (paperBoy->getReloadActive() && paperBoy->getReloadButton()->getBoundingBox().containsPoint(touch->getLocation()))
 		{
 			paperBoy->reloadNewspapers();
 		}
