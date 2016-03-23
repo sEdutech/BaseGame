@@ -1,9 +1,9 @@
-<UserData Version="2.3.3.0">
+<UserData Version="3.10.0.0">
   <Properties>
     <Item Key="CocosRecentOperation">
       <Value ctype="CocosRecentOperation">
         <LastPublishType Value="VS" />
-        <IsLastPublish Value="True" />
+        <IsLastPublish Value="False" />
         <LastRunType Value="Android" />
       </Value>
     </Item>
@@ -14,7 +14,7 @@
         <LuaEncryptSign Value="" />
         <Android_PackageName Value="org.cocos.paperboytheatre" />
         <AndroidkeyStore Value="" />
-        <AndroidVersion Value="android-20" />
+        <AndroidVersion Value="android-N" />
         <iOS_Target Value="BaseGame-mobile" />
         <iOS_BundleID Value="" />
         <Platform Value="Android" />

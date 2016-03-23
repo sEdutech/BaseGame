@@ -1,5 +1,5 @@
 <GameFile>
-  <PropertyGroup Name="PaperBoy" Type="Node" ID="547b069c-3222-44fd-afee-1ca9111ab125" Version="2.3.3.0" />
+  <PropertyGroup Name="PaperBoy" Type="Node" ID="547b069c-3222-44fd-afee-1ca9111ab125" Version="3.10.0.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />

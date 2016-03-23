@@ -409,7 +409,6 @@ void HelloWorld::handleCollectableCollisions()
 			{
 				if (c->collided(newspaper->sprite)) 
 				{
-					OutputDebugStringA("COLLIDED WITH PAPER!!!");
 					c->handleEffect(paperBoy);
 				}
 			}

@@ -1,13 +1,16 @@
 <Solution>
-  <PropertyGroup Name="BaseGame" Version="2.3.3.0" Type="CocosStudio" />
+  <PropertyGroup Name="BaseGame" Version="3.10.0.0" Type="CocosStudio" />
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
+        <Folder Name="PaperBoy">
+          <Image Name="body.png" />
+          <Image Name="player-backwheel-rounded.png" />
+          <Image Name="player-frontwheel-rounded.png" />
+          <Image Name="player-nowheels-stick.png" />
+          <Image Name="stick.png" />
+        </Folder>
         <Folder Name="Sprites">
-          <Image Name="backwall.png" />
-          <Image Name="curtainleft.png" />
-          <Image Name="HelloWorld.png" />
-          <Image Name="topstage.png" />
           <Folder Name="House">
             <Image Name="house.png" />
             <Image Name="House_Door_BottomRight.png" />
@@ -15,39 +18,36 @@
             <Image Name="House_Window_TopLeft.png" />
             <Image Name="House1-Window-TopRight.png" />
           </Folder>
+          <Image Name="backwall.png" />
+          <Image Name="curtainleft.png" />
+          <Image Name="HelloWorld.png" />
+          <Image Name="topstage.png" />
         </Folder>
         <Image Name="belt top-mid.png" />
         <Image Name="beltbackground.png" />
         <Image Name="beltbottom.png" />
         <Image Name="belttop.png" />
         <Image Name="beltwheel.png" />
-        <Project Name="MainScene.csd" Type="Scene" />
-        <Image Name="stagermid.png" />
-        <Image Name="policeFinal.png" />
-        <Image Name="curtainbackground-pd-darker.png" />
-        <Project Name="MainMenu.csd" Type="Scene" />
-        <Image Name="NewsPaper.png" />
-        <Image Name="PaperBoy.png" />
-        <Project Name="PaperBoy.csd" Type="Node" />
-        <Image Name="TitleCard.png" />
-        <Image Name="StartSign.png" />
-        <Image Name="cloudwrope.png" />
-        <Image Name="Reload.png" />
         <Image Name="BirdSprite.png" />
-        <Image Name="superpaper.png" />
+        <Image Name="cloudwrope.png" />
+        <Image Name="curtainbackground-pd-darker.png" />
         <Image Name="FireHydrant.png" />
-        <Image Name="TrashCan.png" />
-        <Folder Name="PaperBoy">
-          <Image Name="player-backwheel-rounded.png" />
-          <Image Name="player-frontwheel-rounded.png" />
-          <Image Name="player-nowheels-stick.png" />
-          <Image Name="body.png" />
-          <Image Name="stick.png" />
-        </Folder>
+        <Project Name="MainMenu.csd" Type="Scene" />
+        <Project Name="MainScene.csd" Type="Scene" />
+        <Image Name="NewsPaper.png" />
+        <Project Name="PaperBoy.csd" Type="Node" />
+        <Image Name="PaperBoy.png" />
         <Image Name="policaman-before-backarm_0000_Layer-2.png" />
         <Image Name="policaman-before-backarm_0001_Layer-1.png" />
         <Image Name="policaman-before-backarm_0002_Layer-0.png" />
         <Image Name="policaman-before-backarm_0003_Layer-3_(1).png" />
+        <Image Name="policeFinal.png" />
+        <Image Name="Reload.png" />
+        <Image Name="stagermid.png" />
+        <Image Name="StartSign.png" />
+        <Image Name="superpaper.png" />
+        <Image Name="TitleCard.png" />
+        <Image Name="TrashCan.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

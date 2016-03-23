@@ -12,10 +12,13 @@ LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
-                   ../../Classes/HelloWorldScene.cpp\
-                   ../../Classes/MainMenu.cpp\
-                   ../../Classes/PaperBoy.cpp\
-                   ../../Classes/Policeman.cpp\
+				   ../../Classes/Flyingenemy.cpp \
+                   ../../Classes/HelloWorldScene.cpp \
+                   ../../Classes/MainMenu.cpp \
+				   ../../Classes/Obstacles.cpp \
+                   ../../Classes/PaperBoy.cpp \
+                   ../../Classes/Policeman.cpp \
+				   ../../Classes/SuperPaperCollectable.cpp \
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
