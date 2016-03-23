@@ -16,6 +16,9 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/MainMenu.cpp\
                    ../../Classes/PaperBoy.cpp\
                    ../../Classes/Policeman.cpp\
+				   ../../Classes/Obstacles.cpp\
+				   ../../Classes/FlyingEnemy.cpp\
+				   ../../Classes/SuperPaperCollectable.cpp\
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
