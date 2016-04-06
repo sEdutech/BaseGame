@@ -29,6 +29,9 @@ public:
 	void Update();
 	void Run();
 
+	bool colliding() { return collidingWithPaperboy; }
+	void setColliding(bool collidingWithPaperboy) { this->collidingWithPaperboy = collidingWithPaperboy; }
+
 	cocos2d::Rect getRect();
 
 private:
@@ -44,6 +47,8 @@ private:
 	float rand;
 	float randTime;
 	float timeCount;
+
+	bool collidingWithPaperboy = false;
 
 	Size winSize;
 

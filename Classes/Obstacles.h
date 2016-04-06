@@ -6,6 +6,20 @@ using namespace cocos2d;
 
 class Obstacles : public cocos2d::Node
 {
+private:
+	Sprite * fireHydrant;
+	Sprite * trashCan;
+
+	bool fireHydrantOnScreen;
+	bool trashCanOnScreen;
+
+	bool fireHydrantDropping;
+	bool trashCanDropping;
+
+	float timer;
+
+	Size winSize;
+
 public:
 	Obstacles();
 
@@ -21,20 +35,12 @@ public:
 
 	void fireHydrantDrop() { fireHydrantDropping = true; };
 
+	bool isFireHydrantDropping() { return fireHydrantDropping; };
+
 	void trashCanDrop() { trashCanDropping = true; };
 
-private:
-	Sprite * fireHydrant;
-	Sprite * trashCan;
+	bool isTrashCanDropping() { return trashCanDropping; };
 
-	bool fireHydrantOnScreen;
-	bool trashCanOnScreen;
 
-	bool fireHydrantDropping;
-	bool trashCanDropping;
-
-	float timer;
-
-	Size winSize;
 };
 
