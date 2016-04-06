@@ -1,5 +1,24 @@
-﻿  HelloWorldScene.cpp
-f:\uni\university\second\technicalgamesproduction\paperboytheatre\classes\helloworldscene.cpp(86): warning C4552: '+': operator has no effect; expected operator with side-effect
-  60 File(s) copied
-  BaseGame.vcxproj -> F:\Uni\University\Second\TechnicalGamesProduction\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exe
-  0 File(s) copied
+﻿Build started 06/04/2016 11:04:19.
+     1>Project "C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\BaseGame.vcxproj" on node 2 (Build target(s)).
+     1>PreLinkEvent:
+         if not exist "C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\Debug.win32\"
+         xcopy /Y /Q "C:\Cocos\frameworks\cocos2d-x-3.9\prebuilt\win32\*.*" "C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\Debug.win32\"
+         
+         :VCEnd
+         60 File(s) copied
+       Link:
+         BaseGame.vcxproj -> C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\Debug.win32\BaseGame.exe
+       CustomBuildStep:
+         if not exist "C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\Debug.win32\"
+         xcopy "C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\..\Resources" "C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\Debug.win32\" /D /E /I /F /Y
+               
+         :VCEnd
+         C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\Resources\res\MainMenu.csb -> C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\Debug.win32\res\MainMenu.csb
+         C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\Resources\res\MainScene.csb -> C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\Debug.win32\res\MainScene.csb
+         C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\Resources\res\PaperBoy.csb -> C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\Debug.win32\res\PaperBoy.csb
+         3 File(s) copied
+     1>Done Building Project "C:\Users\Ashley\Desktop\PaperboyTheatre\PaperboyTheatre\proj.win32\BaseGame.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.49
