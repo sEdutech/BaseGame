@@ -368,7 +368,7 @@ void HelloWorld::updateStage(float)
 {
 	for (int i = 0; i < numOfBeltWheels; i++)
 	{
-		beltWheels[i]->setRotation(beltWheels[i]->getRotation() + worldSpeed);
+		beltWheels[i]->setRotation(beltWheels[i]->getRotation() - worldSpeed);
 	}
 
 	winSize = Director::getInstance()->getWinSize();
@@ -409,7 +409,6 @@ void HelloWorld::handleCollectableCollisions()
 			{
 				if (c->collided(newspaper->sprite)) 
 				{
-					OutputDebugStringA("COLLIDED WITH PAPER!!!");
 					c->handleEffect(paperBoy);
 				}
 			}
@@ -421,13 +420,17 @@ void HelloWorld::updateObstacleCollision()
 {
 	if (paperBoy->getPaperboySprite()->getBoundingBox().intersectsRect(obstacles->getFireHydrantSprite()->getBoundingBox()))
 	{
-		policeman->moveCloser();
+		if (!obstacles->isFireHydrantDropping()) {
+			policeman->moveCloser();
+		}
 		obstacles->fireHydrantDrop();
 	}
 
 	if (paperBoy->getPaperboySprite()->getBoundingBox().intersectsRect(obstacles->getTrashCanSprite()->getBoundingBox()))
 	{
-		policeman->moveCloser();
+		if (!obstacles->isTrashCanDropping()) {
+			policeman->moveCloser();
+		}
 		obstacles->trashCanDrop();
 	}
 }
@@ -450,7 +453,10 @@ void HelloWorld::updateBirdCollision()
 
 	if (paperBoy->getPaperboySprite()->getBoundingBox().intersectsRect(birdEnemy->getRect()))
 	{
-		policeman->moveCloser();
+		if (!birdEnemy->colliding()) {
+			policeman->moveCloser();
+		}
+		birdEnemy->setColliding(true);
 	}
 }
 

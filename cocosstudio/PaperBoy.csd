@@ -39,17 +39,6 @@
             <FileData Type="Normal" Path="Reload.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Stick" ActionTag="886405593" Tag="59" IconVisible="False" LeftMargin="-33.5000" RightMargin="-33.5000" TopMargin="-305.3724" BottomMargin="-390.6276" ctype="SpriteObjectData">
-            <Size X="67.0000" Y="696.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position Y="-42.6276" />
-            <Scale ScaleX="0.1500" ScaleY="0.1500" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="PaperBoy/stick.png" Plist="" />
-            <BlendFunc Src="770" Dst="771" />
-          </AbstractNodeData>
           <AbstractNodeData Name="PaperBoy" ActionTag="1286514546" Tag="56" IconVisible="False" LeftMargin="-219.0111" RightMargin="-218.9889" TopMargin="-341.1561" BottomMargin="-236.8439" ctype="SpriteObjectData">
             <Size X="438.0000" Y="578.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -92,6 +81,17 @@
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="NewsPaper.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Stick" ActionTag="-1740387663" Tag="57" IconVisible="False" LeftMargin="-258.3886" RightMargin="-81.6114" TopMargin="-280.0740" BottomMargin="-823.9260" ctype="SpriteObjectData">
+            <Size X="340.0000" Y="1104.0000" />
+            <AnchorPoint ScaleX="0.7598" ScaleY="0.7113" />
+            <Position X="-0.0578" Y="-38.6191" />
+            <Scale ScaleX="0.1500" ScaleY="0.1500" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="PaperBoy/paperboystick-withhand.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
         </Children>

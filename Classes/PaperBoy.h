@@ -35,7 +35,7 @@ public:
 
 	void setWorldSpeed(int _worldSpeed) { worldSpeed = _worldSpeed; };
 
-	void PaperBoy::jump();
+	void jump();
 
 	void update(float delta);
 

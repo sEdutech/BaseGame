@@ -70,6 +70,11 @@ void FlyingEnemy::SpawnEnemy()
 
 void FlyingEnemy::Update()
 {
+
+	if (!birdSprite->getBoundingBox().intersectsRect(paperBoy->getBoundingBox())) {
+		collidingWithPaperboy = false;
+	}
+
 	switch (enemyType){
 	case Start:
 		timeCount++;

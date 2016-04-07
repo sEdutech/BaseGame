@@ -43,6 +43,7 @@
           <Image Name="player-nowheels-stick.png" />
           <Image Name="body.png" />
           <Image Name="stick.png" />
+          <Image Name="paperboystick-withhand.png" />
         </Folder>
         <Image Name="policaman-before-backarm_0000_Layer-2.png" />
         <Image Name="policaman-before-backarm_0001_Layer-1.png" />
