@@ -31,6 +31,7 @@ public:
 
 	bool colliding() { return collidingWithPaperboy; }
 	void setColliding(bool collidingWithPaperboy) { this->collidingWithPaperboy = collidingWithPaperboy; }
+	type getType() { return enemyType; }
 
 	cocos2d::Rect getRect();
 

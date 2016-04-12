@@ -457,8 +457,25 @@ void HelloWorld::updateBirdCollision()
 		{
 			if (newspaper->sprite->getBoundingBox().intersectsRect(birdEnemy->getRect()))
 			{
+				if (birdEnemy->colliding())
+				{
+					return;
+				}
 				birdEnemy->Run();
 				paperBoy->moveOffscreen(i);
+				birdEnemy->setColliding(true);
+
+				//Add points for hitting flying stuff
+				switch (birdEnemy->getType()) {
+				case BirdLeft:
+				case BirdRight:
+					_scoreCounter += 40;
+					break;
+				case UFOLeft:
+				case UFORight:
+					_scoreCounter += 200;
+					break;
+				}
 			}
 		}
 	}
