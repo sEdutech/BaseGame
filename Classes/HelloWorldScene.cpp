@@ -413,6 +413,7 @@ void HelloWorld::handleCollectableCollisions()
 			{
 				if (c->collided(newspaper->sprite)) 
 				{
+					paperBoy->moveOffscreen(j);
 					c->handleEffect(paperBoy);
 				}
 			}

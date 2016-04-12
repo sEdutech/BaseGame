@@ -129,7 +129,8 @@ void PaperBoy::reloadNewspapers()
 	newspapers[0]->sprite->setPosition(100 + newspapers[0]->sprite->getBoundingBox().size.width * totalNumNewspapers, mWinSize.height - newspapers[0]->sprite->getBoundingBox().size.height);
 
 	for (int i = 1; i < totalNumNewspapers; i++)
-	{
+	{		
+		moveOffscreen(i);
 		newspapers[i]->sprite->setPosition(newspapers[i - 1]->sprite->getPositionX() - (newspapers[i]->sprite->getBoundingBox().size.width + 5), newspapers[i - 1]->sprite->getPositionY());
 	}
 
@@ -137,7 +138,7 @@ void PaperBoy::reloadNewspapers()
 
 	reloadActive = false;
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < totalNumNewspapers; i++) {
 		getNewspaper(i)->sprite->setTexture(cocos2d::CCTextureCache::sharedTextureCache()->addImage("NewsPaper.png"));
 	}
 }
@@ -237,7 +238,8 @@ void PaperBoy::reloadSuperpapers()
 	newspapers[0]->active = true;
 	newspapers[0]->sprite->setPosition(100 + newspapers[0]->sprite->getBoundingBox().size.width * totalNumNewspapers, mWinSize.height - newspapers[0]->sprite->getBoundingBox().size.height);
 	for (int i = 1; i < totalNumNewspapers; i++)
-	{
+	{		
+		moveOffscreen(i);
 		newspapers[i]->sprite->setPosition(newspapers[i - 1]->sprite->getPositionX() - (newspapers[i]->sprite->getBoundingBox().size.width + 5), newspapers[i - 1]->sprite->getPositionY());
 	}
 	currentNumNewspapers = totalNumNewspapers;

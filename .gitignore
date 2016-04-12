@@ -48,3 +48,6 @@ out/
 *.tar
 *.tgz
 *.gtgz
+proj.win32/Debug.win32/vc120.pdb
+*.pdb
+proj.win32/Debug.win32/BaseGame.pdb
