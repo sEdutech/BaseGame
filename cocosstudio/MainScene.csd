@@ -314,24 +314,24 @@
             <FileData Type="Normal" Path="policaman-before-backarm_0000_Layer-2.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="TrashCan" ActionTag="-947009458" Tag="44" IconVisible="False" LeftMargin="1029.2814" RightMargin="-955.2814" TopMargin="-138.0724" BottomMargin="-979.9276" ctype="SpriteObjectData">
+          <AbstractNodeData Name="TrashCan" ActionTag="-947009458" Tag="44" IconVisible="False" LeftMargin="1029.2814" RightMargin="-955.2814" TopMargin="-116.0724" BottomMargin="-1001.9276" ctype="SpriteObjectData">
             <Size X="406.0000" Y="1438.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.7802" />
-            <Position X="1232.2814" Y="142.0000" />
+            <Position X="1232.2814" Y="120.0000" />
             <Scale ScaleX="0.1200" ScaleY="0.1200" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="2.5673" Y="0.4437" />
+            <PrePosition X="2.5673" Y="0.3750" />
             <PreSize X="0.8458" Y="4.4938" />
             <FileData Type="Normal" Path="TrashCan.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="FireHydrant" ActionTag="-2084190797" Tag="43" IconVisible="False" LeftMargin="1140.8281" RightMargin="-999.8281" TopMargin="-151.4831" BottomMargin="-1304.5170" ctype="SpriteObjectData">
+          <AbstractNodeData Name="FireHydrant" ActionTag="-2084190797" Tag="43" IconVisible="False" LeftMargin="1140.8281" RightMargin="-999.8281" TopMargin="-131.4788" BottomMargin="-1324.5212" ctype="SpriteObjectData">
             <Size X="339.0000" Y="1776.0000" />
             <AnchorPoint ScaleX="0.5186" ScaleY="0.8137" />
-            <Position X="1316.6335" Y="140.6143" />
+            <Position X="1316.6335" Y="120.6100" />
             <Scale ScaleX="0.1200" ScaleY="0.1200" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="2.7430" Y="0.4394" />
+            <PrePosition X="2.7430" Y="0.3769" />
             <PreSize X="0.7063" Y="5.5500" />
             <FileData Type="Normal" Path="FireHydrant.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
@@ -511,6 +511,18 @@
             <PreSize X="0.4021" Y="3.3750" />
             <FileData Type="Normal" Path="Sprites/curtainleft.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Score" ActionTag="336426579" Tag="69" IconVisible="False" LeftMargin="658.5537" RightMargin="-330.5537" TopMargin="-290.8250" BottomMargin="552.8250" FontSize="48" LabelText="Score: 0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="152.0000" Y="58.0000" />
+            <AnchorPoint ScaleX="0.4844" ScaleY="0.4343" />
+            <Position X="732.1892" Y="578.0129" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="0" G="0" B="0" />
+            <PrePosition X="1.5254" Y="1.8063" />
+            <PreSize X="0.3167" Y="0.1813" />
+            <FontResource Type="Normal" Path="burnstown_dam.ttf" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

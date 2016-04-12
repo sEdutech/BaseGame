@@ -25,12 +25,12 @@ void Obstacles::init(cocos2d::Node * root)
 	fireHydrant = (Sprite *) root->getChildByName("FireHydrant");
 	root->addChild(fireHydrant);
 
-	fireHydrant->setPosition(winSize.width + 20, winSize.height / 4);
+	fireHydrant->setPosition(winSize.width + 20, winSize.height / 4 - 20);
 
 	trashCan = (Sprite *) root->getChildByName("TrashCan");
 	root->addChild(trashCan);
 
-	trashCan->setPosition(fireHydrant->getPositionX() + winSize.width, winSize.height / 4);
+	trashCan->setPosition(fireHydrant->getPositionX() + winSize.width, winSize.height / 4 - 20);
 
 	float timer = 0.0f;
 
@@ -54,7 +54,7 @@ void Obstacles::update(float delta)
 	}
 	else
 	{	
-		auto moveByTC = MoveBy::create(0, Vec2(-3, 0));
+		auto moveByTC = MoveBy::create(0, Vec2(-4, 0));
 		trashCan->runAction(moveByTC);	
 	}
 
@@ -65,7 +65,7 @@ void Obstacles::update(float delta)
 	}
 	else
 	{	
-		auto moveByFH = MoveBy::create(0, Vec2(-3, 0));
+		auto moveByFH = MoveBy::create(0, Vec2(-4, 0));
 		fireHydrant->runAction(moveByFH);
 	}
 	
@@ -90,11 +90,11 @@ void Obstacles::update(float delta)
 		fireHydrantDropping = false;
 		if (trashCanOnScreen)
 		{
-			fireHydrant->setPosition(trashCan->getPositionX() + winSize.width , winSize.height / 4);
+			fireHydrant->setPosition(trashCan->getPositionX() + winSize.width , winSize.height / 4 - 20);
 		}
 		else
 		{
-			fireHydrant->setPosition(winSize.width + 20, winSize.height / 4);
+			fireHydrant->setPosition(winSize.width + 20, winSize.height / 4 - 20);
 		}
 	}
 	else
@@ -108,11 +108,11 @@ void Obstacles::update(float delta)
 		trashCanDropping = false;
 		if (fireHydrantOnScreen)
 		{
-			trashCan->setPosition(fireHydrant->getPositionX() + winSize.width, winSize.height / 4);
+			trashCan->setPosition(fireHydrant->getPositionX() + winSize.width, winSize.height / 4 - 20);
 		}
 		else
 		{
-			trashCan->setPosition(winSize.width + 20, winSize.height / 4);
+			trashCan->setPosition(winSize.width + 20, winSize.height / 4 - 20);
 		}
 	}
 	else

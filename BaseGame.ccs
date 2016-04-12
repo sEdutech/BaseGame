@@ -49,6 +49,7 @@
         <Image Name="policaman-before-backarm_0001_Layer-1.png" />
         <Image Name="policaman-before-backarm_0002_Layer-0.png" />
         <Image Name="policaman-before-backarm_0003_Layer-3_(1).png" />
+        <TTF Name="burnstown_dam.ttf" />
       </RootFolder>
     </Group>
   </SolutionFolder>

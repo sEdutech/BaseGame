@@ -8,6 +8,7 @@
 #include "FlyingEnemy.h"
 #include "SuperPaperCollectable.h"
 #include "Obstacles.h"
+#include "ui/CocosGUI.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -99,7 +100,7 @@ private:
 	float worldSpeed;
 
 	//Score
-	Label* _scoreLabel;
+	ui::Text* _scoreLabel;
 	int _scoreCounter;
 
 	//sprites that need to be infront of characters

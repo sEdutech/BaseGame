@@ -39,6 +39,8 @@ public:
 
 	void update(float delta);
 
+	void reloadSuperpapers();
+
 private:
 	Sprite* mPaperBoySprite;
 	Sprite* frontWheel;

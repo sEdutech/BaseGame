@@ -70,11 +70,6 @@ void FlyingEnemy::SpawnEnemy()
 
 void FlyingEnemy::Update()
 {
-
-	if (!birdSprite->getBoundingBox().intersectsRect(paperBoy->getBoundingBox())) {
-		collidingWithPaperboy = false;
-	}
-
 	switch (enemyType){
 	case Start:
 		timeCount++;
@@ -100,6 +95,11 @@ void FlyingEnemy::Update()
 		}
 		break;
 		
+	}
+
+	if (birdSprite->getPosition().x <= 0 || birdSprite->getPosition().x >= Director::getInstance()->getVisibleSize().width)
+	{
+		setColliding(false);
 	}
 }
 

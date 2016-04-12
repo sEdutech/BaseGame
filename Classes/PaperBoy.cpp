@@ -136,6 +136,10 @@ void PaperBoy::reloadNewspapers()
 	currentNumNewspapers = totalNumNewspapers;
 
 	reloadActive = false;
+
+	for (int i = 0; i < 3; i++) {
+		getNewspaper(i)->sprite->setTexture(cocos2d::CCTextureCache::sharedTextureCache()->addImage("NewsPaper.png"));
+	}
 }
 
 void PaperBoy::moveOffscreen(int i)
@@ -154,15 +158,27 @@ void PaperBoy::update(float delta)
 		backWheel->setPosition(mPaperBoySprite->getPositionX() - 30, mPaperBoySprite->getPositionY() - 35);
 		stick->setPosition(mPaperBoySprite->getPositionX(), mPaperBoySprite->getPositionY() - 90);
 
-		jumpCount = jumpCount + 1;
+		jumpCount = jumpCount + 3;
+		
+		//Jump up
 		if (jumpCount < 75)
 		{
-			mPaperBoySprite->setPosition(mPaperBoySprite->getPosition().x, mPaperBoySprite->getPosition().y + 1.5f);
+			mPaperBoySprite->setPosition(mPaperBoySprite->getPosition().x, mPaperBoySprite->getPosition().y + 4.0f);
 		}
-		else if (jumpCount > 75)
+
+		//Hang
+		else if (jumpCount > 75 && jumpCount <= 100)
 		{
-			mPaperBoySprite->setPosition(mPaperBoySprite->getPosition().x, mPaperBoySprite->getPosition().y - 1.5f);
+			mPaperBoySprite->setPosition(mPaperBoySprite->getPosition().x, mPaperBoySprite->getPosition().y - 0.5f);
 		}
+
+		//Jump down
+		else if (jumpCount > 100)
+		{
+			mPaperBoySprite->setPosition(mPaperBoySprite->getPosition().x, mPaperBoySprite->getPosition().y - 2.0f);
+		}
+
+		//Original position
 		if (mPaperBoySprite->getPosition().y < mWinSize.height / 3.75)
 		{
 			mPaperBoySprite->setPosition(mWinSize.width / 2, mWinSize.height / 3.75);
@@ -185,7 +201,7 @@ void PaperBoy::update(float delta)
 		}
 	}
 
-	if (currentNumNewspapers == 0 && !thrown)
+	if (currentNumNewspapers == 0)
 	{
 		reloadActive = true;
 		reloadSprite->setPosition(50 + reloadSprite->getBoundingBox().size.width, mWinSize.height - reloadSprite->getBoundingBox().size.height);
@@ -213,4 +229,17 @@ void PaperBoy::jump()
 		jumping = true;
 		jumpCount = 0;
 	}
+}
+
+void PaperBoy::reloadSuperpapers()
+{
+	reloadSprite->setPosition(-100, -100);
+	newspapers[0]->active = true;
+	newspapers[0]->sprite->setPosition(100 + newspapers[0]->sprite->getBoundingBox().size.width * totalNumNewspapers, mWinSize.height - newspapers[0]->sprite->getBoundingBox().size.height);
+	for (int i = 1; i < totalNumNewspapers; i++)
+	{
+		newspapers[i]->sprite->setPosition(newspapers[i - 1]->sprite->getPositionX() - (newspapers[i]->sprite->getBoundingBox().size.width + 5), newspapers[i - 1]->sprite->getPositionY());
+	}
+	currentNumNewspapers = totalNumNewspapers;
+	reloadActive = false;
 }
