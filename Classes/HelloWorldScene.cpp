@@ -72,9 +72,7 @@ bool HelloWorld::init()
 	obstacles->init(rootNode);
 
 	//Score
-	_scoreLabel = Label::createWithTTF("THE SCORE", "res/burnstown_dam.ttf", 20);
-	_scoreLabel->setPosition(winSize.width / 2, winSize.height - 100);
-	_scoreLabel->setColor(Color3B::BLACK);
+	_scoreLabel = (ui::Text*)rootNode->getChildByName("Score");
 	this->addChild(_scoreLabel);
 	_scoreCounter = 0;
 	
@@ -194,6 +192,11 @@ void HelloWorld::update(float t)
 	updateBirdCollision();
 	updateObstacleCollision();
 	updateCollectables();
+	
+	//_scoreLabel->setText("Score" + _scoreCounter);
+	stringstream text;
+	text << "Score: " << _scoreCounter << endl;
+	_scoreLabel->setText(text.str().c_str());
 }
 
 void HelloWorld::updateHouseMovement()
@@ -332,6 +335,7 @@ void HelloWorld::updateHouseCollision()
 						paperBoy->moveOffscreen(j);
 						houses[i]->doorHit = true;
 						policeman->fallBack();
+						_scoreCounter += 10;
 					}
 				}	
 			}
@@ -432,6 +436,14 @@ void HelloWorld::updateObstacleCollision()
 			policeman->moveCloser();
 		}
 		obstacles->trashCanDrop();
+	}
+
+	//Makes obstacles fall before collision with the Pig.
+	if ((obstacles->getTrashCanSprite()->getPosition().x - policeman->getSprite()->getPosition().x) <= 50) {
+		obstacles->trashCanDrop();
+	}
+	if ((obstacles->getFireHydrantSprite()->getPosition().x - policeman->getSprite()->getPosition().x) <= 50) {
+		obstacles->fireHydrantDrop();
 	}
 }
 

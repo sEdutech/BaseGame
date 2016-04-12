@@ -80,7 +80,7 @@ void Policeman::init(cocos2d::Node * root)
 	armRelative = getRelativePosition(sprites[0], sprites[2]);
 	legRelative = getRelativePosition(sprites[0], sprites[3]);
 
-	Sequence* moveArm = Sequence::create(Repeat::create(RotateBy::create(1.0f, -20.0f), 1),
+	Sequence* moveArm = Sequence::create(Repeat::create(RotateBy::create(1.0f, +40.0f), 1),
 		Repeat::create(RotateBy::create(1.0f, -40.0f), 1),
 		Repeat::create(RotateBy::create(1.0f, +40.0f), 1),
 		Repeat::create(RotateBy::create(1.0f, -40.0f), 1), nullptr);
@@ -99,10 +99,10 @@ void Policeman::moveCloser()
 {
 	if (velocityX > 0.0f) return;
 
-	Sequence* moveArm = Sequence::create(Repeat::create(RotateBy::create(1.0f, -20.0f), 1),
-		Repeat::create(RotateBy::create(1.0f, +20.0f), 1),
+	Sequence* moveArm = Sequence::create(Repeat::create(RotateBy::create(1.0f, +20.0f), 1),
 		Repeat::create(RotateBy::create(1.0f, -20.0f), 1),
-		Repeat::create(RotateBy::create(1.0f, +20.0f), 1), nullptr);
+		Repeat::create(RotateBy::create(1.0f, +20.0f), 1),
+		Repeat::create(RotateBy::create(1.0f, -20.0f), 1), nullptr);
 	sprites[2]->runAction(moveArm);
 
 	destinationX += distance;
