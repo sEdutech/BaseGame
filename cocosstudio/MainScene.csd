@@ -281,14 +281,14 @@
             <FileData Type="Normal" Path="policaman-before-backarm_0003_Layer-3_(1).png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="policeman_body" ActionTag="1110102292" Tag="47" IconVisible="False" LeftMargin="-216.1607" RightMargin="89.1607" TopMargin="-786.3479" BottomMargin="-821.6521" ctype="SpriteObjectData">
-            <Size X="607.0000" Y="1928.0000" />
+          <AbstractNodeData Name="policeman_body" ActionTag="1110102292" Tag="47" IconVisible="False" LeftMargin="-183.6607" RightMargin="121.6607" TopMargin="-771.8479" BottomMargin="-807.1521" ctype="SpriteObjectData">
+            <Size X="542.0000" Y="1899.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="87.3393" Y="142.3479" />
             <Scale ScaleX="0.1500" ScaleY="0.1500" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.1820" Y="0.4448" />
-            <PreSize X="1.2646" Y="6.0250" />
+            <PreSize X="1.1292" Y="5.9344" />
             <FileData Type="Normal" Path="policaman-before-backarm_0002_Layer-0.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
@@ -512,7 +512,7 @@
             <FileData Type="Normal" Path="Sprites/curtainleft.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Score" ActionTag="336426579" Tag="69" IconVisible="False" LeftMargin="658.5537" RightMargin="-330.5537" TopMargin="-290.8250" BottomMargin="552.8250" FontSize="48" LabelText="Score: 0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="Score" ActionTag="336426579" Tag="69" IconVisible="False" LeftMargin="658.5604" RightMargin="-330.5604" TopMargin="-290.8235" BottomMargin="552.8235" FontSize="48" LabelText="Score: 0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="152.0000" Y="58.0000" />
             <AnchorPoint ScaleX="0.4844" ScaleY="0.4343" />
             <Position X="732.1892" Y="578.0129" />
