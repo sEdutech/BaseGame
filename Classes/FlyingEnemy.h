@@ -35,6 +35,8 @@ public:
 
 	cocos2d::Rect getRect();
 
+	cocos2d::Sprite * FlyingEnemy::getSprite();
+
 private:
 	cocos2d::Sprite* birdSprite;
 	cocos2d::Sprite* UFOSprite;
