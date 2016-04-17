@@ -50,6 +50,8 @@
         <Image Name="policaman-before-backarm_0002_Layer-0.png" />
         <Image Name="policaman-before-backarm_0003_Layer-3_(1).png" />
         <TTF Name="burnstown_dam.ttf" />
+        <Image Name="UFO.png" />
+        <Image Name="scorelabel2.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

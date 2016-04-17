@@ -46,6 +46,8 @@ bool HelloWorld::init()
 
 	//PaperBoy
 	paperBoy = new PaperBoy();
+	//sets reload sprite
+	paperBoy->setReloadSprite((Sprite*)rootNode->getChildByName("Reload"));
 	paperBoy->init();
 	paperBoy->setWorldSpeed(worldSpeed);
 	
@@ -53,6 +55,8 @@ bool HelloWorld::init()
 	policeman = new Policeman;
 	policeman->init(rootNode);
 	policeman->setDistance((paperBoy->getPaperboySprite()->getPosition().x - policeman->getSprite()->getPosition().x) / 4);
+
+
 
 	//init clouds
 	for (int i = 0; i < numClouds; i++)
@@ -195,7 +199,7 @@ void HelloWorld::update(float t)
 	
 	//_scoreLabel->setText("Score" + _scoreCounter);
 	stringstream text;
-	text << "Score: " << _scoreCounter << endl;
+	text << _scoreCounter << endl;
 	_scoreLabel->setText(text.str().c_str());
 }
 
@@ -406,18 +410,18 @@ void HelloWorld::handleCollectableCollisions()
 			continue;
 				
 		}
-		for (int j = 0; j < numOfNewspapers; j++)
-		{
-			Newspaper* newspaper = paperBoy->getNewspaper(j);
-			if (newspaper->thrown)
-			{
-				if (c->collided(newspaper->sprite)) 
-				{
-					paperBoy->moveOffscreen(j);
-					c->handleEffect(paperBoy);
-				}
-			}
-		}
+		//for (int j = 0; j < numOfNewspapers; j++)
+		//{
+		//	Newspaper* newspaper = paperBoy->getNewspaper(j);
+		//	if (newspaper->thrown)
+		//	{
+		//		if (c->collided(newspaper->sprite)) 
+		//		{
+		//			paperBoy->moveOffscreen(j);
+		//			c->handleEffect(paperBoy);
+		//		}
+		//	}
+		//}
 	}
 }
 

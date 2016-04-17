@@ -512,14 +512,47 @@
             <FileData Type="Normal" Path="Sprites/curtainleft.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Score" ActionTag="336426579" Tag="69" IconVisible="False" LeftMargin="658.5537" RightMargin="-330.5537" TopMargin="-290.8250" BottomMargin="552.8250" FontSize="48" LabelText="Score: 0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="152.0000" Y="58.0000" />
-            <AnchorPoint ScaleX="0.4844" ScaleY="0.4343" />
-            <Position X="732.1892" Y="578.0129" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="0" G="0" B="0" />
-            <PrePosition X="1.5254" Y="1.8063" />
-            <PreSize X="0.3167" Y="0.1813" />
+          <AbstractNodeData Name="Sprite_2" ActionTag="-1176889426" Tag="72" IconVisible="False" LeftMargin="129.1111" RightMargin="-815.1111" TopMargin="-728.7505" BottomMargin="319.7504" ctype="SpriteObjectData">
+            <Size X="1166.0000" Y="729.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="712.1111" Y="684.2504" />
+            <Scale ScaleX="0.2500" ScaleY="0.2500" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="1.4836" Y="2.1383" />
+            <PreSize X="2.4292" Y="2.2781" />
+            <FileData Type="Normal" Path="scorelabel2.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Reload" ActionTag="-1228905933" Tag="73" IconVisible="False" LeftMargin="-313.7682" RightMargin="-176.2318" TopMargin="-836.4331" BottomMargin="265.4331" ctype="SpriteObjectData">
+            <Size X="970.0000" Y="891.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="171.2318" Y="710.9331" />
+            <Scale ScaleX="0.1500" ScaleY="0.1500" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.3567" Y="2.2217" />
+            <PreSize X="2.0208" Y="2.7844" />
+            <FileData Type="Normal" Path="Reload.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="ufo" ActionTag="739555811" Tag="71" IconVisible="False" LeftMargin="-740.3941" RightMargin="454.3941" TopMargin="-679.7964" BottomMargin="-215.2036" ctype="SpriteObjectData">
+            <Size X="766.0000" Y="1215.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="-357.3941" Y="392.2964" />
+            <Scale ScaleX="0.1500" ScaleY="0.1500" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="-0.7446" Y="1.2259" />
+            <PreSize X="1.5958" Y="3.7969" />
+            <FileData Type="Normal" Path="UFO.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="Score" ActionTag="336426579" Tag="69" IconVisible="False" LeftMargin="702.6064" RightMargin="-246.6064" TopMargin="-304.5237" BottomMargin="566.5237" FontSize="48" LabelText="0" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="24.0000" Y="58.0000" />
+            <AnchorPoint ScaleY="0.5000" />
+            <Position X="702.6064" Y="595.5237" />
+            <Scale ScaleX="0.6596" ScaleY="0.6596" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="1.4638" Y="1.8610" />
+            <PreSize X="0.0500" Y="0.1813" />
             <FontResource Type="Normal" Path="burnstown_dam.ttf" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />

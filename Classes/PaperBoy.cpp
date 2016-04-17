@@ -41,8 +41,7 @@ bool PaperBoy::init()
 	backWheel = (Sprite*)rootNode->getChildByName("BackWheel");
 	stick = (Sprite*)rootNode->getChildByName("Stick");
 
-	reloadSprite = (Sprite*)rootNode->getChildByName("Reload");
-	reloadSprite->setPosition(-100,-100);
+	//reloadSprite->setPosition(-100,-100);
 	reloadActive = false;
 
 	//Jump
@@ -123,8 +122,11 @@ void PaperBoy::throwPaper(Vec2 startPoint, Vec2 endPoint)
 
 void PaperBoy::reloadNewspapers()
 {
-	reloadSprite->setPosition(-100, -100);
 
+	//Repeat::create(MoveBy::create(5.0f, Vec3(0.0f, -1.0f, 0.0f)), 1);
+	reloadSprite->setPosition(Vec2(-100, -100));
+	
+	moveOffscreen(0);
 	newspapers[0]->active = true;
 	newspapers[0]->sprite->setPosition(100 + newspapers[0]->sprite->getBoundingBox().size.width * totalNumNewspapers, mWinSize.height - newspapers[0]->sprite->getBoundingBox().size.height);
 
@@ -205,7 +207,8 @@ void PaperBoy::update(float delta)
 	if (currentNumNewspapers == 0)
 	{
 		reloadActive = true;
-		reloadSprite->setPosition(50 + reloadSprite->getBoundingBox().size.width, mWinSize.height - reloadSprite->getBoundingBox().size.height);
+		reloadSprite->setPosition(50 + reloadSprite->getBoundingBox().size.width, mWinSize.height - reloadSprite->getBoundingBox().size.height + 110);
+		//Repeat::create(MoveBy::create(5.0f, Vec3(0.0f, 1.0f, 0.0f)), 1);
 	}
 
 	frontWheel->setRotation(frontWheel->getRotation() +  worldSpeed);
@@ -235,8 +238,12 @@ void PaperBoy::jump()
 void PaperBoy::reloadSuperpapers()
 {
 	reloadSprite->setPosition(-100, -100);
+	
+	moveOffscreen(0);
 	newspapers[0]->active = true;
 	newspapers[0]->sprite->setPosition(100 + newspapers[0]->sprite->getBoundingBox().size.width * totalNumNewspapers, mWinSize.height - newspapers[0]->sprite->getBoundingBox().size.height);
+
+
 	for (int i = 1; i < totalNumNewspapers; i++)
 	{		
 		moveOffscreen(i);

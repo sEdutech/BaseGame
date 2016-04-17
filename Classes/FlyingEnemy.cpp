@@ -4,7 +4,7 @@
 FlyingEnemy::FlyingEnemy(cocos2d::Node * root, Sprite* _paperBoy)
 {
 	birdSprite = (Sprite*)root->getChildByName("BirdSprite");
-	UFOSprite = (Sprite*)root->getChildByName("BirdSprite");
+	UFOSprite = (Sprite*)root->getChildByName("ufo");
 
 	scaleX = birdSprite->getScaleX();
 	Reset();
@@ -28,16 +28,16 @@ void FlyingEnemy::SpawnEnemy()
 
 	auto callAct = CallFunc::create(CC_CALLBACK_0(FlyingEnemy::Reset, this));
 
-	if (rand == 13)
+	if (rand > 13)
 	{
 		enemyType = UFOLeft;
-		UFOSprite->setPosition(-30, (Director::getInstance()->getVisibleSize().height / 4) * 3);
+		UFOSprite->setPosition(-30, (Director::getInstance()->getVisibleSize().height / 4) * 3.5);
 		UFOSprite->setVisible(true);
 	}
-	else if (rand == 38)
+	else if (rand < 38)
 	{
 		enemyType = UFORight;
-		UFOSprite->setPosition(Director::getInstance()->getVisibleSize().width + 30, (Director::getInstance()->getVisibleSize().height / 4) * 3);
+		UFOSprite->setPosition(Director::getInstance()->getVisibleSize().width + 30, (Director::getInstance()->getVisibleSize().height / 4) * 3.5);
 		UFOSprite->setVisible(true);
 	}
 	else if (rand >= 25)

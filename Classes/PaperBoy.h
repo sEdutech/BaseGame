@@ -23,6 +23,10 @@ public:
 	PaperBoy* create();	
 	Sprite* getPaperboySprite() { return mPaperBoySprite; };
 
+	void setReloadSprite(Sprite * sprite) {
+		this->reloadSprite = sprite;
+	}
+
 	Newspaper* getNewspaper(int i) { return newspapers[i]; };
 	int getNumOfNewspapers() { return totalNumNewspapers; };
 	int getActiveNewspaper();
