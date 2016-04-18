@@ -1,10 +1,11 @@
-﻿Build started 17/04/2016 15:56:38.
+﻿Build started 17/04/2016 15:34:47.
      1>Project "C:\Student Temporary Folder\PaperboyTheatre\proj.win32\BaseGame.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"\cocos2d-x-3.9\cocos\audio\include" /I"\cocos2d-x-3.9\external" /I"\cocos2d-x-3.9\external\chipmunk\include\chipmunk" /I"\cocos2d-x-3.9\extensions" /I..\Classes /I.. /I"C:\cocos2d-x-3.9\cocos\2d\..\..\cocos\editor-support" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\cocos" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\cocos\platform" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\cocos\platform\desktop" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\external\glfw3\include\win32" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\external\freetype2\include\win32\freetype2" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\external\freetype2\include\win32\\" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\external" /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\FlyingEnemy.cpp
-         FlyingEnemy.cpp
-     1>c:\student temporary folder\paperboytheatre\classes\flyingenemy.cpp(137): warning C4715: 'FlyingEnemy::getRect' : not all control paths return a value
-     1>c:\student temporary folder\paperboytheatre\classes\flyingenemy.cpp(158): warning C4715: 'FlyingEnemy::getSprite' : not all control paths return a value
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"\cocos2d-x-3.9\cocos\audio\include" /I"\cocos2d-x-3.9\external" /I"\cocos2d-x-3.9\external\chipmunk\include\chipmunk" /I"\cocos2d-x-3.9\extensions" /I..\Classes /I.. /I"C:\cocos2d-x-3.9\cocos\2d\..\..\cocos\editor-support" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\cocos" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\cocos\platform" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\cocos\platform\desktop" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\external\glfw3\include\win32" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\external\freetype2\include\win32\freetype2" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\external\freetype2\include\win32\\" /I"C:\cocos2d-x-3.9\cocos\2d\..\..\external" /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\HelloWorldScene.cpp
+         HelloWorldScene.cpp
+     1>c:\student temporary folder\paperboytheatre\classes\helloworldscene.cpp(88): warning C4552: '+' : operator has no effect; expected operator with side-effect
+     1>c:\student temporary folder\paperboytheatre\classes\helloworldscene.cpp(203): warning C4996: 'cocos2d::ui::Text::setText': was declared deprecated
+                 c:\cocos2d-x-3.9\cocos\ui\uitext.h(105) : see declaration of 'cocos2d::ui::Text::setText'
        PreLinkEvent:
          if not exist "C:\Student Temporary Folder\PaperboyTheatre\proj.win32\Debug.win32\" mkdir "C:\Student Temporary Folder\PaperboyTheatre\proj.win32\Debug.win32\"
          xcopy /Y /Q "\cocos2d-x-3.9\prebuilt\win32\*.*" "C:\Student Temporary Folder\PaperboyTheatre\proj.win32\Debug.win32\"
@@ -33,4 +34,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.55
+Time Elapsed 00:00:05.84

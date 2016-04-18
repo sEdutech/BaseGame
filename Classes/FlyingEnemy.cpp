@@ -97,7 +97,7 @@ void FlyingEnemy::Update()
 		
 	}
 
-	if (getSprite()->getPosition().x <= 0 || getSprite()->getPosition().x >= Director::getInstance()->getVisibleSize().width)
+	if (birdSprite->getPosition().x <= 0 || birdSprite->getPosition().x >= Director::getInstance()->getVisibleSize().width)
 	{
 		setColliding(false);
 	}
@@ -136,27 +136,6 @@ cocos2d::Rect FlyingEnemy::getRect()
 	}
 }
 
-cocos2d::Sprite * FlyingEnemy::getSprite()
-{
-	switch (enemyType)
-	{
-	case Start:
-		return birdSprite;
-		break;
-	case UFOLeft:
-		return UFOSprite;
-		break;
-	case UFORight:
-		return UFOSprite;
-		break;
-	case BirdLeft:
-		return birdSprite;
-		break;
-	case BirdRight:
-		return birdSprite;
-	}
-}
-
 void FlyingEnemy::Run()
 {		
 	birdSprite->stopAllActions();
@@ -174,20 +153,6 @@ void FlyingEnemy::Run()
 	{
 		auto moveToLeft = MoveTo::create(3, Vec2(-20, birdSprite->getPositionY()));
 		birdSprite->runAction(Sequence::create(moveToLeft, callAct, nullptr));
-		break;
-	}
-
-	case UFORight:
-	{
-		auto moveToLeft = MoveTo::create(3, Vec2(-20, birdSprite->getPositionY()));
-		UFOSprite->runAction(Sequence::create(moveToLeft, callAct, nullptr));
-		break;
-	}
-
-	case UFOLeft:
-	{
-		auto moveToRight = MoveTo::create(3, Vec2(Director::getInstance()->getVisibleSize().width, birdSprite->getPositionY()));
-		UFOSprite->runAction(Sequence::create(moveToRight, callAct, nullptr));
 		break;
 	}
 
