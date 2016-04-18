@@ -1,6 +1,7 @@
 #include "HelloWorldScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -18,6 +19,9 @@ Scene* HelloWorld::createScene()
 
 	// add layer as a child to scene
 	scene->addChild(layer);
+
+	
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("Sounds/Soundtrack.mp3", true);
 
 	// return the scene
 	return scene;
@@ -339,7 +343,15 @@ void HelloWorld::updateHouseCollision()
 						paperBoy->moveOffscreen(j);
 						houses[i]->doorHit = true;
 						policeman->fallBack();
-						_scoreCounter += 10;
+						
+						if (paperBoy->superpaperActive == false)
+						{
+							_scoreCounter += 100;
+						}
+						else if (paperBoy->superpaperActive == true)
+						{
+							_scoreCounter += 200;
+						}
 					}
 				}	
 			}
@@ -474,11 +486,11 @@ void HelloWorld::updateBirdCollision()
 				switch (birdEnemy->getType()) {
 				case BirdLeft:
 				case BirdRight:
-					_scoreCounter += 40;
+					_scoreCounter += 50;
 					break;
 				case UFOLeft:
 				case UFORight:
-					_scoreCounter += 200;
+					_scoreCounter += 1000;
 					break;
 				}
 			}
@@ -505,7 +517,7 @@ void HelloWorld::onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 {
 	touchEnd = touch->getLocation();	
 	Vec2 trajectory = touchStart - touchEnd;
-	if (trajectory.length() < 5)
+	if (trajectory.length() < 10)
 	{
 		if (paperBoy->getReloadActive() && paperBoy->getReloadButton()->getBoundingBox().containsPoint(touch->getLocation()))
 		{

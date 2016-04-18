@@ -523,13 +523,13 @@
             <FileData Type="Normal" Path="scorelabel2.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Reload" ActionTag="-1228905933" Tag="73" IconVisible="False" LeftMargin="-313.7682" RightMargin="-176.2318" TopMargin="-836.4331" BottomMargin="265.4331" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Reload" ActionTag="-1228905933" Tag="73" IconVisible="False" LeftMargin="-277.3157" RightMargin="-212.6843" TopMargin="-1080.5298" BottomMargin="509.5297" ctype="SpriteObjectData">
             <Size X="970.0000" Y="891.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="171.2318" Y="710.9331" />
-            <Scale ScaleX="0.1500" ScaleY="0.1500" />
+            <AnchorPoint ScaleX="0.5191" ScaleY="0.2610" />
+            <Position X="226.2123" Y="742.0369" />
+            <Scale ScaleX="0.2000" ScaleY="0.2000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.3567" Y="2.2217" />
+            <PrePosition X="0.4713" Y="2.3189" />
             <PreSize X="2.0208" Y="2.7844" />
             <FileData Type="Normal" Path="Reload.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />

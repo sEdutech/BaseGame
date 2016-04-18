@@ -28,13 +28,13 @@ void FlyingEnemy::SpawnEnemy()
 
 	auto callAct = CallFunc::create(CC_CALLBACK_0(FlyingEnemy::Reset, this));
 
-	if (rand > 13)
+	if (rand == 13)
 	{
 		enemyType = UFOLeft;
 		UFOSprite->setPosition(-30, (Director::getInstance()->getVisibleSize().height / 4) * 3.5);
 		UFOSprite->setVisible(true);
 	}
-	else if (rand < 38)
+	else if (rand == 38)
 	{
 		enemyType = UFORight;
 		UFOSprite->setPosition(Director::getInstance()->getVisibleSize().width + 30, (Director::getInstance()->getVisibleSize().height / 4) * 3.5);
@@ -97,12 +97,36 @@ void FlyingEnemy::Update()
 		
 	}
 
-	if (birdSprite->getPosition().x <= 0 || birdSprite->getPosition().x >= Director::getInstance()->getVisibleSize().width)
+	/*if (birdSprite->getPosition().x <= 0 || birdSprite->getPosition().x >= Director::getInstance()->getVisibleSize().width)
+	{
+		setColliding(false);
+	}*/
+	if (getSprite()->getPosition().x <= 0 || getSprite()->getPosition().x >= Director::getInstance()->getVisibleSize().width)
 	{
 		setColliding(false);
 	}
 }
 
+cocos2d::Sprite * FlyingEnemy::getSprite()
+{
+	switch (enemyType)
+		{
+		case Start:
+			return birdSprite;
+			break;
+			case UFOLeft:
+				return UFOSprite;
+				break;
+				case UFORight:
+					return UFOSprite;
+					break;
+					case BirdLeft:
+						return birdSprite;
+						break;
+						case BirdRight:
+							return birdSprite;
+							}
+	}
 void FlyingEnemy::Reset()
 {
 	UFOSprite->setVisible(false);
@@ -155,6 +179,20 @@ void FlyingEnemy::Run()
 		birdSprite->runAction(Sequence::create(moveToLeft, callAct, nullptr));
 		break;
 	}
+
+	case UFORight:
+		{
+		auto moveToLeft = MoveTo::create(3, Vec2(-20, UFOSprite->getPositionY()));
+			UFOSprite->runAction(Sequence::create(moveToLeft, callAct, nullptr));
+			break;
+			}
+		
+			case UFOLeft:
+				{
+				auto moveToRight = MoveTo::create(3, Vec2(Director::getInstance()->getVisibleSize().width, UFOSprite->getPositionY()));
+					UFOSprite->runAction(Sequence::create(moveToRight, callAct, nullptr));
+					break;
+				}
 
 	}
 }

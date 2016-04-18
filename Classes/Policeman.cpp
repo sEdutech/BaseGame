@@ -3,6 +3,7 @@
 
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -60,6 +61,8 @@ void Policeman::update(float delta, cocos2d::Sprite * paperBoySprite)
 	//if we're colliding with the paperboy, don't want our sprites to overlap
 	//game over?
 	if (colliding(paperBoySprite)) {
+
+		CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 		auto mainScene = MainMenu::createScene();
 		CCDirector::getInstance()->replaceScene(mainScene);
 	}

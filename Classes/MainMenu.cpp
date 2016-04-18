@@ -2,6 +2,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "HelloWorldScene.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -12,6 +13,7 @@ Scene* MainMenu::createScene()
 	auto scene = Scene::create();
 	auto layer = MainMenu::create();
 	scene->addChild(layer);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("Sounds/Soundtrack.mp3");
 	return scene;
 }
 

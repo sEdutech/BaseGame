@@ -123,6 +123,8 @@ void PaperBoy::throwPaper(Vec2 startPoint, Vec2 endPoint)
 void PaperBoy::reloadNewspapers()
 {
 
+	superpaperActive = false;
+
 	//Repeat::create(MoveBy::create(5.0f, Vec3(0.0f, -1.0f, 0.0f)), 1);
 	reloadSprite->setPosition(Vec2(-100, -100));
 	
@@ -237,6 +239,8 @@ void PaperBoy::jump()
 
 void PaperBoy::reloadSuperpapers()
 {
+	superpaperActive = true;
+
 	reloadSprite->setPosition(-100, -100);
 	
 	moveOffscreen(0);
@@ -251,4 +255,5 @@ void PaperBoy::reloadSuperpapers()
 	}
 	currentNumNewspapers = totalNumNewspapers;
 	reloadActive = false;
+
 }

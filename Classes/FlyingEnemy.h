@@ -29,6 +29,8 @@ public:
 	void Update();
 	void Run();
 
+	cocos2d::Sprite * getSprite();
+
 	bool colliding() { return collidingWithPaperboy; }
 	void setColliding(bool collidingWithPaperboy) { this->collidingWithPaperboy = collidingWithPaperboy; }
 	type getType() { return enemyType; }

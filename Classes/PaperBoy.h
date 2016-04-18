@@ -45,6 +45,8 @@ public:
 
 	void reloadSuperpapers();
 
+	bool superpaperActive = false;
+
 private:
 	Sprite* mPaperBoySprite;
 	Sprite* frontWheel;
@@ -69,5 +71,6 @@ private:
 	float worldSpeed;
 
 	float projectileSpeed;
+	
 };
 
